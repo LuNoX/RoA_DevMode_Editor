@@ -12,7 +12,7 @@ public class test_CharacterManager
 		
 		for (int i = 0; i < cm.getAllMoves()[4].getWindows().length; i++)
 		{
-			System.out.println (cm.getAllMoves()[4].getWindows()[i].getId());
+			System.out.println (cm.getAllMoves()[4].getWindows()[i].getSfxValue());
 		}
 	}
 
