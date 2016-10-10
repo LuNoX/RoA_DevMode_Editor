@@ -45,6 +45,19 @@ public class IniFileReader
 			e.printStackTrace();
 		}
 	}
+	
+	public void close()
+	{
+		try
+		{
+			this.reader.close();
+		}
+		catch (IOException e)
+		{
+			System.out.println(e.getLocalizedMessage());
+			e.printStackTrace();
+		}
+	}
 
 	public String getActiveLine()
 	{
