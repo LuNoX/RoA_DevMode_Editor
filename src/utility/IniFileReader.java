@@ -6,7 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class Reader
+public class IniFileReader
 {
 	protected String activeLine = null;
 	protected BufferedReader reader;
@@ -16,7 +16,7 @@ public class Reader
 	 * 
 	 * @param file die Datei anhand dessen der Leser erstellt werden soll
 	 */
-	public Reader (File file)
+	public IniFileReader (File file)
 	{
 		try
 		{
