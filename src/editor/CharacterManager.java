@@ -91,6 +91,7 @@ public class CharacterManager
 			ifr.nextLine();
 			this.content[i] = ifr.getActiveLine();
 		}
+		ifr.close();
 	}
 
 }
