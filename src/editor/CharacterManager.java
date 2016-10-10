@@ -1,7 +1,7 @@
 package editor;
 
 import java.io.File;
-import utility.IniFileReader;
+import utility.*;
 import editor.Move;
 
 public class CharacterManager
@@ -50,7 +50,7 @@ public class CharacterManager
 		//create the move-objects and place them into the Array, also create the general-object
 		String name = null;
 		int tmp = this.content.length;
-		for (int i = this.content.length; i > 0; i--)
+		for (int i = this.content.length-1; i >= 0; i--)
 		{
 			if (this.content[i].contains("[") && this.content[i].contains("]"))
 			{
@@ -92,6 +92,26 @@ public class CharacterManager
 			this.content[i] = ifr.getActiveLine();
 		}
 		ifr.close();
+	}
+
+	public File getCharacterFile()
+	{
+		return characterFile;
+	}
+
+	public String[] getContent()
+	{
+		return content;
+	}
+
+	public Move[] getAllMoves()
+	{
+		return allMoves;
+	}
+
+	public General getGeneral()
+	{
+		return general;
 	}
 
 }
