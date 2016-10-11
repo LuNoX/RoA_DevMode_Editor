@@ -29,10 +29,7 @@ public class Utilities
 			{
 				tmp = 1;
 			}
-			else
-			{
-				result[i] = arrayToRemoveFrom[i+tmp];
-			}
+			result[i] = arrayToRemoveFrom[i+tmp];
 		}
 		
 		return result;
