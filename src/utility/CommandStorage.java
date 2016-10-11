@@ -1,6 +1,6 @@
 package utility;
 
-public class CodeStorage
+public class CommandStorage
 {
 	protected String window_length = "window_length_";
 	protected String window_hBoost = "window_h_boost_";
