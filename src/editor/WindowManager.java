@@ -15,6 +15,7 @@ public class WindowManager
 	public WindowManager(String[] code)
 	{
 		this.code = code;
+		
 		this.determineNumberOfWindows();
 		this.createWindows();
 	}

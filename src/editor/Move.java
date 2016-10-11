@@ -1,7 +1,5 @@
 package editor;
 
-import utility.*;
-
 public class Move
 {
 	protected String name = null;
@@ -12,8 +10,6 @@ public class Move
 	protected WindowManager wm = null;
 
 	protected String[] other = null;
-	
-	protected Utilities utils = new Utilities();
 	
 	public Move (String name,int startPosition, int endPosition, String[] content)
 	{
@@ -67,10 +63,5 @@ public class Move
 	public WindowManager getWm()
 	{
 		return wm;
-	}
-
-	public Utilities getUtils()
-	{
-		return utils;
 	}
 }
