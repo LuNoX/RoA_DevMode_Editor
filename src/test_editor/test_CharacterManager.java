@@ -21,5 +21,4 @@ public class test_CharacterManager
 			System.out.println (cm.getAllMoves()[4].getWm().getWindows()[i].getSfx());
 		}
 	}
-
 }
