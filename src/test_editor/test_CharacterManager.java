@@ -4,7 +4,6 @@ import utility.*;
 
 public class test_CharacterManager
 {
-
 	public static void main(String[] args)
 	{
 		IniFileChooser ifc = new IniFileChooser();
