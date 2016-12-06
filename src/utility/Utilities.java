@@ -2,7 +2,7 @@ package utility;
 
 public class Utilities
 {
-	public int getStringPositionInArray (String searchForThis, String[] searchThroughThis)
+	public static int getStringPositionInArray (String searchForThis, String[] searchThroughThis)
 	{
 		int result = -1;
 		
@@ -18,7 +18,7 @@ public class Utilities
 		return result;
 	}
 	
-	public String[] removeEntry (String[] arrayToRemoveFrom, int entryNumber)
+	public static String[] removeEntry (String[] arrayToRemoveFrom, int entryNumber)
 	{
 		String[] result = new String[arrayToRemoveFrom.length-1];
 		
