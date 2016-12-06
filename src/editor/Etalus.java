@@ -1,6 +1,6 @@
 package editor;
 
-public class EtalusManager extends CharacterManager
+public class Etalus extends RoACharacter
 {
 
 }

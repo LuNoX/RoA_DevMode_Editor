@@ -1,6 +1,6 @@
 package editor;
 
-public class AbsaManager extends CharacterManager
+public class Absa extends RoACharacter
 {
 
 }

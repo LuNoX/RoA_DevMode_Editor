@@ -1,6 +1,6 @@
 package editor;
 
-public class KraggManager extends CharacterManager
+public class Kragg extends RoACharacter
 {
 
 }

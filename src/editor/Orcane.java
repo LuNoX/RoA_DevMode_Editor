@@ -1,6 +1,6 @@
 package editor;
 
-public class OrcaneManager extends CharacterManager
+public class Orcane extends RoACharacter
 {
 
 }

@@ -1,6 +1,6 @@
 package editor;
 
-public class ForsburnManager extends CharacterManager
+public class Forsburn extends RoACharacter
 {
 
 }

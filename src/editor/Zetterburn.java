@@ -1,6 +1,6 @@
 package editor;
 
-public class ZetterburnManager extends CharacterManager
+public class Zetterburn extends RoACharacter
 {
 
 }

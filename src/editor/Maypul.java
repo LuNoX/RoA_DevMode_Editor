@@ -1,6 +1,6 @@
 package editor;
 
-public class MaypulManager extends CharacterManager
+public class Maypul extends RoACharacter
 {
 
 }

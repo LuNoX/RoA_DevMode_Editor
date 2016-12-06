@@ -1,6 +1,6 @@
 package editor;
 
-public class WrastorManager extends CharacterManager
+public class Wrastor extends RoACharacter
 {
-
+	
 }
