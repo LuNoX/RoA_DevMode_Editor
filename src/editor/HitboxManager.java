@@ -13,8 +13,6 @@ public class HitboxManager
 	
 	protected int numberOfUniqueHitboxes = 0;
 	protected int numberOfMultihitboxes = 0;
-	
-	protected Utilities utils = new Utilities();
 
 	public HitboxManager(String[] code)
 	{
@@ -39,7 +37,7 @@ public class HitboxManager
 				{
 					this.hasHitboxes = true;
 				}
-				this.code = this.utils.removeEntry(this.code, i);
+				this.code = Utilities.removeEntry(this.code, i);
 				break;
 			}
 		}
@@ -60,7 +58,7 @@ public class HitboxManager
 				{
 					return; //no multihitboxes
 				}
-				this.utils.removeEntry(this.code, i);
+				Utilities.removeEntry(this.code, i);
 				break; //there are multihitboxes
 			}
 		}

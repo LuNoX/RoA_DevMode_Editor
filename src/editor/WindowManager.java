@@ -9,7 +9,6 @@ public class WindowManager
 	protected boolean hasWindows = false;
 	protected Window[] windows = null;
 	
-	protected Utilities utils = new Utilities();
 	protected CommandStorage cs = new CommandStorage();
 
 	public WindowManager(String[] code)
@@ -126,7 +125,7 @@ public class WindowManager
 		//remove everything related to the Window from the code
 		for (int i = 0; i < commandPositions.length; i++)
 		{
-			this.code = this.utils.removeEntry(this.code, commandPositions[i]);
+			this.code = Utilities.removeEntry(this.code, commandPositions[i]);
 		}
 	}
 	
@@ -148,11 +147,6 @@ public class WindowManager
 	public Window[] getWindows()
 	{
 		return windows;
-	}
-
-	public Utilities getUtils()
-	{
-		return utils;
 	}
 
 	public CommandStorage getCs()
