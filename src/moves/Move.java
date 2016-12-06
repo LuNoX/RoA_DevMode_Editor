@@ -1,4 +1,7 @@
-package editor;
+package moves;
+
+import managers.HitboxManager;
+import managers.WindowManager;
 
 public class Move
 {

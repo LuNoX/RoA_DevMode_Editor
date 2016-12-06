@@ -1,5 +1,5 @@
 package test_editor;
-import editor.*;
+import characters.RoACharacter;
 import utility.*;
 
 public class test_CharacterManager

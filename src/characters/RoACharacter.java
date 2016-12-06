@@ -1,8 +1,10 @@
-package editor;
+package characters;
 
 import java.io.File;
+
+import moves.General;
+import moves.Move;
 import utility.*;
-import editor.Move;
 
 public class RoACharacter
 {

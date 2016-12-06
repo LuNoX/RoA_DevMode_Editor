@@ -1,4 +1,4 @@
-package editor;
+package characters;
 
 public class Zetterburn extends RoACharacter
 {

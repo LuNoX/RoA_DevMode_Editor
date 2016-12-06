@@ -1,4 +1,4 @@
-package editor;
+package managers;
 
 import java.util.regex.*;
 

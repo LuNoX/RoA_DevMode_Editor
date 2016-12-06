@@ -1,4 +1,4 @@
-package editor;
+package managers;
 
 public class Hitbox
 {
