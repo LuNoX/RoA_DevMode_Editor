@@ -5,8 +5,9 @@ import java.io.File;
 
 import javax.swing.JFileChooser;
 
-public class IniFileChooser
+public class RoAFileChooser
 {
+	//TODO dont use AWT for remembering last location
 	protected Component parent = null;
 	protected File location = null;
 

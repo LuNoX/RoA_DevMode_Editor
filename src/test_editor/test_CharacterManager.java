@@ -6,7 +6,7 @@ public class test_CharacterManager
 {
 	public static void main(String[] args)
 	{
-		IniFileChooser ifc = new IniFileChooser();
+		RoAFileChooser ifc = new RoAFileChooser();
 		
 		/*String[] tmp = {"a", "b", "c" , "d"};
 		Utilities u = new Utilities();
