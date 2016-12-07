@@ -9,6 +9,7 @@ public class HitboxManager
 	protected String[] code = null;
 	
 	protected boolean hasHitboxes = false;
+	//TODO use arraylist for this
 	protected Hitbox[] hitboxes = null;
 	
 	protected int numberOfUniqueHitboxes = 0;

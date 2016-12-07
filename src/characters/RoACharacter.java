@@ -25,7 +25,7 @@ public class RoACharacter
 	 */
 	public RoACharacter()
 	{
-
+		//TODO make this constructor do at least something
 	}
 
 	public void initializeEveryting()
@@ -73,7 +73,7 @@ public class RoACharacter
 
 	public void initializeContent()
 	{
-		IniFileReader ifr = new IniFileReader(this.characterFile);
+		RoAFileReader ifr = new RoAFileReader(this.characterFile);
 
 		// determine the number of lines in the File
 		ifr.nextLine();
@@ -86,7 +86,7 @@ public class RoACharacter
 		this.content = new String[numberOfLines];
 
 		// save the file as an Array of Strings
-		ifr = new IniFileReader(this.characterFile);
+		ifr = new RoAFileReader(this.characterFile);
 		for (int i = 0; i < numberOfLines; i++)
 		{
 			ifr.nextLine();

@@ -7,6 +7,7 @@ public class WindowManager
 	protected String[] code = null;
 
 	protected boolean hasWindows = false;
+	//TODO use arraylist for this
 	protected Window[] windows = null;
 	
 	protected CommandStorage cs = new CommandStorage();
