@@ -9,4 +9,6 @@ public class General
 	{
 		
 	}
+	
+	//TODO figure out how to do the character specific generals
 }

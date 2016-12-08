@@ -11,6 +11,7 @@ public class RoACharacter
 	protected File characterFile = null;
 	protected String[] content = null;
 
+	//TODO use arraylist for this
 	protected Move[] allMoves = null;
 	protected MoveGeneral general = null;
 

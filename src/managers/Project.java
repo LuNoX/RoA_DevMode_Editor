@@ -37,6 +37,7 @@ public class Project
 	
 	public void addCharacter (File file)
 	{
+		//TODO use code storage for the file names
 		String name = file.getName();
 		
 		if (name.equals("custom_absa.ini"))
