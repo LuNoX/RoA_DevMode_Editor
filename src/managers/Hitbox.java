@@ -1,5 +1,8 @@
 package managers;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Hitbox
 {
 	protected String id = null;
@@ -68,6 +71,133 @@ public class Hitbox
 		this.causesExtendedParryStun = causesExtendedParryStun;
 		this.forceFlinch = forceFlinch;
 		this.hitboxShape = hitboxShape;
+	}
+	
+	public Hitbox(String id, String parentHitbox, String hitboxWindow, String hitboxWindowCreationFrame, String hitboxLifetime, String baseKnockback, String knockbackScaling, String knockbackAngle, String angleFlipper, String damage, String hitboxSizeX, String hitboxSizeY, String hitboxPositionX, String hitboxPositionY, String hitEffect, String asdiModifier, String hitstunModifier, String untechable, String priority, String baseHitpause, String hitpauseScaling, String visualEffect, String visualEffectXOffset, String visualEffectYOffset, String hitSoundEffect, String extraCameraShake, String canKillProjectiles, String hitLockoutTime, String causesExtendedParryStun, String forceFlinch, String hitboxShape)
+	{
+		this.id = id;
+		Pattern p = Pattern.compile("\"([^\"]*)\"");
+		Matcher m = null;
+		
+		m = p.matcher(parentHitbox);
+		m.find();
+		this.parentHitbox = Float.parseFloat(m.group(1));
+		
+		m = p.matcher(hitboxWindow);
+		m.find();
+		this.hitboxWindow = Float.parseFloat(m.group(1));
+		
+		m = p.matcher(hitboxWindowCreationFrame);
+		m.find();
+		this.hitboxWindowCreationFrame = Float.parseFloat(m.group(1));
+		
+		m = p.matcher(hitboxLifetime);
+		m.find();
+		this.hitboxLifetime = Float.parseFloat(m.group(1));
+		
+		m = p.matcher(baseKnockback);
+		m.find();
+		this.baseKnockback = Float.parseFloat(m.group(1));
+		
+		m = p.matcher(knockbackScaling);
+		m.find();
+		this.knockbackScaling = Float.parseFloat(m.group(1));	
+		
+		m = p.matcher(knockbackAngle);
+		m.find();
+		this.knockbackAngle = Float.parseFloat(m.group(1));	
+		
+		m = p.matcher(angleFlipper);
+		m.find();
+		this.angleFlipper = Float.parseFloat(m.group(1));		
+		
+		m = p.matcher(damage);
+		m.find();
+		this.damage = Float.parseFloat(m.group(1));	
+		
+		m = p.matcher(hitboxSizeX);
+		m.find();
+		this.hitboxSizeX = Float.parseFloat(m.group(1));
+		
+		m = p.matcher(hitboxSizeY);
+		m.find();
+		this.hitboxSizeY = Float.parseFloat(m.group(1));	
+		
+		m = p.matcher(hitboxPositionX);
+		m.find();
+		this.hitboxPositionX = Float.parseFloat(m.group(1));		
+		
+		m = p.matcher(hitboxPositionY);
+		m.find();
+		this.hitboxPositionY = Float.parseFloat(m.group(1));	
+		
+		m = p.matcher(hitEffect);
+		m.find();
+		this.hitEffect = Float.parseFloat(m.group(1));		
+		
+		m = p.matcher(asdiModifier);
+		m.find();
+		this.asdiModifier = Float.parseFloat(m.group(1));	
+		
+		m = p.matcher(hitstunModifier);
+		m.find();
+		this.hitstunModifier = Float.parseFloat(m.group(1));
+		
+		m = p.matcher(untechable);
+		m.find();
+		this.untechable = Float.parseFloat(m.group(1));		
+		
+		m = p.matcher(priority);
+		m.find();
+		this.priority = Float.parseFloat(m.group(1));
+		
+		m = p.matcher(baseHitpause);
+		m.find();
+		this.baseHitpause = Float.parseFloat(m.group(1));		
+		
+		m = p.matcher(hitpauseScaling);
+		m.find();
+		this.hitpauseScaling = Float.parseFloat(m.group(1));
+		
+		m = p.matcher(visualEffect);
+		m.find();
+		this.visualEffect = Float.parseFloat(m.group(1));
+		
+		m = p.matcher(visualEffectXOffset);
+		m.find();
+		this.visualEffectXOffset = Float.parseFloat(m.group(1));
+		
+		m = p.matcher(visualEffectYOffset);
+		m.find();
+		this.visualEffectYOffset = Float.parseFloat(m.group(1));
+		
+		m = p.matcher(hitSoundEffect);
+		m.find();
+		this.hitSoundEffect = Float.parseFloat(m.group(1));
+		
+		m = p.matcher(extraCameraShake);
+		m.find();
+		this.extraCameraShake = Float.parseFloat(m.group(1));
+		
+		m = p.matcher(canKillProjectiles);
+		m.find();
+		this.canKillProjectiles = Float.parseFloat(m.group(1));
+		
+		m = p.matcher(hitLockoutTime);
+		m.find();
+		this.hitLockoutTime = Float.parseFloat(m.group(1));
+		
+		m = p.matcher(causesExtendedParryStun);
+		m.find();
+		this.causesExtendedParryStun = Float.parseFloat(m.group(1));
+		
+		m = p.matcher(forceFlinch);
+		m.find();
+		this.forceFlinch = Float.parseFloat(m.group(1));
+		
+		m = p.matcher(hitboxShape);
+		m.find();
+		this.hitboxShape = Float.parseFloat(m.group(1));
 	}
 
 	public String getId()

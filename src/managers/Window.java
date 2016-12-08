@@ -16,6 +16,23 @@ public class Window
 	protected float sfxFrame = 0;
 	protected float whiffFrames = 0;
 	protected float invincibility = 0;
+	
+	
+	
+	public Window(String id, float length, float hBoost, float vBoost, float hBoostConst, float vBoostConst, float hasSfx, float sfx, float sfxFrame, float whiffFrames, float invincibility)
+	{
+		this.id = id;
+		this.length = length;
+		this.hBoost = hBoost;
+		this.vBoost = vBoost;
+		this.hBoostConst = hBoostConst;
+		this.vBoostConst = vBoostConst;
+		this.hasSfx = hasSfx;
+		this.sfx = sfx;
+		this.sfxFrame = sfxFrame;
+		this.whiffFrames = whiffFrames;
+		this.invincibility = invincibility;
+	}
 
 	public Window(String id, String length, String hBoost, String vBoost, String hBoostConst, String vBoostConst, String hasSfx, String sfx, String sfxFrames, String whiffFrames, String invincibility)
 	{
