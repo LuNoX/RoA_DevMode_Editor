@@ -11,7 +11,7 @@ public class Project
 	
 	//TODO use arraylist throughout the project
 	protected ArrayList<RoACharacter> characters = new ArrayList<RoACharacter>();
-	protected General general = null;
+	protected GeneralSettings general = null;
 	
 	public Project ()
 	{
@@ -82,7 +82,7 @@ public class Project
 		}
 		else if (name.equals("custom_general.ini"))
 		{
-			General general = new General(file);
+			GeneralSettings general = new GeneralSettings(file);
 			this.general = general;
 		}
 		

@@ -2,7 +2,7 @@ package characters;
 
 import java.io.File;
 
-import moves.MoveGeneral;
+import moves.ChracterGeneral;
 import moves.Move;
 import utility.*;
 
@@ -13,7 +13,7 @@ public class RoACharacter
 
 	//TODO use arraylist for this
 	protected Move[] allMoves = null;
-	protected MoveGeneral general = null;
+	protected ChracterGeneral general = null;
 
 	public RoACharacter(File character)
 	{
@@ -60,7 +60,7 @@ public class RoACharacter
 
 				if (name.equals("GENERAL"))
 				{
-					this.general = new MoveGeneral(i, tmp, this.content);
+					this.general = new ChracterGeneral(i, tmp, this.content);
 				}
 				else
 				{
@@ -111,7 +111,7 @@ public class RoACharacter
 		return allMoves;
 	}
 
-	public MoveGeneral getGeneral()
+	public ChracterGeneral getGeneral()
 	{
 		return general;
 	}
