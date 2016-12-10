@@ -87,4 +87,19 @@ public class Project
 		}
 		
 	}
+
+    public File getDirectory()
+    {
+        return directory;
+    }
+
+    public ArrayList<RoACharacter> getCharacters()
+    {
+        return characters;
+    }
+
+    public GeneralSettings getGeneral()
+    {
+        return general;
+    }
 }

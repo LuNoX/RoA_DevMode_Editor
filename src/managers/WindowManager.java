@@ -73,7 +73,7 @@ public class WindowManager
 
         for (int j = 0; j < this.code.length; j++)
         {
-            if (this.code[j].contains(length))
+            if (CommandStorage.isSpecificCommand(this.code[j], length))
             {
                 tmp = this.code[j].indexOf(length) + length.length();
                 id = Integer.parseInt(this.code[j].substring(tmp, tmp + 1));
@@ -97,8 +97,10 @@ public class WindowManager
                     { id, value, 0, 0, 0, 0, 0, 0, 0, 0, 0};
                     tempWindows.add(window);
                 }
+                numberOfCommands++;
+                commandPositions[numberOfCommands-1] = j;
             }
-            else if (this.code[j].contains(hBoost))
+            else if (CommandStorage.isSpecificCommand(this.code[j], hBoost))
             {
                 tmp = this.code[j].indexOf(hBoost) + hBoost.length();
                 id = Integer.parseInt(this.code[j].substring(tmp, tmp + 1));
@@ -122,8 +124,10 @@ public class WindowManager
                     { id, 0, value, 0, 0, 0, 0, 0, 0, 0, 0};
                     tempWindows.add(window);
                 }
+                numberOfCommands++;
+                commandPositions[numberOfCommands-1] = j;
             }
-            else if (this.code[j].contains(vBoost))
+            else if (CommandStorage.isSpecificCommand(this.code[j], vBoost))
             {
                 tmp = this.code[j].indexOf(vBoost) + vBoost.length();
                 id = Integer.parseInt(this.code[j].substring(tmp, tmp + 1));
@@ -147,8 +151,10 @@ public class WindowManager
                     { id, 0, 0, value, 0, 0, 0, 0, 0, 0, 0};
                     tempWindows.add(window);
                 }
+                numberOfCommands++;
+                commandPositions[numberOfCommands-1] = j;
             }
-            else if (this.code[j].contains(hBoostConst))
+            else if (CommandStorage.isSpecificCommand(this.code[j], hBoostConst))
             {
                 tmp = this.code[j].indexOf(hBoostConst) + hBoostConst.length();
                 id = Integer.parseInt(this.code[j].substring(tmp, tmp + 1));
@@ -172,8 +178,10 @@ public class WindowManager
                     { id, 0, 0, 0, value, 0, 0, 0, 0, 0, 0};
                     tempWindows.add(window);
                 }
+                numberOfCommands++;
+                commandPositions[numberOfCommands-1] = j;
             }
-            else if (this.code[j].contains(vBoostConst))
+            else if (CommandStorage.isSpecificCommand(this.code[j], vBoostConst))
             {
                 tmp = this.code[j].indexOf(vBoostConst) + vBoostConst.length();
                 id = Integer.parseInt(this.code[j].substring(tmp, tmp + 1));
@@ -197,8 +205,10 @@ public class WindowManager
                     { id, 0, 0, 0, 0, value, 0, 0, 0, 0, 0};
                     tempWindows.add(window);
                 }
+                numberOfCommands++;
+                commandPositions[numberOfCommands-1] = j;
             }
-            else if (this.code[j].contains(hasSfx))
+            else if (CommandStorage.isSpecificCommand(this.code[j], hasSfx))
             {
                 tmp = this.code[j].indexOf(hasSfx) + hasSfx.length();
                 id = Integer.parseInt(this.code[j].substring(tmp, tmp + 1));
@@ -222,8 +232,10 @@ public class WindowManager
                     { id, 0, 0, 0, 0, 0, value, 0, 0, 0, 0};
                     tempWindows.add(window);
                 }
+                numberOfCommands++;
+                commandPositions[numberOfCommands-1] = j;
             }
-            else if (this.code[j].contains(sfx))
+            else if (CommandStorage.isSpecificCommand(this.code[j], sfx))
             {
                 tmp = this.code[j].indexOf(sfx) + sfx.length();
                 id = Integer.parseInt(this.code[j].substring(tmp, tmp + 1));
@@ -247,8 +259,10 @@ public class WindowManager
                     { id, 0, 0, 0, 0, 0, 0, value, 0, 0, 0};
                     tempWindows.add(window);
                 }
+                numberOfCommands++;
+                commandPositions[numberOfCommands-1] = j;
             }
-            else if (this.code[j].contains(sfxFrame))
+            else if (CommandStorage.isSpecificCommand(this.code[j], sfxFrame))
             {
                 tmp = this.code[j].indexOf(sfxFrame) + sfxFrame.length();
                 id = Integer.parseInt(this.code[j].substring(tmp, tmp + 1));
@@ -272,8 +286,10 @@ public class WindowManager
                     { id, 0, 0, 0, 0, 0, 0, 0, value, 0, 0};
                     tempWindows.add(window);
                 }
+                numberOfCommands++;
+                commandPositions[numberOfCommands-1] = j;
             }
-            else if (this.code[j].contains(whiffFrames))
+            else if (CommandStorage.isSpecificCommand(this.code[j], whiffFrames))
             {
                 tmp = this.code[j].indexOf(whiffFrames) + whiffFrames.length();
                 id = Integer.parseInt(this.code[j].substring(tmp, tmp + 1));
@@ -297,8 +313,10 @@ public class WindowManager
                     { id, 0, 0, 0, 0, 0, 0, 0, 0, value, 0};
                     tempWindows.add(window);
                 }
+                numberOfCommands++;
+                commandPositions[numberOfCommands-1] = j;
             }
-            else if (this.code[j].contains(invincibility))
+            else if (CommandStorage.isSpecificCommand(this.code[j], invincibility))
             {
                 tmp = this.code[j].indexOf(invincibility) + invincibility.length();
                 id = Integer.parseInt(this.code[j].substring(tmp, tmp + 1));
@@ -322,9 +340,9 @@ public class WindowManager
                     { id, 0, 0, 0, 0, 0, 0, 0, 0, 0, value};
                     tempWindows.add(window);
                 }
+                numberOfCommands++;
+                commandPositions[numberOfCommands-1] = j;
             }
-            commandPositions[numberOfCommands] = j;
-            numberOfCommands++;
         }
         for (float[] tempWindow : tempWindows)
         {
@@ -334,7 +352,7 @@ public class WindowManager
             this.windows.add(window);
         }
         // remove everything related to the Window from the code
-        for (int i = 0; i <= numberOfCommands; i++)
+        for (int i = 0; i < numberOfCommands; i++)
         {
             this.code = Utilities.removeEntry(this.code, commandPositions[i]);
         }
