@@ -1,4 +1,4 @@
-package test_editor;
+package test;
 import characters.RoACharacter;
 import utility.*;
 
@@ -16,9 +16,9 @@ public class test_CharacterManager
 		
 		RoACharacter cm = new RoACharacter(ifc.chooseFile("C:\\Users\\Timo\\Desktop\\roa editor\\active\\custom_etalus.ini"));
 		
-		for (int i = 0; i < cm.getAllMoves()[4].getWm().getWindows().length; i++)
+		for (int i = 0; i < cm.getAllMoves()[4].getWm().getWindows().size(); i++)
 		{
-			System.out.println (cm.getAllMoves()[4].getWm().getWindows()[i].getSfx());
+			System.out.println (cm.getAllMoves()[4].getWm().getWindows().get(i).getSfx());
 		}
 	}
 }
