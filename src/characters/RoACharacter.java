@@ -1,6 +1,7 @@
 package characters;
 
 import java.io.File;
+import java.util.ArrayList;
 
 import generals.CharacterGeneral;
 import moves.Move;
@@ -11,8 +12,7 @@ public class RoACharacter
 	protected File characterFile = null;
 	protected String[] content = null;
 
-	//TODO use arraylist for this
-	protected Move[] allMoves = null;
+	protected ArrayList<Move> allMoves = new ArrayList<Move>();
 	protected CharacterGeneral general = null;
 
 	public RoACharacter(File character)
@@ -37,18 +37,7 @@ public class RoACharacter
 
 	public void initializeAllMovesAndGeneral()
 	{
-		// determine how many moves there are
-		int numberOfMoves = -1;
-		for (int j = 0; j < this.content.length; j++)
-		{
-			if (this.content[j].contains("[") && this.content[j].contains("]"))
-			{
-				numberOfMoves++;
-			}
-		}
-		this.allMoves = new Move[numberOfMoves];
-
-		// create the move-objects and place them into the Array, also create
+	    // create the move-objects and place them into the Array, also create
 		// the general-object
 		String name = null;
 		int tmp = this.content.length;
@@ -64,8 +53,8 @@ public class RoACharacter
 				}
 				else
 				{
-					numberOfMoves--;
-					this.allMoves[numberOfMoves] = new Move(name, i, tmp, this.content);
+					Move move = new Move(name, i, tmp, this.content);
+					this.allMoves.add(move);
 				}
 				tmp = i - 1;
 			}
@@ -106,7 +95,7 @@ public class RoACharacter
 		return content;
 	}
 
-	public Move[] getAllMoves()
+	public ArrayList<Move> getAllMoves()
 	{
 		return allMoves;
 	}

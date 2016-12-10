@@ -7,7 +7,6 @@ public class CharacterGeneral
 	protected String[] jumping = null;
 	protected String[] invincibility = null;
 	
-	//TODO figure out how to do the character specific generals
 	public CharacterGeneral (int startPosition, int endPosition, String[] content)
 	{
 		

@@ -1,6 +1,7 @@
 package managers;
 
 import java.util.regex.*;
+import java.util.*;
 
 import utility.Utilities;
 
@@ -9,8 +10,7 @@ public class HitboxManager
 	protected String[] code = null;
 	
 	protected boolean hasHitboxes = false;
-	//TODO use arraylist for this
-	protected Hitbox[] hitboxes = null;
+	protected ArrayList<Hitbox> hitboxes = null;
 	
 	protected int numberOfUniqueHitboxes = 0;
 	protected int numberOfMultihitboxes = 0;
@@ -33,7 +33,6 @@ public class HitboxManager
 				m.find();
 				
 				int numberOfHitboxes = (int) Float.parseFloat(m.group(1));
-				this.hitboxes = new Hitbox[numberOfHitboxes];
 				if (numberOfHitboxes > 0)
 				{
 					this.hasHitboxes = true;
@@ -55,7 +54,7 @@ public class HitboxManager
 				m.find();
 				
 				this.numberOfUniqueHitboxes = (int) Float.parseFloat(m.group(1));
-				if (!(this.numberOfUniqueHitboxes == this.hitboxes.length))
+				if (!(this.numberOfUniqueHitboxes == this.hitboxes.size()))
 				{
 					return; //no multihitboxes
 				}

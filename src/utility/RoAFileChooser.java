@@ -117,8 +117,7 @@ public class RoAFileChooser
 
         return result;
     }
-
-    // TODO add method that only returns directories
+    
     public File chooseDirectory()
     {
         File result = null;

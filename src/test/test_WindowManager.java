@@ -12,9 +12,9 @@ public class test_WindowManager
 		
 		RoACharacter cm = new RoACharacter(ifc.chooseFile("C:\\Users\\Timo\\Desktop\\roa editor\\active\\custom_etalus.ini"));
 		
-		for (int i = 0; i < cm.getAllMoves()[4].getWm().getWindows().size(); i++)
+		for (int i = 0; i < cm.getAllMoves().get(4).getWm().getWindows().size(); i++)
 		{
-			System.out.println (cm.getAllMoves()[4].getWm().getWindows().get(i).getLength());
+			System.out.println (cm.getAllMoves().get(4).getWm().getWindows().get(i).getLength());
 		}
 
 	}

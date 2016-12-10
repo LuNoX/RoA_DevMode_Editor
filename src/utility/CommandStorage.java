@@ -31,7 +31,6 @@ public class CommandStorage
     {CommandStorage.window_hBoost, CommandStorage.window_hBoostConst, CommandStorage.window_vBoost,
             CommandStorage.window_vBoostConst, CommandStorage.window_hasSfx, CommandStorage.window_sfx, CommandStorage.window_sfxFrame};
 
-    // TODO make this prettier
     public static boolean isSpecificCommand(String toBeChecked, String command)
     {
         if (!toBeChecked.contains(command))

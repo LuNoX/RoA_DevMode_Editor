@@ -16,9 +16,9 @@ public class test_Project
         {
             if (prj.getCharacters().get(i).getClass().getName() == "characters.Etalus")
             {
-                for (int j = 0; j < prj.getCharacters().get(i).getAllMoves()[4].getWm().getWindows().size(); j++)
+                for (int j = 0; j < prj.getCharacters().get(i).getAllMoves().get(4).getWm().getWindows().size(); j++)
                 {
-                    System.out.println (prj.getCharacters().get(i).getAllMoves()[4].getWm().getWindows().get(j).getLength());
+                    System.out.println (prj.getCharacters().get(i).getAllMoves().get(4).getWm().getWindows().get(j).getLength());
                 }
                 break;
             }

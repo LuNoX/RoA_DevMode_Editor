@@ -9,7 +9,6 @@ public class Project
 {
 	protected File directory = null;
 	
-	//TODO use arraylist throughout the project
 	protected ArrayList<RoACharacter> characters = new ArrayList<RoACharacter>();
 	protected GeneralSettings general = null;
 	
