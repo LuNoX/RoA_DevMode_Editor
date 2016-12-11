@@ -14,7 +14,7 @@ public class Projectile extends Move
         super(name, startPosition, endPosition, content);
         for (int i = 0; i < this.other.length; i++)
         {
-            if (this.other[i].contains(CommandStorage.projectile_lifetime))
+            if (this.other[i].contains(CommandStorage.projectileLifetime))
             {
                 Pattern p = Pattern.compile("\"([^\"]*)\"");
                 Matcher m = p.matcher(this.other[i]);

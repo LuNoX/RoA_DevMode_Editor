@@ -15,6 +15,7 @@ public class RoACharacter
 	protected ArrayList<Move> allMoves = new ArrayList<Move>();
 	protected CharacterGeneral general = null;
 
+	//TODO make this abstract
 	public RoACharacter(File character)
 	{
 		this.characterFile = character;

@@ -9,8 +9,6 @@ public class WindowManager
 {
     protected String[] code = null;
 
-    protected boolean hasWindows = false;
-
     protected ArrayList<Window> windows = new ArrayList<Window>();
 
     protected CommandStorage cs = new CommandStorage();
@@ -19,28 +17,8 @@ public class WindowManager
     {
         this.code = code;
 
-        this.determineNumberOfWindows();
+
         this.createWindows();
-    }
-
-    public void determineNumberOfWindows()
-    {
-        int numberOfWindows = 0;
-
-        for (int i = 0; i < this.code.length; i++)
-        {
-            if (this.code[i].contains(CommandStorage.window_length))
-            {
-                numberOfWindows++;
-            }
-        }
-
-        // this.windows = new Window[numberOfWindows];
-
-        if (numberOfWindows > 0)
-        {
-            this.hasWindows = true;
-        }
     }
 
     public void createWindows()
@@ -56,16 +34,16 @@ public class WindowManager
         Pattern p = Pattern.compile("\"([^\"]*)\"");
         Matcher m = null;
 
-        String length = CommandStorage.window_length;
-        String hBoost = CommandStorage.window_hBoost;
-        String vBoost = CommandStorage.window_vBoost;
-        String hBoostConst = CommandStorage.window_hBoostConst;
-        String vBoostConst = CommandStorage.window_vBoostConst;
-        String hasSfx = CommandStorage.window_hasSfx;
-        String sfx = CommandStorage.window_sfx;
-        String sfxFrame = CommandStorage.window_sfxFrame;
-        String whiffFrames = CommandStorage.window_whiffFrames;
-        String invincibility = CommandStorage.window_invincibility;
+        String length = CommandStorage.windowLength;
+        String hBoost = CommandStorage.windowHBoost;
+        String vBoost = CommandStorage.windowVBoost;
+        String hBoostConst = CommandStorage.windowHBoostConst;
+        String vBoostConst = CommandStorage.windowVBoostConst;
+        String hasSfx = CommandStorage.windowHasSfx;
+        String sfx = CommandStorage.windowSfx;
+        String sfxFrame = CommandStorage.windowSfxFrame;
+        String whiffFrames = CommandStorage.windowWhiffFrames;
+        String invincibility = CommandStorage.windowInvincibility;
 
         Float value = null;
         int id = 0;
@@ -366,11 +344,6 @@ public class WindowManager
     public String[] getCode()
     {
         return code;
-    }
-
-    public boolean isHasWindows()
-    {
-        return hasWindows;
     }
 
     public ArrayList<Window> getWindows()

@@ -7,7 +7,7 @@ public class test_CommandStorage
 
 	public static void main(String[] args)
 	{
-		System.out.println(CommandStorage.window_invincibility_additional_description);
+		System.out.println(CommandStorage.windowInvincibilityAdditionalDescription);
 
 	}
 

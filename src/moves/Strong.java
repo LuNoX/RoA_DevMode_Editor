@@ -18,13 +18,13 @@ public class Strong extends Move
             Pattern p = Pattern.compile("\"([^\"]*)\"");
             Matcher m = p.matcher(this.other[i]);
             m = null;
-            if (this.other[i].contains(CommandStorage.pre_charge_window_frames))
+            if (this.other[i].contains(CommandStorage.preChargeWindowFrames))
             {
                 m = p.matcher(this.other[i]);
                 m.find();
                 this.preChargeWindowFrames = Float.parseFloat(m.group(1));
             }
-            else if (this.other[i].contains(CommandStorage.post_charge_window_frames))
+            else if (this.other[i].contains(CommandStorage.postChargeWindowFrames))
             {
                 m = p.matcher(this.other[i]);
                 m.find();
