@@ -123,8 +123,6 @@ public class CharacterGeneral
                         System.out.println(e.getLocalizedMessage());
                         e.printStackTrace();
                     }
-
-                    this.knockbackAdjustment = value;
                     numberOfCommands++;
                     commandPositions[numberOfCommands - 1] = i;
                     break;
