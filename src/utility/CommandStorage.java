@@ -4,6 +4,7 @@ package utility;
 
 public class CommandStorage
 {
+    //TODO add description and additional description to all fields
     public static String windowLength = "window_length_";
     public static String windowLengthDescription = "The number of frames in a certain window";
     public static String windowHBoost = "window_h_boost_";
@@ -26,10 +27,10 @@ public class CommandStorage
     public static String windowInvincibility = "invincibility_";
     public static String windowInvincibilityDescription = "Determines the invincibility properties of the move";
     public static String windowInvincibilityAdditionalDescription = "0 - not invincible \n1 - fully invincible \n2 - invincible to projectiles only";
+    public static String projectileHSpeed = "projectile_h_speed";
+    public static String projectileVSpeed = "projectile_v_speed";
+    public static String projectileGravity = "projectile_gravity";
     public static String projectileLifetime = "projectile_lifetime";
-    public static String preChargeWindowFrames = "pre_charge_window_frames";
-    public static String postChargeWindowFrames = "post_charge_window_frames";
-    
     
     public static String[] duplicateCommands =
     {CommandStorage.windowHBoost, CommandStorage.windowHBoostConst, CommandStorage.windowVBoost,
