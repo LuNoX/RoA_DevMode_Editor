@@ -12,8 +12,8 @@ public class RoAFileChooser
     protected File location = null;
 
     /**
-     * Öffnet ein GUI zur Auswahl einer Datei oder eines Directorys, und gibt
-     * dieses anschließend aus
+     * Öffnet ein GUI zur Auswahl einer Datei oder eines Directorys, und gibt dieses anschließend
+     * aus
      * 
      * @return das File oder Directory, das ausgewählt wurde
      */
@@ -32,10 +32,26 @@ public class RoAFileChooser
         }
         return result;
     }
+    
+    public File chooseDirectory()
+    {
+        File result = null;
+        JFileChooser chooser = new JFileChooser(this.location);
+        chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        int rueckgabewert = chooser.showOpenDialog(this.parent);
+
+        if (rueckgabewert == JFileChooser.APPROVE_OPTION)
+        {
+            result = chooser.getSelectedFile();
+            this.parent = chooser.getParent();
+            this.location = chooser.getSelectedFile().getParentFile();
+            // System.out.println(chooser.getSelectedFile().getName()); //Debug
+        }
+        return result;
+    }
 
     /**
-     * Gibt ein File oder Directory anhand dessen vorher spezifizierten
-     * Directorys
+     * Gibt ein File oder Directory anhand dessen vorher spezifizierten Directorys
      * 
      * @param directory
      *            das Directory zur Datei oder des Directorys
@@ -51,14 +67,12 @@ public class RoAFileChooser
     }
 
     /**
-     * Öffnet eine GUI zur Auswahl einer Datei, die einen bestimmten Namen hat
-     * oder eines Directorys in dem sich eine Datei mit diesem Namen befindet,
-     * und gibt dieses anschließend aus. Bei einer falschen Auswahl wird der
-     * Dialog rekursiv erneut geöffnet.
+     * Öffnet eine GUI zur Auswahl einer Datei, die einen bestimmten Namen hat oder eines Directorys
+     * in dem sich eine Datei mit diesem Namen befindet, und gibt dieses anschließend aus. Bei einer
+     * falschen Auswahl wird der Dialog rekursiv erneut geöffnet.
      * 
      * @param filename
-     *            der Name der Datei oder des Directorys das ausgewählt werden
-     *            soll
+     *            der Name der Datei oder des Directorys das ausgewählt werden soll
      * @return die Datei mit dem Namen "filename"
      */
     public File chooseSpecificFile(String filename)
@@ -84,14 +98,11 @@ public class RoAFileChooser
                 File[] listOfFiles = result.listFiles(); // speichere alle
                                                          // Dateien im Directory
 
-                for (int i = 0; i < listOfFiles.length; i++) // gehe durch alle
-                                                             // Dateien im
-                                                             // Directory
+                // gehe durch alle Dateien im Directory
+                for (int i = 0; i < listOfFiles.length; i++)
                 {
-                    if (listOfFiles[i].getName().equals(filename)) // ist die
-                                                                   // Datei die
-                                                                   // gesuchte
-                                                                   // Datei?
+                    // ist die Datei die gesuchte Datei?
+                    if (listOfFiles[i].getName().equals(filename))
                     {
                         result = listOfFiles[i]; // speichere die Datei
                     }
@@ -107,31 +118,11 @@ public class RoAFileChooser
             {
                 System.out.println("Wrong File - You selected " + result.getName() + " instead of "
                                 + filename + ". Please try again.");
-                result = this.chooseSpecificFile(filename); // öffne die Methode
-                                                            // erneut, um die
-                                                            // richtige Datei
-                                                            // auswählen zu
-                                                            // lassen
+                // öffne die Methode erneut, um die richtige Datei auswählen zu lassen
+                result = this.chooseSpecificFile(filename);
             }
         }
 
-        return result;
-    }
-
-    public File chooseDirectory()
-    {
-        File result = null;
-        JFileChooser chooser = new JFileChooser(this.location);
-        chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-        int rueckgabewert = chooser.showOpenDialog(this.parent);
-
-        if (rueckgabewert == JFileChooser.APPROVE_OPTION)
-        {
-            result = chooser.getSelectedFile();
-            this.parent = chooser.getParent();
-            this.location = chooser.getSelectedFile().getParentFile();
-            // System.out.println(chooser.getSelectedFile().getName()); //Debug
-        }
         return result;
     }
 }
