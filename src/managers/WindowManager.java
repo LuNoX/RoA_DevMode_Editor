@@ -33,9 +33,9 @@ public class WindowManager
             String command = this.code.get(i);
             for (int j = 0; j < windowCommands.length; j++)
             {
-                if (CommandStorage.isSpecificCommand(command, windowCommands[j]))
+                if (Utilities.isSpecificCommand(command, windowCommands[j]))
                 {
-                    tempWindows = CommandStorage.addTempWindowCommand(tempWindows, command, j);
+                    tempWindows = Utilities.addTempWindowCommand(tempWindows, command, j);
                     numberOfCommands++;
                     commandPositions[numberOfCommands - 1] = i;
                 }
@@ -50,7 +50,8 @@ public class WindowManager
             this.windows.add(window);
         }
         // remove everything related to the Window from the code
-        for (int i = 0; i < numberOfCommands; i++)
+        Arrays.sort(commandPositions); //sort the indices and then go through the list backwards to avoid index errors
+        for (int i = numberOfCommands-1; i >= 0; i--)
         {
             this.code.remove(commandPositions[i]);
         }
