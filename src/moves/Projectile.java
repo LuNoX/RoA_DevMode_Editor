@@ -15,6 +15,8 @@ public class Projectile extends Move
     public Projectile(String name, int startPosition, int endPosition, String[] content)
     {
         super(name, startPosition, endPosition, content);
+        this.isProjectile = true;
+        
         Pattern p = Pattern.compile("\"([^\"]*)\"");
         Matcher m = null;
 

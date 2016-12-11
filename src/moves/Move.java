@@ -11,6 +11,8 @@ public class Move
 	
 	protected HitboxManager hm = null;
 	protected WindowManager wm = null;
+	
+	protected boolean isProjectile = false;
 
 	protected String[] other = null;
 	
