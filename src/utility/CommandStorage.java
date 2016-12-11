@@ -136,6 +136,18 @@ public class CommandStorage
                     CommandStorage.walkTurnTime, CommandStorage.walkAccel,
                     CommandStorage.walkSpeed};
 
+    //File names
+    public static String customAbsa = "custom_Absa.ini";
+    public static String customEtalus = "custom_Etalus.ini";
+    public static String customForsburn = "custom_Forsburn.ini";
+    public static String customKragg = "custom_Kragg.ini";
+    public static String customMaypul = "custom_Maypul.ini";
+    public static String customOrcane = "custom_Orcane.ini";
+    public static String customWrastor = "custom_Wrastor.ini";
+    public static String customZetterburn = "custom_Zetterburn.ini";
+    public static String customGeneral = "custom_General.ini";
+    
+    
     // Other
     public static String[] duplicateCommands =
     {CommandStorage.windowHBoost, CommandStorage.windowHBoostConst, CommandStorage.windowVBoost,

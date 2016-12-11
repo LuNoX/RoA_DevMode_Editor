@@ -39,47 +39,47 @@ public class Project
         // TODO use code storage for the file names
         String name = file.getName();
 
-        if (name.equals("custom_absa.ini"))
+        if (name.equals(CommandStorage.customAbsa))
         {
             Absa absa = new Absa(file);
             this.characters.add(absa);
         }
-        else if (name.equals("custom_etalus.ini"))
+        else if (name.equals(CommandStorage.customEtalus))
         {
             Etalus etalus = new Etalus(file);
             this.characters.add(etalus);
         }
-        else if (name.equals("custom_forsburn.ini"))
+        else if (name.equals(CommandStorage.customForsburn))
         {
             Forsburn forsburn = new Forsburn(file);
             this.characters.add(forsburn);
         }
-        else if (name.equals("custom_kragg.ini"))
+        else if (name.equals(CommandStorage.customKragg))
         {
             Kragg kragg = new Kragg(file);
             this.characters.add(kragg);
         }
-        else if (name.equals("custom_maypul.ini"))
+        else if (name.equals(CommandStorage.customMaypul))
         {
             Maypul maypul = new Maypul(file);
             this.characters.add(maypul);
         }
-        else if (name.equals("custom_maypul.ini"))
+        else if (name.equals(CommandStorage.customOrcane))
         {
             Orcane orcane = new Orcane(file);
             this.characters.add(orcane);
         }
-        else if (name.equals("custom_wrastor.ini"))
+        else if (name.equals(CommandStorage.customWrastor))
         {
             Wrastor wrastor = new Wrastor(file);
             this.characters.add(wrastor);
         }
-        else if (name.equals("custom_zetterburn.ini"))
+        else if (name.equals(CommandStorage.customZetterburn))
         {
             Zetterburn zetterburn = new Zetterburn(file);
             this.characters.add(zetterburn);
         }
-        else if (name.equals("custom_general.ini"))
+        else if (name.equals(CommandStorage.customGeneral))
         {
             GeneralSettings general = new GeneralSettings(file);
             this.general = general;
