@@ -537,6 +537,286 @@ public class CharacterGeneral
         }
     }
 
+    public List<String> getCode()
+    {
+        return code;
+    }
+
+    public List<String> getOther()
+    {
+        return other;
+    }
+
+    public float getKnockbackAdjustment()
+    {
+        return knockbackAdjustment;
+    }
+
+    public float getHitstunGravityAccel()
+    {
+        return hitstunGravityAccel;
+    }
+
+    public float getGravityAccel()
+    {
+        return gravityAccel;
+    }
+
+    public float getFastFallSpeed()
+    {
+        return fastFallSpeed;
+    }
+
+    public float getMaxFallSpeed()
+    {
+        return maxFallSpeed;
+    }
+
+    public float getGroundFriction()
+    {
+        return groundFriction;
+    }
+
+    public float getAirFriction()
+    {
+        return airFriction;
+    }
+
+    public float getMaxDblJumps()
+    {
+        return maxDblJumps;
+    }
+
+    public float getMaxJumpHSpeed()
+    {
+        return maxJumpHSpeed;
+    }
+
+    public float getDblJumpSpeed()
+    {
+        return dblJumpSpeed;
+    }
+
+    public float getShortHopSpeed()
+    {
+        return shortHopSpeed;
+    }
+
+    public float getJumpSpeed()
+    {
+        return jumpSpeed;
+    }
+
+    public float getAirAccel()
+    {
+        return airAccel;
+    }
+
+    public float getMaxAirSpeed()
+    {
+        return maxAirSpeed;
+    }
+
+    public float getRollBackwardSpeed()
+    {
+        return rollBackwardSpeed;
+    }
+
+    public float getRollBackwardRecoveryTime()
+    {
+        return rollBackwardRecoveryTime;
+    }
+
+    public float getRollBackwardActiveTime()
+    {
+        return rollBackwardActiveTime;
+    }
+
+    public float getRollBackwardStartupTime()
+    {
+        return rollBackwardStartupTime;
+    }
+
+    public float getRollForwardSpeed()
+    {
+        return rollForwardSpeed;
+    }
+
+    public float getRollForwardRecoveryTime()
+    {
+        return rollForwardRecoveryTime;
+    }
+
+    public float getRollForwardActiveTime()
+    {
+        return rollForwardActiveTime;
+    }
+
+    public float getRollForwardStartupTime()
+    {
+        return rollForwardStartupTime;
+    }
+
+    public float getAirDodgeSpeed()
+    {
+        return airDodgeSpeed;
+    }
+
+    public float getAirDodgeRecoveryTime()
+    {
+        return airDodgeRecoveryTime;
+    }
+
+    public float getAirDodgeActiveTime()
+    {
+        return airDodgeActiveTime;
+    }
+
+    public float getAirDodgeStartupTime()
+    {
+        return airDodgeStartupTime;
+    }
+
+    public float getTechrollSpeed()
+    {
+        return techrollSpeed;
+    }
+
+    public float getTechrollRecoveryTime()
+    {
+        return techrollRecoveryTime;
+    }
+
+    public float getTechrollActiveTime()
+    {
+        return techrollActiveTime;
+    }
+
+    public float getTechrollStartupTime()
+    {
+        return techrollStartupTime;
+    }
+
+    public float getTechRecoveryTime()
+    {
+        return techRecoveryTime;
+    }
+
+    public float getTechActiveTime()
+    {
+        return techActiveTime;
+    }
+
+    public float getParryRecoveryTime()
+    {
+        return parryRecoveryTime;
+    }
+
+    public float getParryActiveTime()
+    {
+        return parryActiveTime;
+    }
+
+    public float getParryStartupTime()
+    {
+        return parryStartupTime;
+    }
+
+    public float getWaveLandFriction()
+    {
+        return waveLandFriction;
+    }
+
+    public float getWaveLandTime()
+    {
+        return waveLandTime;
+    }
+
+    public float getJumpStartTime()
+    {
+        return jumpStartTime;
+    }
+
+    public float getPratFallAccel()
+    {
+        return pratFallAccel;
+    }
+
+    public float getPratLandTime()
+    {
+        return pratLandTime;
+    }
+
+    public float getLandTime()
+    {
+        return landTime;
+    }
+
+    public float getInitialDashSpeed()
+    {
+        return initialDashSpeed;
+    }
+
+    public float getInitialDashAccel()
+    {
+        return initialDashAccel;
+    }
+
+    public float getInitialDashTime()
+    {
+        return initialDashTime;
+    }
+
+    public float getDashStopFriction()
+    {
+        return dashStopFriction;
+    }
+
+    public float getDashStopTime()
+    {
+        return dashStopTime;
+    }
+
+    public float getWalljumpVSpeed()
+    {
+        return walljumpVSpeed;
+    }
+
+    public float getWalljumpHSpeed()
+    {
+        return walljumpHSpeed;
+    }
+
+    public float getDashTurnAccel()
+    {
+        return dashTurnAccel;
+    }
+
+    public float getDashTurnTime()
+    {
+        return dashTurnTime;
+    }
+
+    public float getDashSpeed()
+    {
+        return dashSpeed;
+    }
+
+    public float getWalkTurnTime()
+    {
+        return walkTurnTime;
+    }
+
+    public float getWalkAccel()
+    {
+        return walkAccel;
+    }
+
+    public float getWalkSpeed()
+    {
+        return walkSpeed;
+    }
+
     public CharacterGeneral(List<String> code, List<String> other, float knockbackAdjustment,
                     float hitstunGravityAccel, float gravityAccel, float fastFallSpeed,
                     float maxFallSpeed, float groundFriction, float airFriction, float maxDblJumps,
