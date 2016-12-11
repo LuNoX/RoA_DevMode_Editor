@@ -14,7 +14,15 @@ public class Move
 
 	protected String[] other = null;
 	
-	public Move (String name,int startPosition, int endPosition, String[] content)
+	 /**
+     * Placeholder constructor to avoid errors in all Character classes
+     */
+    public Move()
+    {
+        //TODO make this constructor do at least something
+    }
+	
+	public Move (String name, int startPosition, int endPosition, String[] content)
 	{
 		this.name = name;
 		this.code = new String[1+endPosition-startPosition];

@@ -26,7 +26,11 @@ public class CommandStorage
     public static String window_invincibility = "invincibility_";
     public static String window_invincibility_description = "Determines the invincibility properties of the move";
     public static String window_invincibility_additional_description = "0 - not invincible \n1 - fully invincible \n2 - invincible to projectiles only";
-
+    public static String projectile_lifetime = "projectile_lifetime";
+    public static String pre_charge_window_frames = "pre_charge_window_frames";
+    public static String post_charge_window_frames = "post_charge_window_frames";
+    
+    
     public static String[] duplicateCommands =
     {CommandStorage.window_hBoost, CommandStorage.window_hBoostConst, CommandStorage.window_vBoost,
             CommandStorage.window_vBoostConst, CommandStorage.window_hasSfx, CommandStorage.window_sfx, CommandStorage.window_sfxFrame};
