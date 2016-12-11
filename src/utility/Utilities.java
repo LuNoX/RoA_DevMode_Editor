@@ -38,7 +38,7 @@ public class Utilities
 
         return result;
     }
-    
+
     public static boolean isSpecificCommand(String toBeChecked, String command)
     {
         if (!toBeChecked.contains(command))
@@ -98,6 +98,24 @@ public class Utilities
             result.add(window);
         }
 
+        return result;
+    }
+
+    public static String convertLowerCaseUnderscoresToCamelCase(
+                    String stringInLowerCaseAndSeperatedByUnderscores)
+    {
+        String result = stringInLowerCaseAndSeperatedByUnderscores;
+        String[] stringSplitByUnderscores = result.split("_");
+        
+        if (stringSplitByUnderscores.length <= 1)
+        {
+            return result;
+        }
+        result = stringSplitByUnderscores[0];
+        for (int i = 1; i < stringSplitByUnderscores.length; i++)
+        {
+            result = result + stringSplitByUnderscores[i].substring(0, 1).toUpperCase() + stringSplitByUnderscores[i].substring(1);
+        }
         return result;
     }
 }
