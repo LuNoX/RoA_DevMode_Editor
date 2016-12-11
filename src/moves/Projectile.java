@@ -1,5 +1,6 @@
 package moves;
 
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -12,37 +13,37 @@ public class Projectile extends Move
     protected float projectileGravity = 0;
     protected float projectileLifetime = 0;
 
-    public Projectile(String name, int startPosition, int endPosition, String[] content)
+    public Projectile(String name, List<String> code)
     {
-        super(name, startPosition, endPosition, content);
+        super(name, code);
         this.isProjectile = true;
-        
+
         Pattern p = Pattern.compile("\"([^\"]*)\"");
         Matcher m = null;
 
-        for (int i = 0; i < this.other.length; i++)
+        for (String command: this.other)
         {
-            if (this.other[i].contains(CommandStorage.projectileHSpeed))
+            if (command.contains(CommandStorage.projectileHSpeed))
             {
-                m = p.matcher(this.other[i]);
+                m = p.matcher(command);
                 m.find();
                 this.projectileLifetime = Float.parseFloat(m.group(1));
             }
-            else if (this.other[i].contains(CommandStorage.projectileVSpeed))
+            else if (command.contains(CommandStorage.projectileVSpeed))
             {
-                m = p.matcher(this.other[i]);
+                m = p.matcher(command);
                 m.find();
                 this.projectileLifetime = Float.parseFloat(m.group(1));
             }
-            else if (this.other[i].contains(CommandStorage.projectileGravity))
+            else if (command.contains(CommandStorage.projectileGravity))
             {
-                m = p.matcher(this.other[i]);
+                m = p.matcher(command);
                 m.find();
                 this.projectileLifetime = Float.parseFloat(m.group(1));
             }
-            if (this.other[i].contains(CommandStorage.projectileLifetime))
+            if (command.contains(CommandStorage.projectileLifetime))
             {
-                m = p.matcher(this.other[i]);
+                m = p.matcher(command);
                 m.find();
                 this.projectileLifetime = Float.parseFloat(m.group(1));
             }

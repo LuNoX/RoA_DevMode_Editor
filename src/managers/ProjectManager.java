@@ -1,11 +1,19 @@
 package managers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ProjectManager
 {
-	protected Project[] projects = null;
+	protected List<Project> projects = null;
 	
-	public ProjectManager (Project[] projects)
+	public ProjectManager (List<Project> projects)
 	{
 		this.projects = projects;
+	}
+	
+	public ProjectManager ()
+	{
+	    projects = new ArrayList<Project>();
 	}
 }

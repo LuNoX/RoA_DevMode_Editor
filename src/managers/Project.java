@@ -9,7 +9,7 @@ public class Project
 {
 	protected File directory = null;
 	
-	protected ArrayList<RoACharacter> characters = new ArrayList<RoACharacter>();
+	protected List<RoACharacter> characters = new ArrayList<RoACharacter>();
 	protected GeneralSettings general = null;
 	
 	public Project ()
@@ -92,7 +92,7 @@ public class Project
         return directory;
     }
 
-    public ArrayList<RoACharacter> getCharacters()
+    public List<RoACharacter> getCharacters()
     {
         return characters;
     }
