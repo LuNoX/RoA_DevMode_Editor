@@ -21,7 +21,7 @@ public class Projectile extends Move
         Pattern p = Pattern.compile("\"([^\"]*)\"");
         Matcher m = null;
 
-        for (String command: this.other)
+        for (String command : this.other)
         {
             if (command.contains(CommandStorage.projectileHSpeed))
             {

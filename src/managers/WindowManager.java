@@ -41,12 +41,12 @@ public class WindowManager
                 }
             }
         }
-        //add the temporary local windows to the actual window
+        // add the temporary local windows to the actual window
         for (float[] tempWindow : tempWindows)
         {
             Window window = new Window("" + tempWindow[0] + "", tempWindow[1], tempWindow[2],
-                    tempWindow[3], tempWindow[4], tempWindow[5], tempWindow[6], tempWindow[7],
-                    tempWindow[8], tempWindow[9], tempWindow[10]);
+                            tempWindow[3], tempWindow[4], tempWindow[5], tempWindow[6],
+                            tempWindow[7], tempWindow[8], tempWindow[9], tempWindow[10]);
             this.windows.add(window);
         }
         // remove everything related to the Window from the code

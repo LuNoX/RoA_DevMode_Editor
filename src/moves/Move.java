@@ -17,7 +17,7 @@ public class Move
     protected boolean isProjectile = false;
 
     protected List<String> other = null;
-    
+
     /**
      * Placeholder constructor to avoid errors in all Character classes
      */

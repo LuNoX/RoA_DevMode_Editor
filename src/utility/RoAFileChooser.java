@@ -106,7 +106,7 @@ public class RoAFileChooser
                                                       // Datei?
             {
                 System.out.println("Wrong File - You selected " + result.getName() + " instead of "
-                        + filename + ". Please try again.");
+                                + filename + ". Please try again.");
                 result = this.chooseSpecificFile(filename); // öffne die Methode
                                                             // erneut, um die
                                                             // richtige Datei
@@ -117,7 +117,7 @@ public class RoAFileChooser
 
         return result;
     }
-    
+
     public File chooseDirectory()
     {
         File result = null;

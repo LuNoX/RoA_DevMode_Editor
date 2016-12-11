@@ -37,13 +37,13 @@ public class RoACharacter
         this.initializeContent();
         this.initializeAllMovesAndGeneral();
     }
-    
+
     public void initializeContent()
     {
-        //TODO filter blank lines
+        // TODO filter blank lines
         RoAFileReader ifr = new RoAFileReader(this.characterFile);
         ifr.nextLine();
-        
+
         // save the file as an Array of Strings
         while (ifr.getActiveLine() != null)
         {
@@ -52,13 +52,13 @@ public class RoACharacter
         }
         ifr.close();
     }
-    
+
     public void initializeAllMovesAndGeneral()
     {
         String line = null;
         int startIndex = this.content.size();
         int endIndex = startIndex;
-        
+
         for (int i = this.content.size() - 1; i >= 0; i--)
         {
             line = this.content.get(i);
@@ -85,7 +85,8 @@ public class RoACharacter
                     }
                     if (isProjectile)
                     {
-                        Projectile projectile = new Projectile(name, this.content.subList(startIndex, endIndex));
+                        Projectile projectile = new Projectile(name, this.content.subList(
+                                        startIndex, endIndex));
                         this.allMoves.add(projectile);
                     }
                     else

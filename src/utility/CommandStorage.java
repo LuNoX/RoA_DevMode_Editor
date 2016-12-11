@@ -16,37 +16,45 @@ public class CommandStorage
     public static String windowVBoost = "window_v_boost_";
     public static String windowVBoostDescription = "The vertical boost during that window";
     public static String windowHBoostConst = "window_h_boost_is_const_";
-    public static String windowHBoostConstDescription = "Whether the window_h_boost is just a one-time burst or is a consistent boost during the whole window";
+    public static String windowHBoostConstDescription
+                    = "Whether the window_h_boost is just a one-time burst or is a consistent boost during the whole window";
     public static String windowVBoostConst = "window_v_boost_is_const_";
-    public static String windowVBoostConstDescription = "Whether the window_v_boost is just a one-time burst or is a consistent boost during the whole window";
+    public static String windowVBoostConstDescription
+                    = "Whether the window_v_boost is just a one-time burst or is a consistent boost during the whole window";
     public static String windowHasSfx = "window_has_sfx_";
     public static String windowHasSfxDescription = "Whether the window has a sound effect or not";
     public static String windowSfx = "window_sfx_";
     public static String windowSfxDescription = "The sound effect for the window.";
-    public static String windowSfxAdditional_description = "There is no list of sound effects, so if you want a specific sound, you'll need to copy the value from a move that already has the sound you want.";
+    public static String windowSfxAdditional_description
+                    = "There is no list of sound effects, so if you want a specific sound, you'll need to copy the value from a move that already has the sound you want.";
     public static String windowSfxFrame = "window_sfx_frame_";
-    public static String windowSfxFrameDescription = "The frame of the window where the sound effect is played";
+    public static String windowSfxFrameDescription
+                    = "The frame of the window where the sound effect is played";
     public static String windowWhiffFrames = "window_whiff_frames_";
-    public static String windowWhiffFramesDescription = "The number of frames that the window will last if you haven't hit the opponent with the move yet";
+    public static String windowWhiffFramesDescription
+                    = "The number of frames that the window will last if you haven't hit the opponent with the move yet";
     public static String windowInvincibility = "invincibility_";
-    public static String windowInvincibilityDescription = "Determines the invincibility properties of the move";
-    public static String windowInvincibilityAdditionalDescription = "0 - not invincible \n1 - fully invincible \n2 - invincible to projectiles only";
+    public static String windowInvincibilityDescription
+                    = "Determines the invincibility properties of the move";
+    public static String windowInvincibilityAdditionalDescription
+                    = "0 - not invincible \n1 - fully invincible \n2 - invincible to projectiles only";
 
     public static String projectileHSpeed = "projectile_h_speed";
     public static String projectileVSpeed = "projectile_v_speed";
     public static String projectileGravity = "projectile_gravity";
     public static String projectileLifetime = "projectile_lifetime";
 
-    public static String[] windowCommands =
-    {"id", CommandStorage.windowLength, CommandStorage.windowHBoost, CommandStorage.windowVBoost, //Id is ALWAYS at index 0
-            CommandStorage.windowHBoostConst, CommandStorage.windowVBoostConst,
-            CommandStorage.windowHasSfx, CommandStorage.windowSfx, CommandStorage.windowSfxFrame,
-            CommandStorage.windowWhiffFrames, CommandStorage.windowInvincibility};
+    public static String[] windowCommands = // Id is ALWAYS at index 0
+    {"id", CommandStorage.windowLength, CommandStorage.windowHBoost, CommandStorage.windowVBoost,
+                    CommandStorage.windowHBoostConst, CommandStorage.windowVBoostConst,
+                    CommandStorage.windowHasSfx, CommandStorage.windowSfx,
+                    CommandStorage.windowSfxFrame, CommandStorage.windowWhiffFrames,
+                    CommandStorage.windowInvincibility};
 
     public static String[] duplicateCommands =
     {CommandStorage.windowHBoost, CommandStorage.windowHBoostConst, CommandStorage.windowVBoost,
-            CommandStorage.windowVBoostConst, CommandStorage.windowHasSfx, CommandStorage.windowSfx,
-            CommandStorage.windowSfxFrame};
+                    CommandStorage.windowVBoostConst, CommandStorage.windowHasSfx,
+                    CommandStorage.windowSfx, CommandStorage.windowSfxFrame};
 
     public static boolean isSpecificCommand(String toBeChecked, String command)
     {
@@ -58,22 +66,22 @@ public class CommandStorage
         for (int i = 0; i < CommandStorage.duplicateCommands.length; i++)
         {
             if (!CommandStorage.duplicateCommands[i].equals(command) && toBeChecked.contains(
-                    CommandStorage.duplicateCommands[i]))
+                            CommandStorage.duplicateCommands[i]))
             {
                 return false;
             }
         }
         return true;
     }
-    
+
     public static List<float[]> addTempWindowCommand(List<float[]> listToBeAddedTo,
-            String commandToBeAdded, int commandPosition)
+                    String commandToBeAdded, int commandPosition)
     {
         List<float[]> result = listToBeAddedTo;
         String[] windowCommands = CommandStorage.windowCommands;
 
         int tmp = commandToBeAdded.indexOf(windowCommands[commandPosition])
-                + windowCommands[commandPosition].length();
+                        + windowCommands[commandPosition].length();
         int id = Integer.parseInt(commandToBeAdded.substring(tmp, tmp + 1));
 
         Pattern p = Pattern.compile("\"([^\"]*)\"");

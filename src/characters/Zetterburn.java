@@ -4,8 +4,8 @@ import java.io.File;
 
 public class Zetterburn extends RoACharacter
 {
-	public Zetterburn (File file)
-	{
-		super(file);
-	}
+    public Zetterburn(File file)
+    {
+        super(file);
+    }
 }
