@@ -6,7 +6,8 @@ import java.util.regex.Pattern;
 public class Hitbox
 {
     protected String id = null;
-
+    protected String name = null;
+    
     protected float parentHitbox = 0;
     protected float hitboxWindow = 0;
     protected float hitboxWindowCreationFrame = 0;
@@ -38,7 +39,7 @@ public class Hitbox
     protected float forceFlinch = 0;
     protected float hitboxShape = 0;
 
-    public Hitbox(String id, float parentHitbox, float hitboxWindow,
+    public Hitbox(String name, String id, float parentHitbox, float hitboxWindow,
                     float hitboxWindowCreationFrame, float hitboxLifetime, float baseKnockback,
                     float knockbackScaling, float knockbackAngle, float angleFlipper, float damage,
                     float hitboxSizeX, float hitboxSizeY, float hitboxPositionX,
@@ -49,6 +50,7 @@ public class Hitbox
                     float canKillProjectiles, float hitLockoutTime, float causesExtendedParryStun,
                     float forceFlinch, float hitboxShape)
     {
+        this.name = name;
         this.id = id;
         this.parentHitbox = parentHitbox;
         this.hitboxWindow = hitboxWindow;
@@ -82,7 +84,7 @@ public class Hitbox
         this.hitboxShape = hitboxShape;
     }
 
-    public Hitbox(String id, String parentHitbox, String hitboxWindow,
+    public Hitbox(String name, String id, String parentHitbox, String hitboxWindow,
                     String hitboxWindowCreationFrame, String hitboxLifetime, String baseKnockback,
                     String knockbackScaling, String knockbackAngle, String angleFlipper,
                     String damage, String hitboxSizeX, String hitboxSizeY, String hitboxPositionX,
@@ -93,6 +95,7 @@ public class Hitbox
                     String canKillProjectiles, String hitLockoutTime,
                     String causesExtendedParryStun, String forceFlinch, String hitboxShape)
     {
+        this.name = name;
         this.id = id;
         Pattern p = Pattern.compile("\"([^\"]*)\"");
         Matcher m = null;

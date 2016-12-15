@@ -18,8 +18,18 @@ public class HitboxManager
         this.code = code;
         this.determineNumberOfHitboxes();
         this.determineNumberOfMultihitboxes();
+        this.createHitboxes();
     }
-
+    
+    public void createHitboxes ()
+    {
+        for (int i = 0; i < this.code.size(); i++)
+        {
+            
+        }
+    }
+    
+    //TODO think about removing these methods
     public void determineNumberOfHitboxes()
     {
         for (int i = 0; i < this.code.size(); i++)

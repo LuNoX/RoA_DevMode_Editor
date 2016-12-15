@@ -7,37 +7,38 @@ public class CommandStorage
     // TODO add description and additional description to all fields
 
     // Window
-    public static String windowLength = "window_length_";
-    public static String windowLengthDescription = "The number of frames in a certain window";
-    public static String windowHBoost = "window_h_boost_";
-    public static String windowHBoostDescription = "The horizontal boost during that window";
-    public static String windowVBoost = "window_v_boost_";
-    public static String windowVBoostDescription = "The vertical boost during that window";
-    public static String windowHBoostConst = "window_h_boost_is_const_";
-    public static String windowHBoostConstDescription
+    public static final String windowLength = "window_length_";
+    public static final String windowLengthDescription = "The number of frames in a certain window";
+    public static final String windowHBoost = "window_h_boost_";
+    public static final String windowHBoostDescription = "The horizontal boost during that window";
+    public static final String windowVBoost = "window_v_boost_";
+    public static final String windowVBoostDescription = "The vertical boost during that window";
+    public static final String windowHBoostConst = "window_h_boost_is_const_";
+    public static final String windowHBoostConstDescription
                     = "Whether the window_h_boost is just a one-time burst or is a consistent boost during the whole window";
-    public static String windowVBoostConst = "window_v_boost_is_const_";
-    public static String windowVBoostConstDescription
+    public static final String windowVBoostConst = "window_v_boost_is_const_";
+    public static final String windowVBoostConstDescription
                     = "Whether the window_v_boost is just a one-time burst or is a consistent boost during the whole window";
-    public static String windowHasSfx = "window_has_sfx_";
-    public static String windowHasSfxDescription = "Whether the window has a sound effect or not";
-    public static String windowSfx = "window_sfx_";
-    public static String windowSfxDescription = "The sound effect for the window.";
-    public static String windowSfxAdditional_description
+    public static final String windowHasSfx = "window_has_sfx_";
+    public static final String windowHasSfxDescription
+                    = "Whether the window has a sound effect or not";
+    public static final String windowSfx = "window_sfx_";
+    public static final String windowSfxDescription = "The sound effect for the window.";
+    public static final String windowSfxAdditional_description
                     = "There is no list of sound effects, so if you want a specific sound, you'll need to copy the value from a move that already has the sound you want.";
-    public static String windowSfxFrame = "window_sfx_frame_";
-    public static String windowSfxFrameDescription
+    public static final String windowSfxFrame = "window_sfx_frame_";
+    public static final String windowSfxFrameDescription
                     = "The frame of the window where the sound effect is played";
-    public static String windowWhiffFrames = "window_whiff_frames_";
-    public static String windowWhiffFramesDescription
+    public static final String windowWhiffFrames = "window_whiff_frames_";
+    public static final String windowWhiffFramesDescription
                     = "The number of frames that the window will last if you haven't hit the opponent with the move yet";
-    public static String windowInvincibility = "invincibility_";
-    public static String windowInvincibilityDescription
+    public static final String windowInvincibility = "invincibility_";
+    public static final String windowInvincibilityDescription
                     = "Determines the invincibility properties of the move";
-    public static String windowInvincibilityAdditionalDescription
+    public static final String windowInvincibilityAdditionalDescription
                     = "0 - not invincible \n1 - fully invincible \n2 - invincible to projectiles only";
 
-    public static String[] windowCommands =
+    public static final String[] windowCommands =
     {"This is a placeholder string representing the id of the window and is here for convenience of conversion between this Array and tempWindow Arrays",
                     CommandStorage.windowLength, CommandStorage.windowHBoost,
                     CommandStorage.windowVBoost, CommandStorage.windowHBoostConst,
@@ -45,69 +46,104 @@ public class CommandStorage
                     CommandStorage.windowSfx, CommandStorage.windowSfxFrame,
                     CommandStorage.windowWhiffFrames, CommandStorage.windowInvincibility};
 
+    // Hitbox
+    public static final String numHitboxes = "num_hitboxes";
+    public static final String numUniqueHitboxes = "num_unique_hitboxes";
+    public static final String numFinalHitboxes = "num_final_hitboxes";
+    public static final String parentHitbox = "parent_hitbox_";
+    public static final String hitboxWindow = "hitbox_window_";
+    public static final String hitboxWindowCreationFrame = "hitbox_window_creation_frame_";
+    public static final String hitboxLifetime = "hitbox_lifetime_";
+    public static final String baseKnockback = "base_knockback_";
+    public static final String knockbackScaling = "knockback_scaling_";
+    public static final String knockbackAngle_ = "knockback_angle_";
+    public static final String angleFlipper_ = "angle_flipper_";
+    public static final String damage = "damage_";
+    public static final String hitboxSizeX = "hitbox_size_x_";
+    public static final String hitboxSizeY = "hitbox_size_y_";
+    public static final String hitboxPositionX = "hitbox_position_x_1";
+    public static final String hitboxPositionY = "hitbox_position_y_1";
+    public static final String hitEffect_ = "hit_effect_";
+    public static final String asdiModifier_ = "asdi_modifier_";
+    public static final String hitstunModifier_ = "hitstun_modifier_";
+    public static final String untechable = "untechable_";
+    public static final String priority = "priority_";
+    public static final String baseHitpause_ = "base_hitpause_";
+    public static final String hitpauseScaling_ = "hitpause_scaling_";
+    public static final String visualEffect = "visual_effect_";
+    public static final String visualEffectXOffset_ = "visual_effect_x_offset_";
+    public static final String visualEffectYOffset_ = "visual_effect_y_offset_";
+    public static final String hitSoundEffect_ = "hit_sound_effect_";
+    public static final String extraCameraShake_ = "extra_camera_shake_";
+    public static final String canKillProjectiles_ = "can_kill_projectiles_";
+    public static final String hitLockoutTime_ = "hit_lockout_time_";
+    public static final String causesExtendedParryStun = "causes_extended_parry_stun_";
+    public static final String forceFlinch = "force_flinch_";
+    public static final String hitboxShape = "hitbox_shape_";
+
     // Move
-    public static String projectileHSpeed = "projectile_h_speed";
-    public static String projectileVSpeed = "projectile_v_speed";
-    public static String projectileGravity = "projectile_gravity";
-    public static String projectileLifetime = "projectile_lifetime";
+    public static final String projectileHSpeed = "projectile_h_speed";
+    public static final String projectileVSpeed = "projectile_v_speed";
+    public static final String projectileGravity = "projectile_gravity";
+    public static final String projectileLifetime = "projectile_lifetime";
 
     // General
-    public static String knockbackAdjustment = "knockback_adjustment";
-    public static String hitstunGravityAccel = "hitstun_gravity_accel";
-    public static String gravityAccel = "gravity_accel";
-    public static String fastFallSpeed = "fast_fall_speed";
-    public static String maxFallSpeed = "max_fall_speed";
-    public static String groundFriction = "ground_friction";
-    public static String airFriction = "air_friction";
-    public static String maxDblJumps = "max_dbl_jumps";
-    public static String maxJumpHSpeed = "max_jump_h_speed";
-    public static String dblJumpSpeed = "dbl_jump_speed";
-    public static String shortHopSpeed = "short_hop_speed";
-    public static String jumpSpeed = "jump_speed";
-    public static String airAccel = "air_accel";
-    public static String maxAirSpeed = "max_air_speed";
-    public static String rollBackwardSpeed = "roll_backward_speed";
-    public static String rollBackwardRecoveryTime = "roll_backward_recovery_time";
-    public static String rollBackwardActiveTime = "roll_backward_active_time";
-    public static String rollBackwardStartupTime = "roll_backward_startup_time";
-    public static String rollForwardSpeed = "roll_forward_speed";
-    public static String rollForwardRecoveryTime = "roll_forward_recovery_time";
-    public static String rollForwardActiveTime = "roll_forward_active_time";
-    public static String rollForwardStartupTime = "roll_forward_startup_time";
-    public static String airDodgeSpeed = "air_dodge_speed";
-    public static String airDodgeRecoveryTime = "air_dodge_recovery_time";
-    public static String airDodgeActiveTime = "air_dodge_active_time";
-    public static String airDodgeStartupTime = "air_dodge_startup_time";
-    public static String techrollSpeed = "techroll_speed";
-    public static String techrollRecoveryTime = "techroll_recovery_time";
-    public static String techrollActiveTime = "techroll_active_time";
-    public static String techrollStartupTime = "techroll_startup_time";
-    public static String techRecoveryTime = "tech_recovery_time";
-    public static String techActiveTime = "tech_active_time";
-    public static String parryRecoveryTime = "parry_recovery_time";
-    public static String parryActiveTime = "parry_active_time";
-    public static String parryStartupTime = "parry_startup_time";
-    public static String waveLandFriction = "wave_land_friction";
-    public static String waveLandTime = "wave_land_time";
-    public static String jumpStartTime = "jump_start_time";
-    public static String pratFallAccel = "prat_fall_accel";
-    public static String pratLandTime = "prat_land_time";
-    public static String landTime = "land_time";
-    public static String initialDashSpeed = "initial_dash_speed";
-    public static String initialDashAccel = "initial_dash_accel";
-    public static String initialDashTime = "initial_dash_time";
-    public static String dashStopFriction = "dash_stop_friction";
-    public static String dashStopTime = "dash_stop_time";
-    public static String walljumpVSpeed = "walljump_v_speed";
-    public static String walljumpHSpeed = "walljump_h_speed";
-    public static String dashTurnAccel = "dash_turn_accel";
-    public static String dashTurnTime = "dash_turn_time";
-    public static String dashSpeed = "dash_speed";
-    public static String walkTurnTime = "walk_turn_time";
-    public static String walkAccel = "walk_accel";
-    public static String walkSpeed = "walk_speed";
+    public static final String knockbackAdjustment = "knockback_adjustment";
+    public static final String hitstunGravityAccel = "hitstun_gravity_accel";
+    public static final String gravityAccel = "gravity_accel";
+    public static final String fastFallSpeed = "fast_fall_speed";
+    public static final String maxFallSpeed = "max_fall_speed";
+    public static final String groundFriction = "ground_friction";
+    public static final String airFriction = "air_friction";
+    public static final String maxDblJumps = "max_dbl_jumps";
+    public static final String maxJumpHSpeed = "max_jump_h_speed";
+    public static final String dblJumpSpeed = "dbl_jump_speed";
+    public static final String shortHopSpeed = "short_hop_speed";
+    public static final String jumpSpeed = "jump_speed";
+    public static final String airAccel = "air_accel";
+    public static final String maxAirSpeed = "max_air_speed";
+    public static final String rollBackwardSpeed = "roll_backward_speed";
+    public static final String rollBackwardRecoveryTime = "roll_backward_recovery_time";
+    public static final String rollBackwardActiveTime = "roll_backward_active_time";
+    public static final String rollBackwardStartupTime = "roll_backward_startup_time";
+    public static final String rollForwardSpeed = "roll_forward_speed";
+    public static final String rollForwardRecoveryTime = "roll_forward_recovery_time";
+    public static final String rollForwardActiveTime = "roll_forward_active_time";
+    public static final String rollForwardStartupTime = "roll_forward_startup_time";
+    public static final String airDodgeSpeed = "air_dodge_speed";
+    public static final String airDodgeRecoveryTime = "air_dodge_recovery_time";
+    public static final String airDodgeActiveTime = "air_dodge_active_time";
+    public static final String airDodgeStartupTime = "air_dodge_startup_time";
+    public static final String techrollSpeed = "techroll_speed";
+    public static final String techrollRecoveryTime = "techroll_recovery_time";
+    public static final String techrollActiveTime = "techroll_active_time";
+    public static final String techrollStartupTime = "techroll_startup_time";
+    public static final String techRecoveryTime = "tech_recovery_time";
+    public static final String techActiveTime = "tech_active_time";
+    public static final String parryRecoveryTime = "parry_recovery_time";
+    public static final String parryActiveTime = "parry_active_time";
+    public static final String parryStartupTime = "parry_startup_time";
+    public static final String waveLandFriction = "wave_land_friction";
+    public static final String waveLandTime = "wave_land_time";
+    public static final String jumpStartTime = "jump_start_time";
+    public static final String pratFallAccel = "prat_fall_accel";
+    public static final String pratLandTime = "prat_land_time";
+    public static final String landTime = "land_time";
+    public static final String initialDashSpeed = "initial_dash_speed";
+    public static final String initialDashAccel = "initial_dash_accel";
+    public static final String initialDashTime = "initial_dash_time";
+    public static final String dashStopFriction = "dash_stop_friction";
+    public static final String dashStopTime = "dash_stop_time";
+    public static final String walljumpVSpeed = "walljump_v_speed";
+    public static final String walljumpHSpeed = "walljump_h_speed";
+    public static final String dashTurnAccel = "dash_turn_accel";
+    public static final String dashTurnTime = "dash_turn_time";
+    public static final String dashSpeed = "dash_speed";
+    public static final String walkTurnTime = "walk_turn_time";
+    public static final String walkAccel = "walk_accel";
+    public static final String walkSpeed = "walk_speed";
 
-    public static String[] generalCommands =
+    public static final String[] generalCommands =
     {CommandStorage.knockbackAdjustment, CommandStorage.hitstunGravityAccel,
                     CommandStorage.gravityAccel, CommandStorage.fastFallSpeed,
                     CommandStorage.maxFallSpeed, CommandStorage.groundFriction,
@@ -136,20 +172,19 @@ public class CommandStorage
                     CommandStorage.walkTurnTime, CommandStorage.walkAccel,
                     CommandStorage.walkSpeed};
 
-    //File names
-    public static String customAbsa = "custom_Absa.ini";
-    public static String customEtalus = "custom_Etalus.ini";
-    public static String customForsburn = "custom_Forsburn.ini";
-    public static String customKragg = "custom_Kragg.ini";
-    public static String customMaypul = "custom_Maypul.ini";
-    public static String customOrcane = "custom_Orcane.ini";
-    public static String customWrastor = "custom_Wrastor.ini";
-    public static String customZetterburn = "custom_Zetterburn.ini";
-    public static String customGeneral = "custom_General.ini";
-    
-    
+    // File names
+    public static final String customAbsa = "custom_Absa.ini";
+    public static final String customEtalus = "custom_Etalus.ini";
+    public static final String customForsburn = "custom_Forsburn.ini";
+    public static final String customKragg = "custom_Kragg.ini";
+    public static final String customMaypul = "custom_Maypul.ini";
+    public static final String customOrcane = "custom_Orcane.ini";
+    public static final String customWrastor = "custom_Wrastor.ini";
+    public static final String customZetterburn = "custom_Zetterburn.ini";
+    public static final String customGeneral = "custom_General.ini";
+
     // Other
-    public static String[] duplicateCommands =
+    public static final String[] duplicateCommands =
     {CommandStorage.windowHBoost, CommandStorage.windowHBoostConst, CommandStorage.windowVBoost,
                     CommandStorage.windowVBoostConst, CommandStorage.windowHasSfx,
                     CommandStorage.windowSfx, CommandStorage.windowSfxFrame};
