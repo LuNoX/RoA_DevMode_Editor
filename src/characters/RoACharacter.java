@@ -40,7 +40,6 @@ public class RoACharacter
 
     public void initializeContent()
     {
-        // TODO filter blank lines
         RoAFileReader ifr = new RoAFileReader(this.characterFile);
         ifr.nextLine();
 
