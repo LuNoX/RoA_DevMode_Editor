@@ -16,7 +16,7 @@ public class test_HitboxManager
 
         for (Move move : cm.getAllMoves())
         {
-            System.out.println(move.getHm().getNumberOfMultihitboxes());
+            System.out.println(move.getName() + ": " + move.getHm().getNumberOfMultihitboxes());
         }
     }
 
