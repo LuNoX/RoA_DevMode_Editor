@@ -28,6 +28,7 @@ public class Move
 
     public Move(String name, List<String> code)
     {
+        this.name = name;
         this.code = code;
         this.other = code;
         this.initializeWindows();
