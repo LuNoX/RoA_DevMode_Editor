@@ -19,7 +19,6 @@ public class WindowManager
 
     public void createWindows()
     {
-        String[] windowCommands = CommandStorage.windowCommands;
         int[] commandPositions = new int[this.code.size()];
         int numberOfCommands = 0;
 
@@ -31,9 +30,9 @@ public class WindowManager
         for (int i = 0; i < this.code.size(); i++)
         {
             String command = this.code.get(i);
-            for (int j = 0; j < windowCommands.length; j++)
+            for (int j = 0; j < CommandStorage.windowCommands.length; j++)
             {
-                if (Utilities.isSpecificCommand(command, windowCommands[j]))
+                if (Utilities.isSpecificCommand(command, CommandStorage.windowCommands[j]))
                 {
                     tempWindows = Utilities.addTempWindowCommand(tempWindows, command, j);
                     numberOfCommands++;
