@@ -37,6 +37,7 @@ public class WindowManager
                     tempWindows = Utilities.addTempWindowCommand(tempWindows, command, j);
                     numberOfCommands++;
                     commandPositions[numberOfCommands - 1] = i;
+                    break;
                 }
             }
         }
