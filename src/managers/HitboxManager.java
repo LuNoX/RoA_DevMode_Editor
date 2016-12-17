@@ -12,6 +12,7 @@ public class HitboxManager
     protected List<String> code = null;
 
     protected boolean hasHitboxes = false;
+    protected boolean hasMultihitbox = false;
     protected List<Hitbox> hitboxes = new ArrayList<Hitbox>();
 
     protected int numberOfHitboxes = 0;
@@ -26,15 +27,15 @@ public class HitboxManager
         this.determineNumberOfMultihitboxes();
         this.createHitboxes();
     }
-    
-    public void createHitboxes ()
+
+    public void createHitboxes()
     {
         for (int i = 0; i < this.code.size(); i++)
         {
-            
+
         }
     }
-    
+
     public void determineNumberOfHitboxes()
     {
         boolean numHitboxesSaved = false;
@@ -43,7 +44,7 @@ public class HitboxManager
         int[] commandPositions = new int[3];
         Pattern p = Pattern.compile("\"([^\"]*)\"");
         Matcher m = null;
-        
+
         for (int i = 0; i < this.code.size(); i++)
         {
             String command = this.code.get(i);
@@ -84,9 +85,9 @@ public class HitboxManager
                 break;
             }
         }
-        
+
         Arrays.sort(commandPositions);
-        for (int i = commandPositions.length-1; i >= 0 ; i--)
+        for (int i = commandPositions.length - 1; i >= 0; i--)
         {
             this.code.remove(i);
         }
@@ -97,6 +98,7 @@ public class HitboxManager
         if (this.numberOfUniqueHitboxes == this.numberOfHitboxes)
         {
             this.numberOfMultihitboxes = 0;
+            this.hasMultihitbox = false;
         }
         else
         {
@@ -111,18 +113,18 @@ public class HitboxManager
                     int tmp = command.indexOf(CommandStorage.parentHitbox)
                                     + CommandStorage.parentHitbox.length();
                     int id = Integer.parseInt(command.substring(tmp, tmp + 1));
-                    
+
                     m = p.matcher(command);
                     m.find();
                     int value = (int) Float.parseFloat(m.group(1));
-                    
-                    parentIds[id-1] = value;
+
+                    parentIds[id - 1] = value;
                 }
             }
             int[] numberOfChildrenPerHitbox = new int[this.numberOfHitboxes];
             for (int i = 0; i < parentIds.length; i++)
             {
-                numberOfChildrenPerHitbox[parentIds[i]-1]++;
+                numberOfChildrenPerHitbox[parentIds[i] - 1]++;
             }
             int numberOfMultihitboxes = 0;
             for (int i = 0; i < numberOfChildrenPerHitbox.length; i++)
@@ -133,6 +135,10 @@ public class HitboxManager
                 }
             }
             this.numberOfMultihitboxes = numberOfMultihitboxes;
+            if (this.numberOfMultihitboxes > 0) //just in case
+            {
+                this.hasMultihitbox = true;
+            }
         }
     }
 
@@ -140,7 +146,7 @@ public class HitboxManager
     {
         return this.code;
     }
-    
+
     public boolean isHasHitboxes()
     {
         return hasHitboxes;
