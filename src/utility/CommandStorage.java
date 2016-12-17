@@ -56,30 +56,48 @@ public class CommandStorage
     public static final String hitboxLifetime = "hitbox_lifetime_";
     public static final String baseKnockback = "base_knockback_";
     public static final String knockbackScaling = "knockback_scaling_";
-    public static final String knockbackAngle_ = "knockback_angle_";
-    public static final String angleFlipper_ = "angle_flipper_";
+    public static final String knockbackAngle = "knockback_angle_";
+    public static final String angleFlipper = "angle_flipper_";
     public static final String damage = "damage_";
     public static final String hitboxSizeX = "hitbox_size_x_";
     public static final String hitboxSizeY = "hitbox_size_y_";
     public static final String hitboxPositionX = "hitbox_position_x_1";
     public static final String hitboxPositionY = "hitbox_position_y_1";
-    public static final String hitEffect_ = "hit_effect_";
-    public static final String asdiModifier_ = "asdi_modifier_";
-    public static final String hitstunModifier_ = "hitstun_modifier_";
+    public static final String hitEffect = "hit_effect_";
+    public static final String asdiModifier = "asdi_modifier_";
+    public static final String hitstunModifier = "hitstun_modifier_";
     public static final String untechable = "untechable_";
     public static final String priority = "priority_";
-    public static final String baseHitpause_ = "base_hitpause_";
-    public static final String hitpauseScaling_ = "hitpause_scaling_";
+    public static final String baseHitpause = "base_hitpause_";
+    public static final String hitpauseScaling = "hitpause_scaling_";
     public static final String visualEffect = "visual_effect_";
-    public static final String visualEffectXOffset_ = "visual_effect_x_offset_";
-    public static final String visualEffectYOffset_ = "visual_effect_y_offset_";
-    public static final String hitSoundEffect_ = "hit_sound_effect_";
-    public static final String extraCameraShake_ = "extra_camera_shake_";
-    public static final String canKillProjectiles_ = "can_kill_projectiles_";
-    public static final String hitLockoutTime_ = "hit_lockout_time_";
+    public static final String visualEffectXOffset = "visual_effect_x_offset_";
+    public static final String visualEffectYOffset = "visual_effect_y_offset_";
+    public static final String hitSoundEffect = "hit_sound_effect_";
+    public static final String extraCameraShake = "extra_camera_shake_";
+    public static final String canKillProjectiles = "can_kill_projectiles_";
+    public static final String hitLockoutTime = "hit_lockout_time_";
     public static final String causesExtendedParryStun = "causes_extended_parry_stun_";
     public static final String forceFlinch = "force_flinch_";
     public static final String hitboxShape = "hitbox_shape_";
+
+    public static final String[] hitboxCommands =
+    {CommandStorage.numHitboxes, CommandStorage.numUniqueHitboxes, CommandStorage.numFinalHitboxes,
+                    CommandStorage.parentHitbox, CommandStorage.hitboxWindow,
+                    CommandStorage.hitboxWindowCreationFrame, CommandStorage.hitboxLifetime,
+                    CommandStorage.baseKnockback, CommandStorage.knockbackScaling,
+                    CommandStorage.knockbackAngle, CommandStorage.angleFlipper,
+                    CommandStorage.damage, CommandStorage.hitboxSizeX, CommandStorage.hitboxSizeY,
+                    CommandStorage.hitboxPositionX, CommandStorage.hitboxPositionY,
+                    CommandStorage.hitEffect, CommandStorage.asdiModifier,
+                    CommandStorage.hitstunModifier, CommandStorage.untechable,
+                    CommandStorage.priority, CommandStorage.baseHitpause,
+                    CommandStorage.hitpauseScaling, CommandStorage.visualEffect,
+                    CommandStorage.visualEffectXOffset, CommandStorage.visualEffectYOffset,
+                    CommandStorage.hitSoundEffect, CommandStorage.extraCameraShake,
+                    CommandStorage.canKillProjectiles, CommandStorage.hitLockoutTime,
+                    CommandStorage.causesExtendedParryStun, CommandStorage.forceFlinch,
+                    CommandStorage.hitboxShape};
 
     // Move
     public static final String projectileHSpeed = "projectile_h_speed";
