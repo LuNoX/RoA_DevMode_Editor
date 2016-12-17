@@ -47,8 +47,11 @@ public class RoACharacter
         // save the file as an Array of Strings
         while (ifr.getActiveLine() != null)
         {
-            this.content.add(ifr.getActiveLine());
-            ifr.nextLine();
+            if (!ifr.getActiveLine().equals(""))
+            {
+                this.content.add(ifr.getActiveLine());
+                ifr.nextLine();
+            }
         }
         ifr.close();
     }

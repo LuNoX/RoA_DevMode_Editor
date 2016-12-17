@@ -39,6 +39,7 @@ public class RoAFileReader
         try
         {
             this.activeLine = reader.readLine();
+            this.activeLine.trim(); //this may cause errors
         }
         catch (IOException e)
         {
