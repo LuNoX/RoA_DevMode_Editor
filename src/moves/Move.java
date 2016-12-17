@@ -9,7 +9,8 @@ public class Move
 {
     protected String name = null;
 
-    protected List<String> code = null; //TODO think about the consequences of removing this.other, is there a reason to have the copy?
+    protected List<String> code = null; // TODO think about the consequences of removing this.other,
+                                        // is there a reason to have the copy?
 
     protected HitboxManager hm = null;
     protected WindowManager wm = null;

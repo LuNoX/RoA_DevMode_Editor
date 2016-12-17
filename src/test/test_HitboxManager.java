@@ -1,6 +1,7 @@
 package test;
 
 import characters.RoACharacter;
+import managers.Hitbox;
 import moves.Move;
 import utility.RoAFileChooser;
 
@@ -16,7 +17,10 @@ public class test_HitboxManager
 
         for (Move move : cm.getAllMoves())
         {
-            System.out.println(move.getName() + ": " + move.getHm().getNumberOfMultihitboxes());
+            for (Hitbox hitbox : move.getHm().getHitboxes())
+            {
+                System.out.println(hitbox.getBaseHitpause());
+            }
         }
     }
 

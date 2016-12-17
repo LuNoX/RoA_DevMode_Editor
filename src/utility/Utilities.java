@@ -41,18 +41,25 @@ public class Utilities
 
     public static boolean isSpecificCommand(String toBeChecked, String command)
     {
+        // System.out.println(toBeChecked + " " + command);
         if (!toBeChecked.contains(command))
         {
             return false;
         }
         for (int i = 0; i < CommandStorage.duplicateCommands.length; i++)
         {
-            if (!CommandStorage.duplicateCommands[i].equals(command) && toBeChecked.contains(
+            //System.out.println(CommandStorage.duplicateCommands[i]);
+            // System.out.println(!CommandStorage.duplicateCommands[i].equals(command) + " "
+            // + toBeChecked.contains(CommandStorage.duplicateCommands[i]));
+            if (toBeChecked.contains(CommandStorage.duplicateCommands[i]) && !command.equals(
                             CommandStorage.duplicateCommands[i]))
             {
                 return false;
+
             }
         }
+        // System.out.println(toBeChecked + " " + command);
+        // System.out.println(matches);
         return true;
     }
 
@@ -60,10 +67,9 @@ public class Utilities
                     String commandToBeAdded, int commandPosition)
     {
         List<float[]> result = listToBeAddedTo;
-        String[] windowCommands = CommandStorage.windowCommands;
 
-        int tmp = commandToBeAdded.indexOf(windowCommands[commandPosition])
-                        + windowCommands[commandPosition].length();
+        int tmp = commandToBeAdded.indexOf(CommandStorage.windowCommands[commandPosition])
+                        + CommandStorage.windowCommands[commandPosition].length();
         int id = Integer.parseInt(commandToBeAdded.substring(tmp, tmp + 1));
 
         Pattern p = Pattern.compile("\"([^\"]*)\"");
@@ -82,7 +88,7 @@ public class Utilities
         }
         if (!belongsToExistingWindow)
         {
-            float[] window = new float[windowCommands.length];
+            float[] window = new float[CommandStorage.windowCommands.length];
             window[0] = id;
             for (int i = 1; i < window.length; i++)
             {
@@ -106,7 +112,7 @@ public class Utilities
     {
         String result = stringInLowerCaseAndSeperatedByUnderscores;
         String[] stringSplitByUnderscores = result.split("_");
-        
+
         if (stringSplitByUnderscores.length <= 1)
         {
             return result;
@@ -114,7 +120,26 @@ public class Utilities
         result = stringSplitByUnderscores[0];
         for (int i = 1; i < stringSplitByUnderscores.length; i++)
         {
-            result = result + stringSplitByUnderscores[i].substring(0, 1).toUpperCase() + stringSplitByUnderscores[i].substring(1);
+            result = result + stringSplitByUnderscores[i].substring(0, 1).toUpperCase()
+                            + stringSplitByUnderscores[i].substring(1);
+        }
+        return result;
+    }
+
+    public static String[][] generateTempHitboxes(int numberOfHitboxes)
+    {
+        String[][] result = new String[numberOfHitboxes][CommandStorage.hitboxCommands.length];
+        for (int i = 0; i < result.length; i++)
+        {
+            for (int j = 0; j < result[i].length; j++)
+            {
+                result[i][j] = "\"0\"";
+            }
+        }
+        for (int i = 0; i < result.length; i++)
+        {
+            int id = i + 1;
+            result[i][0] = id + "";
         }
         return result;
     }

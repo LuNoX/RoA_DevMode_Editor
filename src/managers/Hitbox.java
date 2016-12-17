@@ -6,8 +6,7 @@ import java.util.regex.Pattern;
 public class Hitbox
 {
     protected String id = null;
-    protected String name = null;
-    
+
     protected float parentHitbox = 0;
     protected float hitboxWindow = 0;
     protected float hitboxWindowCreationFrame = 0;
@@ -39,7 +38,7 @@ public class Hitbox
     protected float forceFlinch = 0;
     protected float hitboxShape = 0;
 
-    public Hitbox(String id, String name, float parentHitbox, float hitboxWindow,
+    public Hitbox(String id, float parentHitbox, float hitboxWindow,
                     float hitboxWindowCreationFrame, float hitboxLifetime, float baseKnockback,
                     float knockbackScaling, float knockbackAngle, float angleFlipper, float damage,
                     float hitboxSizeX, float hitboxSizeY, float hitboxPositionX,
@@ -51,7 +50,6 @@ public class Hitbox
                     float forceFlinch, float hitboxShape)
     {
         this.id = id;
-        this.name = name;
         this.parentHitbox = parentHitbox;
         this.hitboxWindow = hitboxWindow;
         this.hitboxWindowCreationFrame = hitboxWindowCreationFrame;
@@ -84,7 +82,7 @@ public class Hitbox
         this.hitboxShape = hitboxShape;
     }
 
-    public Hitbox(String id, String name, String parentHitbox, String hitboxWindow,
+    public Hitbox(String id, String parentHitbox, String hitboxWindow,
                     String hitboxWindowCreationFrame, String hitboxLifetime, String baseKnockback,
                     String knockbackScaling, String knockbackAngle, String angleFlipper,
                     String damage, String hitboxSizeX, String hitboxSizeY, String hitboxPositionX,
@@ -96,7 +94,6 @@ public class Hitbox
                     String causesExtendedParryStun, String forceFlinch, String hitboxShape)
     {
         this.id = id;
-        this.name = name;
         Pattern p = Pattern.compile("\"([^\"]*)\"");
         Matcher m = null;
 
@@ -219,6 +216,18 @@ public class Hitbox
         m = p.matcher(hitboxShape);
         m.find();
         this.hitboxShape = Float.parseFloat(m.group(1));
+    }
+
+    public Hitbox(String[] tempHitbox)
+    {
+        this(tempHitbox[0], tempHitbox[1], tempHitbox[2], tempHitbox[3], tempHitbox[4],
+                        tempHitbox[5], tempHitbox[6], tempHitbox[7], tempHitbox[8], tempHitbox[9],
+                        tempHitbox[10], tempHitbox[11], tempHitbox[12], tempHitbox[13],
+                        tempHitbox[14], tempHitbox[15], tempHitbox[16], tempHitbox[17],
+                        tempHitbox[18], tempHitbox[19], tempHitbox[20], tempHitbox[21],
+                        tempHitbox[22], tempHitbox[23], tempHitbox[24], tempHitbox[25],
+                        tempHitbox[26], tempHitbox[27], tempHitbox[28], tempHitbox[29],
+                        tempHitbox[30]);
     }
 
     public String getId()

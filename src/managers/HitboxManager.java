@@ -11,7 +11,7 @@ public class HitboxManager
 {
     protected List<String> code = null;
 
-    protected boolean hasHitboxes = false;
+    protected boolean hasHitbox = false;
     protected boolean hasMultihitbox = false;
     protected List<Hitbox> hitboxes = new ArrayList<Hitbox>();
 
@@ -19,6 +19,9 @@ public class HitboxManager
     protected int numberOfUniqueHitboxes = 0;
     protected int numberOfFinalHitboxes = 0;
     protected int numberOfMultihitboxes = 0;
+
+    protected int[] multihitIds = null;
+    protected int[] finalIds = null;
 
     public HitboxManager(List<String> code)
     {
@@ -30,9 +33,85 @@ public class HitboxManager
 
     public void createHitboxes()
     {
+        int numberOfCommands = 0;
+        int[] commandPositions = new int[this.code.size()];
+        String append = "_";
+        if (this.numberOfHitboxes == 1)
+        {
+            append = "";
+        }
+
+        Pattern p = Pattern.compile("\"([^\"]*)\"");
+        Matcher m = null;
+
+        String[][] tempHitboxes = Utilities.generateTempHitboxes(this.numberOfHitboxes);
+
         for (int i = 0; i < this.code.size(); i++)
         {
+            String command = this.code.get(i);
 
+            for (int j = 0; j < CommandStorage.hitboxCommands.length; j++)
+            {
+                String specificCommand = CommandStorage.hitboxCommands[j] + append;
+                if (Utilities.isSpecificCommand(command, CommandStorage.hitboxCommands[j]))
+                {
+                    m = p.matcher(command);
+                    m.find();
+                    String value = "\"" + m.group(1) + "\"";
+                    if (this.hasMultihitbox && CommandStorage.isMultihitOrFinalCommand[j])
+                    {
+                        int[] respectiveHitboxIds = this.multihitIds;
+                        if (command.contains("final"))
+                        {
+                            respectiveHitboxIds = this.finalIds;
+                        }
+
+                        if (respectiveHitboxIds.length > 1)
+                        {
+                            int id = 1;
+                            if (this.numberOfHitboxes > 0)
+                            {
+                                int tmp = command.indexOf(specificCommand + "multihit_")
+                                                + (specificCommand + "multihit_").length();
+                                id = Integer.parseInt(command.substring(tmp, tmp + 1));
+                            }
+                            tempHitboxes[respectiveHitboxIds[id - 1] - 1][j] = value;
+                        }
+                        else
+                        {
+                            tempHitboxes[respectiveHitboxIds[0] - 1][j] = value;
+                        }
+
+                    }
+                    else
+                    {
+                        int tmp = command.indexOf(specificCommand) + specificCommand.length();
+                        int id = 1;
+                        if (this.numberOfHitboxes > 1)
+                        {
+                            id = Integer.parseInt(command.substring(tmp, tmp + 1));
+                        }
+                        tempHitboxes[id - 1][j] = value;
+                    }
+                    numberOfCommands++;
+                    commandPositions[numberOfCommands - 1] = i;
+                    break;
+                }
+            }
+        }
+        // create Hitboxes
+        for (int i = 0; i < tempHitboxes.length; i++)
+        {
+            Hitbox hitbox = new Hitbox(tempHitboxes[i]);
+            this.hitboxes.add(hitbox);
+        }
+        // remove everything related to the Hitboxes from the code
+        Arrays.sort(commandPositions); // sort the indices and then go through the list backwards to
+                                       // avoid index errors
+        for (int i = numberOfCommands - 1; i >= 0; i--) // dont use commandPositions.length because
+                                                        // the Array is far longer than needed
+        {
+            this.code.remove(commandPositions[i]);
         }
     }
 
@@ -57,7 +136,7 @@ public class HitboxManager
                 this.numberOfHitboxes = numberOfHitboxes;
                 if (numberOfHitboxes > 0)
                 {
-                    this.hasHitboxes = true;
+                    this.hasHitbox = true;
                 }
                 numHitboxesSaved = true;
                 commandPositions[0] = i;
@@ -89,7 +168,7 @@ public class HitboxManager
         Arrays.sort(commandPositions);
         for (int i = commandPositions.length - 1; i >= 0; i--)
         {
-            this.code.remove(i);
+            this.code.remove(commandPositions[i]);
         }
     }
 
@@ -99,6 +178,13 @@ public class HitboxManager
         {
             this.numberOfMultihitboxes = 0;
             this.hasMultihitbox = false;
+            this.determineMultihitAndFinalIds(new int[0]);
+        }
+        else if (this.numberOfHitboxes == 1)
+        {
+            this.numberOfMultihitboxes = 0;
+            this.hasMultihitbox = false;
+            this.determineMultihitAndFinalIds(new int[0]);
         }
         else
         {
@@ -110,8 +196,8 @@ public class HitboxManager
                 String command = this.code.get(i);
                 if (Utilities.isSpecificCommand(command, CommandStorage.parentHitbox))
                 {
-                    int tmp = command.indexOf(CommandStorage.parentHitbox)
-                                    + CommandStorage.parentHitbox.length();
+                    int tmp = command.indexOf(CommandStorage.parentHitbox+"_")
+                                    + (CommandStorage.parentHitbox + "_").length();
                     int id = Integer.parseInt(command.substring(tmp, tmp + 1));
 
                     m = p.matcher(command);
@@ -134,12 +220,41 @@ public class HitboxManager
                     numberOfMultihitboxes++;
                 }
             }
-            this.numberOfMultihitboxes = numberOfMultihitboxes;
-            if (this.numberOfMultihitboxes > 0) //just in case
+            this.numberOfMultihitboxes = numberOfMultihitboxes - this.numberOfFinalHitboxes;
+            if (this.numberOfMultihitboxes > 0) // just in case
             {
                 this.hasMultihitbox = true;
             }
+
+            this.determineMultihitAndFinalIds(numberOfChildrenPerHitbox);
         }
+    }
+
+    public void determineMultihitAndFinalIds(int[] numberOfChildrenPerHitbox)
+    {
+        int[] multihitIds = new int[this.numberOfMultihitboxes];
+        int[] finalIds = new int[this.numberOfFinalHitboxes];
+
+        int tmp = 0;
+
+        for (int i = 0; i < numberOfChildrenPerHitbox.length; i++)
+        {
+            if (numberOfChildrenPerHitbox[i] > 0)
+            {
+                if (tmp < multihitIds.length)
+                {
+                    multihitIds[tmp] = i + 1;
+                    tmp++;
+                }
+                else
+                {
+                    finalIds[tmp - multihitIds.length] = i + 1;
+                    tmp++;
+                }
+            }
+        }
+        this.multihitIds = multihitIds;
+        this.finalIds = finalIds;
     }
 
     public List<String> getCodeWithoutHitboxCommands()
@@ -149,7 +264,7 @@ public class HitboxManager
 
     public boolean isHasHitboxes()
     {
-        return hasHitboxes;
+        return hasHitbox;
     }
 
     public List<Hitbox> getHitboxes()
@@ -175,5 +290,15 @@ public class HitboxManager
     public int getNumberOfMultihitboxes()
     {
         return numberOfMultihitboxes;
+    }
+
+    public int[] getMultihitIds()
+    {
+        return multihitIds;
+    }
+
+    public int[] getFinalIds()
+    {
+        return finalIds;
     }
 }

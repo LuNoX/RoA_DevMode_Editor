@@ -88,9 +88,12 @@ public class RoACharacter
                     }
                     if (isProjectile)
                     {
-                        Projectile projectile = new Projectile(name, this.content.subList(
-                                        startIndex, endIndex));
-                        this.allMoves.add(projectile);
+                        if (!name.equals("CLOUD_BURST")) //TODO implement character specific move classes
+                        {
+                            Projectile projectile = new Projectile(name, this.content.subList(
+                                            startIndex, endIndex));
+                            this.allMoves.add(projectile);
+                        }
                     }
                     else
                     {
