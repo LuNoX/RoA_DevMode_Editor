@@ -39,7 +39,7 @@ public class Hitbox
     protected float forceFlinch = 0;
     protected float hitboxShape = 0;
 
-    public Hitbox(String name, String id, float parentHitbox, float hitboxWindow,
+    public Hitbox(String id, String name, float parentHitbox, float hitboxWindow,
                     float hitboxWindowCreationFrame, float hitboxLifetime, float baseKnockback,
                     float knockbackScaling, float knockbackAngle, float angleFlipper, float damage,
                     float hitboxSizeX, float hitboxSizeY, float hitboxPositionX,
@@ -50,8 +50,8 @@ public class Hitbox
                     float canKillProjectiles, float hitLockoutTime, float causesExtendedParryStun,
                     float forceFlinch, float hitboxShape)
     {
-        this.name = name;
         this.id = id;
+        this.name = name;
         this.parentHitbox = parentHitbox;
         this.hitboxWindow = hitboxWindow;
         this.hitboxWindowCreationFrame = hitboxWindowCreationFrame;
@@ -84,7 +84,7 @@ public class Hitbox
         this.hitboxShape = hitboxShape;
     }
 
-    public Hitbox(String name, String id, String parentHitbox, String hitboxWindow,
+    public Hitbox(String id, String name, String parentHitbox, String hitboxWindow,
                     String hitboxWindowCreationFrame, String hitboxLifetime, String baseKnockback,
                     String knockbackScaling, String knockbackAngle, String angleFlipper,
                     String damage, String hitboxSizeX, String hitboxSizeY, String hitboxPositionX,
@@ -95,8 +95,8 @@ public class Hitbox
                     String canKillProjectiles, String hitLockoutTime,
                     String causesExtendedParryStun, String forceFlinch, String hitboxShape)
     {
-        this.name = name;
         this.id = id;
+        this.name = name;
         Pattern p = Pattern.compile("\"([^\"]*)\"");
         Matcher m = null;
 
