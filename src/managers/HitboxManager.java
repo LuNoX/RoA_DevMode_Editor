@@ -22,6 +22,8 @@ public class HitboxManager
 
     protected int[] multihitIds = null;
     protected int[] finalIds = null;
+    
+    //TODO think about implementing an enum that determines multihibox type
 
     public HitboxManager(List<String> code)
     {
@@ -185,6 +187,14 @@ public class HitboxManager
             this.numberOfMultihitboxes = 0;
             this.hasMultihitbox = false;
             this.determineMultihitAndFinalIds(new int[0]);
+        }
+        else if (this.numberOfUniqueHitboxes == 1)
+        {
+            this.numberOfMultihitboxes = 1;
+            this.hasMultihitbox = true;
+            int[] numberOfChildrenPerHitbox = new int[this.numberOfHitboxes];
+            numberOfChildrenPerHitbox[0] = this.numberOfHitboxes;
+            this.determineMultihitAndFinalIds(numberOfChildrenPerHitbox);
         }
         else
         {

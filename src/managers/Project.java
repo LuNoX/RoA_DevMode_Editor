@@ -36,7 +36,7 @@ public class Project
 
     public void addCharacter(File file)
     {
-        String name = file.getName();
+        String name = file.getName(); //TODO think about making this an enum
 
         if (name.equals(CommandStorage.customAbsa))
         {

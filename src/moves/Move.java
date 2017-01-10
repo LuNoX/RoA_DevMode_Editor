@@ -16,6 +16,8 @@ public class Move
     protected WindowManager wm = null;
 
     protected boolean isProjectile = false;
+    
+    //TODO add cooldown and autocancel
 
     protected List<String> other = null;
 
