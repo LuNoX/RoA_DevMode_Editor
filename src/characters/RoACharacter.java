@@ -5,8 +5,7 @@ import java.io.File;
 import java.util.ArrayList;
 
 import generals.CharacterGeneral;
-import moves.Move;
-import moves.Projectile;
+import moves.*;
 import utility.*;
 
 public class RoACharacter
@@ -15,6 +14,7 @@ public class RoACharacter
     protected List<String> content = new ArrayList<String>();
 
     protected List<Move> allMoves = new ArrayList<Move>();
+    protected List<Move> characterSpecificMoves = new ArrayList<Move>();
     protected CharacterGeneral general = null;
 
     // TODO make this abstract
@@ -76,28 +76,45 @@ public class RoACharacter
                 }
                 else
                 {
-                    boolean isProjectile = false;
-                    for (int j = startIndex; j < endIndex; j++)
+                    boolean isCharacterSpecific = false;
+                    for (int j = 0; j < CommandStorage.characterSpecificMoveNames.length; j++)
                     {
-                        if (this.content.get(j).contains(CommandStorage.projectileLifetime))
+                        if(name.equals(CommandStorage.characterSpecificMoveNames[j]))
                         {
-                            isProjectile = true;
+                            isCharacterSpecific = true;
+                            CharacterSpecificMove charcterSpecificMove = new CharacterSpecificMove(name, this.content.subList(
+                                                startIndex, endIndex));
+                            this.characterSpecificMoves.add(charcterSpecificMove);
                             break;
                         }
                     }
-                    if (isProjectile)
+                    if (!isCharacterSpecific)
                     {
-                        if (!name.equals("CLOUD_BURST")) //TODO implement character specific move classes
+                        boolean isProjectile = false;
+                        for (int k = startIndex; k < endIndex; k++)
                         {
-                            Projectile projectile = new Projectile(name, this.content.subList(
-                                            startIndex, endIndex));
-                            this.allMoves.add(projectile);
+                            if (this.content.get(k).contains(CommandStorage.projectileLifetime))
+                            {
+                                isProjectile = true;
+                                break;
+                            }
                         }
-                    }
-                    else if(!name.equals("BUBBLES")) //TODO remove this since its for debugging only
-                    {
-                        Move move = new Move(name, this.content.subList(startIndex, endIndex));
-                        this.allMoves.add(move);
+                        if (isProjectile)
+                        {
+                            if (!name.equals("CLOUD_BURST")) // TODO implement character specific
+                                                             // move classes
+                            {
+                                Projectile projectile = new Projectile(name, this.content.subList(
+                                                startIndex, endIndex));
+                                this.allMoves.add(projectile);
+                            }
+                        }
+                        else if (!name.equals("BUBBLES")) // TODO remove this since its for
+                                                          // debugging only
+                        {
+                            Move move = new Move(name, this.content.subList(startIndex, endIndex));
+                            this.allMoves.add(move);
+                        }
                     }
                 }
             }
