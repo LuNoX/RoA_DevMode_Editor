@@ -24,7 +24,7 @@ public class CommandStorage
                     = "Whether the window has a sound effect or not";
     public static final String windowSfx = "window_sfx_";
     public static final String windowSfxDescription = "The sound effect for the window.";
-    public static final String windowSfxAdditional_description
+    public static final String windowSfxAdditionalDescription
                     = "There is no list of sound effects, so if you want a specific sound, you'll need to copy the value from a move that already has the sound you want.";
     public static final String windowSfxFrame = "window_sfx_frame_";
     public static final String windowSfxFrameDescription
@@ -132,13 +132,23 @@ public class CommandStorage
                     true, // forceFlinch
                     true, // hitboxShape
     };
-
-    // Move
+    
+    //Move
+    public static final String hasCooldown = "has_cooldown";
+    public static final String cooldown = "cooldown";
+    public static final String autocancelFrame = "autocancel_frame";
+    public static final String landingLag = "landing_lag";
+    
+    public static final String[] moveCommands = {CommandStorage.hasCooldown, CommandStorage.cooldown, CommandStorage.autocancelFrame, CommandStorage.landingLag};
+    
+    // Projectile
     public static final String projectileHSpeed = "projectile_h_speed";
     public static final String projectileVSpeed = "projectile_v_speed";
     public static final String projectileGravity = "projectile_gravity";
     public static final String projectileLifetime = "projectile_lifetime";
 
+    public static final String[] projectileCommands = {CommandStorage.projectileHSpeed, CommandStorage.projectileVSpeed, CommandStorage.projectileGravity, CommandStorage.projectileLifetime};
+    
     // General
     public static final String knockbackAdjustment = "knockback_adjustment";
     public static final String hitstunGravityAccel = "hitstun_gravity_accel";
@@ -241,4 +251,5 @@ public class CommandStorage
                     CommandStorage.windowHasSfx, CommandStorage.windowSfxFrame,
                     CommandStorage.hitboxWindowCreationFrame, CommandStorage.visualEffectXOffset,
                     CommandStorage.visualEffectYOffset};
+    public static final String[] characterSpecificMoveNames = {"BUBBLES", "CLOUD_BURST"};
 }
