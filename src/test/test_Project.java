@@ -1,6 +1,8 @@
 package test;
 
+import managers.Hitbox;
 import managers.Project;
+import moves.Move;
 import utility.RoAFileChooser;
 
 public class test_Project
@@ -14,13 +16,20 @@ public class test_Project
 
         for (int i = 0; i < prj.getCharacters().size(); i++)
         {
-            if (prj.getCharacters().get(i).getClass().getName() == "characters.Etalus")
+            if (prj.getCharacters().get(i).getClass().getName() == "characters.Orcane")
             {
-                for (int j = 0; j < prj.getCharacters().get(i).getAllMoves().get(4).getWm()
-                                .getWindows().size(); j++)
+                for (Move move : prj.getCharacters().get(i).getAllMoves())
                 {
-                    System.out.println(prj.getCharacters().get(i).getAllMoves().get(4).getWm()
-                                    .getWindows().get(j).getLength());
+                    System.out.println(move.getName());
+                    System.out.println("Number of Hitboxes: " + move.getHm().getHitboxes().size());
+                    for (Hitbox hitbox : move.getHm().getHitboxes())
+                    {
+                        System.out.println("Hitbox id: " + hitbox.getId());
+                        System.out.println("Hitbox parent id: " + hitbox.getParentHitbox());
+                        System.out.println("Hitbox base hitpause: " + hitbox.getBaseHitpause());
+                        System.out.println("Hitbox window creation frame: " + hitbox.getHitboxWindowCreationFrame());
+                    }
+                    System.out.println("______________");
                 }
                 break;
             }

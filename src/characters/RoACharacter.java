@@ -15,11 +15,19 @@ public class RoACharacter
 
     protected List<Move> allMoves = new ArrayList<Move>();
     protected List<Move> characterSpecificMoves = new ArrayList<Move>();
+    protected String[] characterSpecificMoveNames = new String[0];
     protected CharacterGeneral general = null;
 
     // TODO make this abstract
     public RoACharacter(File character)
     {
+        this.characterFile = character;
+        this.initializeEveryting();
+    }
+    
+    public RoACharacter(File character, String[] characterSpecificMoveNames)
+    {
+        this.characterSpecificMoveNames = characterSpecificMoveNames;
         this.characterFile = character;
         this.initializeEveryting();
     }
@@ -77,9 +85,9 @@ public class RoACharacter
                 else
                 {
                     boolean isCharacterSpecific = false;
-                    for (int j = 0; j < CommandStorage.characterSpecificMoveNames.length; j++)
+                    for (int j = 0; j < this.characterSpecificMoveNames.length; j++)
                     {
-                        if (name.equals(CommandStorage.characterSpecificMoveNames[j]))
+                        if (name.equals(this.characterSpecificMoveNames[j]))
                         {
                             isCharacterSpecific = true;
                             CharacterSpecificMove charcterSpecificMove = new CharacterSpecificMove(

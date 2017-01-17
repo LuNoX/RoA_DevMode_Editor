@@ -239,15 +239,15 @@ public class CommandStorage
                     CommandStorage.walkSpeed};
 
     // File names
-    public static final String customAbsa = "custom_Absa.ini";
-    public static final String customEtalus = "custom_Etalus.ini";
-    public static final String customForsburn = "custom_Forsburn.ini";
-    public static final String customKragg = "custom_Kragg.ini";
-    public static final String customMaypul = "custom_Maypul.ini";
-    public static final String customOrcane = "custom_Orcane.ini";
-    public static final String customWrastor = "custom_Wrastor.ini";
-    public static final String customZetterburn = "custom_Zetterburn.ini";
-    public static final String customGeneral = "custom_General.ini";
+    public static final String customAbsa = "custom_absa.ini";
+    public static final String customEtalus = "custom_etalus.ini";
+    public static final String customForsburn = "custom_forsburn.ini";
+    public static final String customKragg = "custom_kragg.ini";
+    public static final String customMaypul = "custom_maypul.ini";
+    public static final String customOrcane = "custom_orcane.ini";
+    public static final String customWrastor = "custom_wrastor.ini";
+    public static final String customZetterburn = "custom_zetterburn.ini";
+    public static final String customGeneral = "custom_general.ini";
 
     // Other
     public static final String[] duplicateCommands =
@@ -255,6 +255,15 @@ public class CommandStorage
                     CommandStorage.windowHasSfx, CommandStorage.windowSfxFrame,
                     CommandStorage.hitboxWindowCreationFrame, CommandStorage.visualEffectXOffset,
                     CommandStorage.visualEffectYOffset};
+    
     public static final String[] characterSpecificMoveNames =
-    {"BUBBLES", "CLOUD_BURST"};
+    {"Orcane.BUBBLES", "Absa.CLOUD_BURST", "Wrastor.NSPECIAL", "Kragg.FSPECIAL", "Kragg.NSPECIAL"};
+    
+    public static final String[] wrastorSpecificMoveNames = {"NSPECIAL"};
+    
+    public static final String[] orcaneSpecificMoveNames = {"BUBBLES"};
+    
+    public static final String[] absaSpecificMoveNames = {"CLOUD_BURST"};
+    
+    public static final String[] kraggSpecificMoveNames = {"NSPECIAL", "FSPECIAL"};
 }
