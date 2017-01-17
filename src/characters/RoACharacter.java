@@ -79,11 +79,11 @@ public class RoACharacter
                     boolean isCharacterSpecific = false;
                     for (int j = 0; j < CommandStorage.characterSpecificMoveNames.length; j++)
                     {
-                        if(name.equals(CommandStorage.characterSpecificMoveNames[j]))
+                        if (name.equals(CommandStorage.characterSpecificMoveNames[j]))
                         {
                             isCharacterSpecific = true;
-                            CharacterSpecificMove charcterSpecificMove = new CharacterSpecificMove(name, this.content.subList(
-                                                startIndex, endIndex));
+                            CharacterSpecificMove charcterSpecificMove = new CharacterSpecificMove(
+                                            name, this.content.subList(startIndex, endIndex));
                             this.characterSpecificMoves.add(charcterSpecificMove);
                             break;
                         }
@@ -101,16 +101,11 @@ public class RoACharacter
                         }
                         if (isProjectile)
                         {
-                            if (!name.equals("CLOUD_BURST")) // TODO implement character specific
-                                                             // move classes
-                            {
-                                Projectile projectile = new Projectile(name, this.content.subList(
-                                                startIndex, endIndex));
-                                this.allMoves.add(projectile);
-                            }
+                            Projectile projectile = new Projectile(name, this.content.subList(
+                                            startIndex, endIndex));
+                            this.allMoves.add(projectile);
                         }
-                        else if (!name.equals("BUBBLES")) // TODO remove this since its for
-                                                          // debugging only
+                        else
                         {
                             Move move = new Move(name, this.content.subList(startIndex, endIndex));
                             this.allMoves.add(move);

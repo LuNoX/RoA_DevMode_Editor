@@ -57,7 +57,6 @@ public class WindowManager
         }
     }
 
-    
     public List<String> getCodeWithoutWindowCommands()
     {
         return this.code;

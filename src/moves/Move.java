@@ -26,8 +26,6 @@ public class Move
     protected boolean isAutocancelable = false;
     protected float autocancelFrame = 0;
     protected float landingLag = 0;
-    
-    //TODO add cooldown and autocancel
 
     protected List<String> other = null;
 
@@ -60,29 +58,29 @@ public class Move
         this.hm = new HitboxManager(this.other);
         this.other = hm.getCodeWithoutHitboxCommands();
     }
-    
+
     public void initializeOtherValues()
     {
         int numberOfCommands = 0;
         int[] commandPositions = new int[this.other.size()];
-        
+
         Pattern p = Pattern.compile("\"([^\"]*)\"");
         Matcher m = null;
-        
+
         for (int i = 0; i < this.other.size(); i++)
         {
             String command = this.other.get(i);
-            
-            if(Utilities.isSpecificCommand(command, CommandStorage.hasCooldown))
+
+            if (Utilities.isSpecificCommand(command, CommandStorage.hasCooldown))
             {
                 m = p.matcher(command);
                 m.find();
                 float value = Float.parseFloat(m.group(1));
-                if(value > 0)
+                if (value > 0)
                 {
                     this.hasCooldown = true;
                 }
-                
+
                 numberOfCommands++;
                 commandPositions[numberOfCommands - 1] = i;
             }
@@ -92,7 +90,7 @@ public class Move
                 m.find();
                 float value = Float.parseFloat(m.group(1));
                 this.cooldown = value;
-                
+
                 numberOfCommands++;
                 commandPositions[numberOfCommands - 1] = i;
             }
@@ -103,7 +101,7 @@ public class Move
                 float value = Float.parseFloat(m.group(1));
                 this.isAutocancelable = true;
                 this.autocancelFrame = value;
-                
+
                 numberOfCommands++;
                 commandPositions[numberOfCommands - 1] = i;
             }
@@ -114,12 +112,12 @@ public class Move
                 float value = Float.parseFloat(m.group(1));
                 this.isAutocancelable = true;
                 this.landingLag = value;
-                
+
                 numberOfCommands++;
                 commandPositions[numberOfCommands - 1] = i;
             }
         }
-        
+
         // remove the commands from the code
         Arrays.sort(commandPositions); // sort the indices and then go through the list backwards to
                                        // avoid index errors

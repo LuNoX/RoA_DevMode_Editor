@@ -21,26 +21,26 @@ public class Projectile extends Move
         this.isProjectile = true;
         this.initializeProjectileValues();
     }
-    
+
     public void initializeProjectileValues()
     {
         int numberOfCommands = 0;
         int[] commandPositions = new int[this.other.size()];
-        
+
         Pattern p = Pattern.compile("\"([^\"]*)\"");
         Matcher m = null;
-        
+
         for (int i = 0; i < this.other.size(); i++)
         {
             String command = this.other.get(i);
-            
-            if(Utilities.isSpecificCommand(command, CommandStorage.projectileHSpeed))
+
+            if (Utilities.isSpecificCommand(command, CommandStorage.projectileHSpeed))
             {
                 m = p.matcher(command);
                 m.find();
                 float value = Float.parseFloat(m.group(1));
                 this.projectileHSpeed = value;
-                
+
                 numberOfCommands++;
                 commandPositions[numberOfCommands - 1] = i;
             }
@@ -50,7 +50,7 @@ public class Projectile extends Move
                 m.find();
                 float value = Float.parseFloat(m.group(1));
                 this.projectileVSpeed = value;
-                
+
                 numberOfCommands++;
                 commandPositions[numberOfCommands - 1] = i;
             }
@@ -60,7 +60,7 @@ public class Projectile extends Move
                 m.find();
                 float value = Float.parseFloat(m.group(1));
                 this.projectileGravity = value;
-                
+
                 numberOfCommands++;
                 commandPositions[numberOfCommands - 1] = i;
             }
@@ -70,7 +70,7 @@ public class Projectile extends Move
                 m.find();
                 float value = Float.parseFloat(m.group(1));
                 this.projectileLifetime = value;
-                
+
                 numberOfCommands++;
                 commandPositions[numberOfCommands - 1] = i;
             }
