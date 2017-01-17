@@ -13,13 +13,17 @@ public class test_HitboxManager
         RoAFileChooser ifc = new RoAFileChooser();
 
         RoACharacter cm = new RoACharacter(ifc.chooseFile(
-                        "C:\\Users\\Timo\\Desktop\\roa editor\\active\\custom_absa.ini"));
+                        "E:\\Schule\\Informatik\\recources\\active\\custom_orcane.ini"));
 
         for (Move move : cm.getAllMoves())
         {
+            System.out.println("Move name: " + move.getName());
+            System.out.println("Number of Hitboxes: " + move.getHm().getHitboxes().size());
             for (Hitbox hitbox : move.getHm().getHitboxes())
             {
-                System.out.println(hitbox.getBaseHitpause());
+                System.out.println("Hitbox id: " + hitbox.getId());
+                System.out.println("Hitbox parent id: " + hitbox.getParentHitbox());
+                System.out.println("Hitbox base hitpause: " + hitbox.getBaseHitpause());
             }
         }
     }

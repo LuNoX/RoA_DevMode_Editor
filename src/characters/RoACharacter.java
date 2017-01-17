@@ -94,7 +94,7 @@ public class RoACharacter
                             this.allMoves.add(projectile);
                         }
                     }
-                    else
+                    else if(!name.equals("BUBBLES")) //TODO remove this since its for debugging only
                     {
                         Move move = new Move(name, this.content.subList(startIndex, endIndex));
                         this.allMoves.add(move);
