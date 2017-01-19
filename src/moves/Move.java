@@ -22,10 +22,10 @@ public class Move
 
     protected boolean isProjectile = false;
     protected boolean hasCooldown = false;
-    protected float cooldown = 0;
+    protected double cooldown = 0;
     protected boolean isAutocancelable = false;
-    protected float autocancelFrame = 0;
-    protected float landingLag = 0;
+    protected double autocancelFrame = 0;
+    protected double landingLag = 0;
 
     protected List<String> other = null;
 
@@ -75,7 +75,7 @@ public class Move
             {
                 m = p.matcher(command);
                 m.find();
-                float value = Float.parseFloat(m.group(1));
+                double value = Double.parseDouble(m.group(1));
                 if (value > 0)
                 {
                     this.hasCooldown = true;
@@ -88,7 +88,7 @@ public class Move
             {
                 m = p.matcher(command);
                 m.find();
-                float value = Float.parseFloat(m.group(1));
+                double value = Double.parseDouble(m.group(1));
                 this.cooldown = value;
 
                 numberOfCommands++;
@@ -98,7 +98,7 @@ public class Move
             {
                 m = p.matcher(command);
                 m.find();
-                float value = Float.parseFloat(m.group(1));
+                double value = Double.parseDouble(m.group(1));
                 this.isAutocancelable = true;
                 this.autocancelFrame = value;
 
@@ -109,7 +109,7 @@ public class Move
             {
                 m = p.matcher(command);
                 m.find();
-                float value = Float.parseFloat(m.group(1));
+                double value = Double.parseDouble(m.group(1));
                 this.isAutocancelable = true;
                 this.landingLag = value;
 

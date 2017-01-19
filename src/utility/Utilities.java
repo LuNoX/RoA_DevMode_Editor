@@ -63,10 +63,10 @@ public class Utilities
         return true;
     }
 
-    public static List<float[]> addTempWindowCommand(List<float[]> listToBeAddedTo,
+    public static List<double[]> addTempWindowCommand(List<double[]> listToBeAddedTo,
                     String commandToBeAdded, int commandPosition)
     {
-        List<float[]> result = listToBeAddedTo;
+        List<double[]> result = listToBeAddedTo;
 
         int tmp = commandToBeAdded.indexOf(CommandStorage.windowCommands[commandPosition])
                         + CommandStorage.windowCommands[commandPosition].length();
@@ -75,10 +75,10 @@ public class Utilities
         Pattern p = Pattern.compile("\"([^\"]*)\"");
         Matcher m = p.matcher(commandToBeAdded);
         m.find();
-        Float value = Float.parseFloat(m.group(1));
+        Double value = Double.parseDouble(m.group(1));
 
         boolean belongsToExistingWindow = false;
-        for (float[] window : result)
+        for (double[] window : result)
         {
             if (id == window[0])
             {
@@ -88,7 +88,7 @@ public class Utilities
         }
         if (!belongsToExistingWindow)
         {
-            float[] window = new float[CommandStorage.windowCommands.length];
+            double[] window = new double[CommandStorage.windowCommands.length];
             window[0] = id;
             for (int i = 1; i < window.length; i++)
             {

@@ -134,7 +134,7 @@ public class HitboxManager
                 m = p.matcher(command);
                 m.find();
 
-                int numberOfHitboxes = (int) Float.parseFloat(m.group(1));
+                int numberOfHitboxes = (int) Double.parseDouble(m.group(1));
                 this.numberOfHitboxes = numberOfHitboxes;
                 if (numberOfHitboxes > 0)
                 {
@@ -147,7 +147,7 @@ public class HitboxManager
             {
                 m = p.matcher(command);
                 m.find();
-                int numberOfUniqueHitboxes = (int) Float.parseFloat(m.group(1));
+                int numberOfUniqueHitboxes = (int) Double.parseDouble(m.group(1));
                 this.numberOfUniqueHitboxes = numberOfUniqueHitboxes;
                 numUniqueHitboxesSaved = true;
                 commandPositions[1] = i;
@@ -156,7 +156,7 @@ public class HitboxManager
             {
                 m = p.matcher(command);
                 m.find();
-                int numberOfFinalHitboxes = (int) Float.parseFloat(m.group(1));
+                int numberOfFinalHitboxes = (int) Double.parseDouble(m.group(1));
                 this.numberOfFinalHitboxes = numberOfFinalHitboxes;
                 numFinalHitboxesSaved = true;
                 commandPositions[2] = i;
@@ -212,7 +212,7 @@ public class HitboxManager
 
                     m = p.matcher(command);
                     m.find();
-                    int value = (int) Float.parseFloat(m.group(1));
+                    int value = (int) Double.parseDouble(m.group(1));
 
                     parentIds[id - 1] = value;
                 }

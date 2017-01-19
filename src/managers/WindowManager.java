@@ -22,7 +22,7 @@ public class WindowManager
         int[] commandPositions = new int[this.code.size()];
         int numberOfCommands = 0;
 
-        List<float[]> tempWindows = new ArrayList<float[]>();
+        List<double[]> tempWindows = new ArrayList<double[]>();
         // windows are going to be saved temporarily like this {localID, length,
         // hboost, vboost, hBoostConst, vBoostConst, hasSfx, sfx, sfxFrame,
         // whiffFrames, invincibility}
@@ -42,7 +42,7 @@ public class WindowManager
             }
         }
         // add the temporary local windows to the actual window
-        for (float[] tempWindow : tempWindows)
+        for (double[] tempWindow : tempWindows)
         {
             Window window = new Window("" + tempWindow[0] + "", tempWindow[1], tempWindow[2],
                             tempWindow[3], tempWindow[4], tempWindow[5], tempWindow[6],

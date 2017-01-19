@@ -10,10 +10,10 @@ import utility.Utilities;
 
 public class Projectile extends Move
 {
-    protected float projectileHSpeed = 0;
-    protected float projectileVSpeed = 0;
-    protected float projectileGravity = 0;
-    protected float projectileLifetime = 0;
+    protected double projectileHSpeed = 0;
+    protected double projectileVSpeed = 0;
+    protected double projectileGravity = 0;
+    protected double projectileLifetime = 0;
 
     public Projectile(String name, List<String> code)
     {
@@ -38,7 +38,7 @@ public class Projectile extends Move
             {
                 m = p.matcher(command);
                 m.find();
-                float value = Float.parseFloat(m.group(1));
+                double value = Double.parseDouble(m.group(1));
                 this.projectileHSpeed = value;
 
                 numberOfCommands++;
@@ -48,7 +48,7 @@ public class Projectile extends Move
             {
                 m = p.matcher(command);
                 m.find();
-                float value = Float.parseFloat(m.group(1));
+                double value = Double.parseDouble(m.group(1));
                 this.projectileVSpeed = value;
 
                 numberOfCommands++;
@@ -58,7 +58,7 @@ public class Projectile extends Move
             {
                 m = p.matcher(command);
                 m.find();
-                float value = Float.parseFloat(m.group(1));
+                double value = Double.parseDouble(m.group(1));
                 this.projectileGravity = value;
 
                 numberOfCommands++;
@@ -68,7 +68,7 @@ public class Projectile extends Move
             {
                 m = p.matcher(command);
                 m.find();
-                float value = Float.parseFloat(m.group(1));
+                double value = Double.parseDouble(m.group(1));
                 this.projectileLifetime = value;
 
                 numberOfCommands++;

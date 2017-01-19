@@ -14,60 +14,60 @@ public class CharacterGeneral
     protected List<String> code = null;
     protected List<String> other = null;
 
-    protected float knockbackAdjustment = 0;
-    protected float hitstunGravityAccel = 0;
-    protected float gravityAccel = 0;
-    protected float fastFallSpeed = 0;
-    protected float maxFallSpeed = 0;
-    protected float groundFriction = 0;
-    protected float airFriction = 0;
-    protected float maxDblJumps = 0;
-    protected float maxJumpHSpeed = 0;
-    protected float dblJumpSpeed = 0;
-    protected float shortHopSpeed = 0;
-    protected float jumpSpeed = 0;
-    protected float airAccel = 0;
-    protected float maxAirSpeed = 0;
-    protected float rollBackwardSpeed = 0;
-    protected float rollBackwardRecoveryTime = 0;
-    protected float rollBackwardActiveTime = 0;
-    protected float rollBackwardStartupTime = 0;
-    protected float rollForwardSpeed = 0;
-    protected float rollForwardRecoveryTime = 0;
-    protected float rollForwardActiveTime = 0;
-    protected float rollForwardStartupTime = 0;
-    protected float airDodgeSpeed = 0;
-    protected float airDodgeRecoveryTime = 0;
-    protected float airDodgeActiveTime = 0;
-    protected float airDodgeStartupTime = 0;
-    protected float techrollSpeed = 0;
-    protected float techrollRecoveryTime = 0;
-    protected float techrollActiveTime = 0;
-    protected float techrollStartupTime = 0;
-    protected float techRecoveryTime = 0;
-    protected float techActiveTime = 0;
-    protected float parryRecoveryTime = 0;
-    protected float parryActiveTime = 0;
-    protected float parryStartupTime = 0;
-    protected float waveLandFriction = 0;
-    protected float waveLandTime = 0;
-    protected float jumpStartTime = 0;
-    protected float pratFallAccel = 0;
-    protected float pratLandTime = 0;
-    protected float landTime = 0;
-    protected float initialDashSpeed = 0;
-    protected float initialDashAccel = 0;
-    protected float initialDashTime = 0;
-    protected float dashStopFriction = 0;
-    protected float dashStopTime = 0;
-    protected float walljumpVSpeed = 0;
-    protected float walljumpHSpeed = 0;
-    protected float dashTurnAccel = 0;
-    protected float dashTurnTime = 0;
-    protected float dashSpeed = 0;
-    protected float walkTurnTime = 0;
-    protected float walkAccel = 0;
-    protected float walkSpeed = 0;
+    protected double knockbackAdjustment = 0;
+    protected double hitstunGravityAccel = 0;
+    protected double gravityAccel = 0;
+    protected double fastFallSpeed = 0;
+    protected double maxFallSpeed = 0;
+    protected double groundFriction = 0;
+    protected double airFriction = 0;
+    protected double maxDblJumps = 0;
+    protected double maxJumpHSpeed = 0;
+    protected double dblJumpSpeed = 0;
+    protected double shortHopSpeed = 0;
+    protected double jumpSpeed = 0;
+    protected double airAccel = 0;
+    protected double maxAirSpeed = 0;
+    protected double rollBackwardSpeed = 0;
+    protected double rollBackwardRecoveryTime = 0;
+    protected double rollBackwardActiveTime = 0;
+    protected double rollBackwardStartupTime = 0;
+    protected double rollForwardSpeed = 0;
+    protected double rollForwardRecoveryTime = 0;
+    protected double rollForwardActiveTime = 0;
+    protected double rollForwardStartupTime = 0;
+    protected double airDodgeSpeed = 0;
+    protected double airDodgeRecoveryTime = 0;
+    protected double airDodgeActiveTime = 0;
+    protected double airDodgeStartupTime = 0;
+    protected double techrollSpeed = 0;
+    protected double techrollRecoveryTime = 0;
+    protected double techrollActiveTime = 0;
+    protected double techrollStartupTime = 0;
+    protected double techRecoveryTime = 0;
+    protected double techActiveTime = 0;
+    protected double parryRecoveryTime = 0;
+    protected double parryActiveTime = 0;
+    protected double parryStartupTime = 0;
+    protected double waveLandFriction = 0;
+    protected double waveLandTime = 0;
+    protected double jumpStartTime = 0;
+    protected double pratFallAccel = 0;
+    protected double pratLandTime = 0;
+    protected double landTime = 0;
+    protected double initialDashSpeed = 0;
+    protected double initialDashAccel = 0;
+    protected double initialDashTime = 0;
+    protected double dashStopFriction = 0;
+    protected double dashStopTime = 0;
+    protected double walljumpVSpeed = 0;
+    protected double walljumpHSpeed = 0;
+    protected double dashTurnAccel = 0;
+    protected double dashTurnTime = 0;
+    protected double dashSpeed = 0;
+    protected double walkTurnTime = 0;
+    protected double walkAccel = 0;
+    protected double walkSpeed = 0;
 
     /**
      * Placeholder constructor to avoid errors in all CharacterGeneral classes
@@ -103,7 +103,7 @@ public class CharacterGeneral
                 {
                     m = p.matcher(command);
                     m.find();
-                    float value = Float.parseFloat(m.group(1));
+                    double value = Double.parseDouble(m.group(1));
                     Field declaredField = null;
                     try
                     {
@@ -149,272 +149,272 @@ public class CharacterGeneral
         return other;
     }
 
-    public float getKnockbackAdjustment()
+    public double getKnockbackAdjustment()
     {
         return knockbackAdjustment;
     }
 
-    public float getHitstunGravityAccel()
+    public double getHitstunGravityAccel()
     {
         return hitstunGravityAccel;
     }
 
-    public float getGravityAccel()
+    public double getGravityAccel()
     {
         return gravityAccel;
     }
 
-    public float getFastFallSpeed()
+    public double getFastFallSpeed()
     {
         return fastFallSpeed;
     }
 
-    public float getMaxFallSpeed()
+    public double getMaxFallSpeed()
     {
         return maxFallSpeed;
     }
 
-    public float getGroundFriction()
+    public double getGroundFriction()
     {
         return groundFriction;
     }
 
-    public float getAirFriction()
+    public double getAirFriction()
     {
         return airFriction;
     }
 
-    public float getMaxDblJumps()
+    public double getMaxDblJumps()
     {
         return maxDblJumps;
     }
 
-    public float getMaxJumpHSpeed()
+    public double getMaxJumpHSpeed()
     {
         return maxJumpHSpeed;
     }
 
-    public float getDblJumpSpeed()
+    public double getDblJumpSpeed()
     {
         return dblJumpSpeed;
     }
 
-    public float getShortHopSpeed()
+    public double getShortHopSpeed()
     {
         return shortHopSpeed;
     }
 
-    public float getJumpSpeed()
+    public double getJumpSpeed()
     {
         return jumpSpeed;
     }
 
-    public float getAirAccel()
+    public double getAirAccel()
     {
         return airAccel;
     }
 
-    public float getMaxAirSpeed()
+    public double getMaxAirSpeed()
     {
         return maxAirSpeed;
     }
 
-    public float getRollBackwardSpeed()
+    public double getRollBackwardSpeed()
     {
         return rollBackwardSpeed;
     }
 
-    public float getRollBackwardRecoveryTime()
+    public double getRollBackwardRecoveryTime()
     {
         return rollBackwardRecoveryTime;
     }
 
-    public float getRollBackwardActiveTime()
+    public double getRollBackwardActiveTime()
     {
         return rollBackwardActiveTime;
     }
 
-    public float getRollBackwardStartupTime()
+    public double getRollBackwardStartupTime()
     {
         return rollBackwardStartupTime;
     }
 
-    public float getRollForwardSpeed()
+    public double getRollForwardSpeed()
     {
         return rollForwardSpeed;
     }
 
-    public float getRollForwardRecoveryTime()
+    public double getRollForwardRecoveryTime()
     {
         return rollForwardRecoveryTime;
     }
 
-    public float getRollForwardActiveTime()
+    public double getRollForwardActiveTime()
     {
         return rollForwardActiveTime;
     }
 
-    public float getRollForwardStartupTime()
+    public double getRollForwardStartupTime()
     {
         return rollForwardStartupTime;
     }
 
-    public float getAirDodgeSpeed()
+    public double getAirDodgeSpeed()
     {
         return airDodgeSpeed;
     }
 
-    public float getAirDodgeRecoveryTime()
+    public double getAirDodgeRecoveryTime()
     {
         return airDodgeRecoveryTime;
     }
 
-    public float getAirDodgeActiveTime()
+    public double getAirDodgeActiveTime()
     {
         return airDodgeActiveTime;
     }
 
-    public float getAirDodgeStartupTime()
+    public double getAirDodgeStartupTime()
     {
         return airDodgeStartupTime;
     }
 
-    public float getTechrollSpeed()
+    public double getTechrollSpeed()
     {
         return techrollSpeed;
     }
 
-    public float getTechrollRecoveryTime()
+    public double getTechrollRecoveryTime()
     {
         return techrollRecoveryTime;
     }
 
-    public float getTechrollActiveTime()
+    public double getTechrollActiveTime()
     {
         return techrollActiveTime;
     }
 
-    public float getTechrollStartupTime()
+    public double getTechrollStartupTime()
     {
         return techrollStartupTime;
     }
 
-    public float getTechRecoveryTime()
+    public double getTechRecoveryTime()
     {
         return techRecoveryTime;
     }
 
-    public float getTechActiveTime()
+    public double getTechActiveTime()
     {
         return techActiveTime;
     }
 
-    public float getParryRecoveryTime()
+    public double getParryRecoveryTime()
     {
         return parryRecoveryTime;
     }
 
-    public float getParryActiveTime()
+    public double getParryActiveTime()
     {
         return parryActiveTime;
     }
 
-    public float getParryStartupTime()
+    public double getParryStartupTime()
     {
         return parryStartupTime;
     }
 
-    public float getWaveLandFriction()
+    public double getWaveLandFriction()
     {
         return waveLandFriction;
     }
 
-    public float getWaveLandTime()
+    public double getWaveLandTime()
     {
         return waveLandTime;
     }
 
-    public float getJumpStartTime()
+    public double getJumpStartTime()
     {
         return jumpStartTime;
     }
 
-    public float getPratFallAccel()
+    public double getPratFallAccel()
     {
         return pratFallAccel;
     }
 
-    public float getPratLandTime()
+    public double getPratLandTime()
     {
         return pratLandTime;
     }
 
-    public float getLandTime()
+    public double getLandTime()
     {
         return landTime;
     }
 
-    public float getInitialDashSpeed()
+    public double getInitialDashSpeed()
     {
         return initialDashSpeed;
     }
 
-    public float getInitialDashAccel()
+    public double getInitialDashAccel()
     {
         return initialDashAccel;
     }
 
-    public float getInitialDashTime()
+    public double getInitialDashTime()
     {
         return initialDashTime;
     }
 
-    public float getDashStopFriction()
+    public double getDashStopFriction()
     {
         return dashStopFriction;
     }
 
-    public float getDashStopTime()
+    public double getDashStopTime()
     {
         return dashStopTime;
     }
 
-    public float getWalljumpVSpeed()
+    public double getWalljumpVSpeed()
     {
         return walljumpVSpeed;
     }
 
-    public float getWalljumpHSpeed()
+    public double getWalljumpHSpeed()
     {
         return walljumpHSpeed;
     }
 
-    public float getDashTurnAccel()
+    public double getDashTurnAccel()
     {
         return dashTurnAccel;
     }
 
-    public float getDashTurnTime()
+    public double getDashTurnTime()
     {
         return dashTurnTime;
     }
 
-    public float getDashSpeed()
+    public double getDashSpeed()
     {
         return dashSpeed;
     }
 
-    public float getWalkTurnTime()
+    public double getWalkTurnTime()
     {
         return walkTurnTime;
     }
 
-    public float getWalkAccel()
+    public double getWalkAccel()
     {
         return walkAccel;
     }
 
-    public float getWalkSpeed()
+    public double getWalkSpeed()
     {
         return walkSpeed;
     }

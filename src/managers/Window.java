@@ -6,20 +6,20 @@ public class Window
 {
     protected String id = "0";
 
-    protected float length = 0;
-    protected float hBoost = 0;
-    protected float vBoost = 0;
-    protected float hBoostConst = 0;
-    protected float vBoostConst = 0;
-    protected float hasSfx = 0;
-    protected float sfx = 0;
-    protected float sfxFrame = 0;
-    protected float whiffFrames = 0;
-    protected float invincibility = 0;
+    protected double length = 0;
+    protected double hBoost = 0;
+    protected double vBoost = 0;
+    protected double hBoostConst = 0;
+    protected double vBoostConst = 0;
+    protected double hasSfx = 0;
+    protected double sfx = 0;
+    protected double sfxFrame = 0;
+    protected double whiffFrames = 0;
+    protected double invincibility = 0;
 
-    public Window(String id, float length, float hBoost, float vBoost, float hBoostConst,
-                    float vBoostConst, float hasSfx, float sfx, float sfxFrame, float whiffFrames,
-                    float invincibility)
+    public Window(String id, double length, double hBoost, double vBoost, double hBoostConst,
+                    double vBoostConst, double hasSfx, double sfx, double sfxFrame, double whiffFrames,
+                    double invincibility)
     {
         this.id = id;
         this.length = length;
@@ -44,43 +44,43 @@ public class Window
 
         m = p.matcher(length);
         m.find();
-        this.length = Float.parseFloat(m.group(1));
+        this.length = Double.parseDouble(m.group(1));
 
         m = p.matcher(hBoost);
         m.find();
-        this.hBoost = Float.parseFloat(m.group(1));
+        this.hBoost = Double.parseDouble(m.group(1));
 
         m = p.matcher(vBoost);
         m.find();
-        this.vBoost = Float.parseFloat(m.group(1));
+        this.vBoost = Double.parseDouble(m.group(1));
 
         m = p.matcher(hBoostConst);
         m.find();
-        this.hBoostConst = Float.parseFloat(m.group(1));
+        this.hBoostConst = Double.parseDouble(m.group(1));
 
         m = p.matcher(vBoostConst);
         m.find();
-        this.vBoostConst = Float.parseFloat(m.group(1));
+        this.vBoostConst = Double.parseDouble(m.group(1));
 
         m = p.matcher(hasSfx);
         m.find();
-        this.hasSfx = Float.parseFloat(m.group(1));
+        this.hasSfx = Double.parseDouble(m.group(1));
 
         m = p.matcher(sfx);
         m.find();
-        this.sfx = Float.parseFloat(m.group(1));
+        this.sfx = Double.parseDouble(m.group(1));
 
         m = p.matcher(sfxFrames);
         m.find();
-        this.sfxFrame = Float.parseFloat(m.group(1));
+        this.sfxFrame = Double.parseDouble(m.group(1));
 
         m = p.matcher(whiffFrames);
         m.find();
-        this.whiffFrames = Float.parseFloat(m.group(1));
+        this.whiffFrames = Double.parseDouble(m.group(1));
 
         m = p.matcher(invincibility);
         m.find();
-        this.invincibility = Float.parseFloat(m.group(1));
+        this.invincibility = Double.parseDouble(m.group(1));
     }
 
     public String getId()
@@ -88,52 +88,52 @@ public class Window
         return id;
     }
 
-    public float getLength()
+    public double getLength()
     {
         return length;
     }
 
-    public float gethBoost()
+    public double gethBoost()
     {
         return hBoost;
     }
 
-    public float getvBoost()
+    public double getvBoost()
     {
         return vBoost;
     }
 
-    public float gethBoostConst()
+    public double gethBoostConst()
     {
         return hBoostConst;
     }
 
-    public float getvBoostConst()
+    public double getvBoostConst()
     {
         return vBoostConst;
     }
 
-    public float getHasSfx()
+    public double getHasSfx()
     {
         return hasSfx;
     }
 
-    public float getSfx()
+    public double getSfx()
     {
         return sfx;
     }
 
-    public float getSfxFrame()
+    public double getSfxFrame()
     {
         return sfxFrame;
     }
 
-    public float getWhiffFrames()
+    public double getWhiffFrames()
     {
         return whiffFrames;
     }
 
-    public float getInvincibility()
+    public double getInvincibility()
     {
         return invincibility;
     }

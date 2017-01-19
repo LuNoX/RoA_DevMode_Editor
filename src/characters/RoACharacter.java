@@ -14,7 +14,7 @@ public class RoACharacter
     protected List<String> content = new ArrayList<String>();
 
     protected List<Move> allMoves = new ArrayList<Move>();
-    protected List<Move> characterSpecificMoves = new ArrayList<Move>();
+    protected List<CharacterSpecificMove> characterSpecificMoves = new ArrayList<CharacterSpecificMove>();
     protected String[] characterSpecificMoveNames = new String[0];
     protected CharacterGeneral general = null;
 

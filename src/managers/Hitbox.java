@@ -7,47 +7,47 @@ public class Hitbox
 {
     protected String id = null;
 
-    protected float parentHitbox = 0;
-    protected float hitboxWindow = 0;
-    protected float hitboxWindowCreationFrame = 0;
-    protected float hitboxLifetime = 0;
-    protected float baseKnockback = 0;
-    protected float knockbackScaling = 0;
-    protected float knockbackAngle = 0;
-    protected float angleFlipper = 0;
-    protected float damage = 0;
-    protected float hitboxSizeX = 0;
-    protected float hitboxSizeY = 0;
-    protected float hitboxPositionX = 0;
-    protected float hitboxPositionY = 0;
-    protected float hitEffect = 0;
-    protected float asdiModifier = 0;
-    protected float hitstunModifier = 0;
-    protected float untechable = 0;
-    protected float priority = 0;
-    protected float baseHitpause = 0;
-    protected float hitpauseScaling = 0;
-    protected float visualEffect = 0;
-    protected float visualEffectXOffset = 0;
-    protected float visualEffectYOffset = 0;
-    protected float hitSoundEffect = 0;
-    protected float extraCameraShake = 0;
-    protected float canKillProjectiles = 0;
-    protected float hitLockoutTime = 0;
-    protected float causesExtendedParryStun = 0;
-    protected float forceFlinch = 0;
-    protected float hitboxShape = 0;
+    protected double parentHitbox = 0;
+    protected double hitboxWindow = 0;
+    protected double hitboxWindowCreationFrame = 0;
+    protected double hitboxLifetime = 0;
+    protected double baseKnockback = 0;
+    protected double knockbackScaling = 0;
+    protected double knockbackAngle = 0;
+    protected double angleFlipper = 0;
+    protected double damage = 0;
+    protected double hitboxSizeX = 0;
+    protected double hitboxSizeY = 0;
+    protected double hitboxPositionX = 0;
+    protected double hitboxPositionY = 0;
+    protected double hitEffect = 0;
+    protected double asdiModifier = 0;
+    protected double hitstunModifier = 0;
+    protected double untechable = 0;
+    protected double priority = 0;
+    protected double baseHitpause = 0;
+    protected double hitpauseScaling = 0;
+    protected double visualEffect = 0;
+    protected double visualEffectXOffset = 0;
+    protected double visualEffectYOffset = 0;
+    protected double hitSoundEffect = 0;
+    protected double extraCameraShake = 0;
+    protected double canKillProjectiles = 0;
+    protected double hitLockoutTime = 0;
+    protected double causesExtendedParryStun = 0;
+    protected double forceFlinch = 0;
+    protected double hitboxShape = 0;
 
-    public Hitbox(String id, float parentHitbox, float hitboxWindow,
-                    float hitboxWindowCreationFrame, float hitboxLifetime, float baseKnockback,
-                    float knockbackScaling, float knockbackAngle, float angleFlipper, float damage,
-                    float hitboxSizeX, float hitboxSizeY, float hitboxPositionX,
-                    float hitboxPositionY, float hitEffect, float asdiModifier,
-                    float hitstunModifier, float untechable, float priority, float baseHitpause,
-                    float hitpauseScaling, float visualEffect, float visualEffectXOffset,
-                    float visualEffectYOffset, float hitSoundEffect, float extraCameraShake,
-                    float canKillProjectiles, float hitLockoutTime, float causesExtendedParryStun,
-                    float forceFlinch, float hitboxShape)
+    public Hitbox(String id, double parentHitbox, double hitboxWindow,
+                    double hitboxWindowCreationFrame, double hitboxLifetime, double baseKnockback,
+                    double knockbackScaling, double knockbackAngle, double angleFlipper, double damage,
+                    double hitboxSizeX, double hitboxSizeY, double hitboxPositionX,
+                    double hitboxPositionY, double hitEffect, double asdiModifier,
+                    double hitstunModifier, double untechable, double priority, double baseHitpause,
+                    double hitpauseScaling, double visualEffect, double visualEffectXOffset,
+                    double visualEffectYOffset, double hitSoundEffect, double extraCameraShake,
+                    double canKillProjectiles, double hitLockoutTime, double causesExtendedParryStun,
+                    double forceFlinch, double hitboxShape)
     {
         this.id = id;
         this.parentHitbox = parentHitbox;
@@ -99,123 +99,123 @@ public class Hitbox
 
         m = p.matcher(parentHitbox);
         m.find();
-        this.parentHitbox = Float.parseFloat(m.group(1));
+        this.parentHitbox = Double.parseDouble(m.group(1));
 
         m = p.matcher(hitboxWindow);
         m.find();
-        this.hitboxWindow = Float.parseFloat(m.group(1));
+        this.hitboxWindow = Double.parseDouble(m.group(1));
 
         m = p.matcher(hitboxWindowCreationFrame);
         m.find();
-        this.hitboxWindowCreationFrame = Float.parseFloat(m.group(1));
+        this.hitboxWindowCreationFrame = Double.parseDouble(m.group(1));
 
         m = p.matcher(hitboxLifetime);
         m.find();
-        this.hitboxLifetime = Float.parseFloat(m.group(1));
+        this.hitboxLifetime = Double.parseDouble(m.group(1));
 
         m = p.matcher(baseKnockback);
         m.find();
-        this.baseKnockback = Float.parseFloat(m.group(1));
+        this.baseKnockback = Double.parseDouble(m.group(1));
 
         m = p.matcher(knockbackScaling);
         m.find();
-        this.knockbackScaling = Float.parseFloat(m.group(1));
+        this.knockbackScaling = Double.parseDouble(m.group(1));
 
         m = p.matcher(knockbackAngle);
         m.find();
-        this.knockbackAngle = Float.parseFloat(m.group(1));
+        this.knockbackAngle = Double.parseDouble(m.group(1));
 
         m = p.matcher(angleFlipper);
         m.find();
-        this.angleFlipper = Float.parseFloat(m.group(1));
+        this.angleFlipper = Double.parseDouble(m.group(1));
 
         m = p.matcher(damage);
         m.find();
-        this.damage = Float.parseFloat(m.group(1));
+        this.damage = Double.parseDouble(m.group(1));
 
         m = p.matcher(hitboxSizeX);
         m.find();
-        this.hitboxSizeX = Float.parseFloat(m.group(1));
+        this.hitboxSizeX = Double.parseDouble(m.group(1));
 
         m = p.matcher(hitboxSizeY);
         m.find();
-        this.hitboxSizeY = Float.parseFloat(m.group(1));
+        this.hitboxSizeY = Double.parseDouble(m.group(1));
 
         m = p.matcher(hitboxPositionX);
         m.find();
-        this.hitboxPositionX = Float.parseFloat(m.group(1));
+        this.hitboxPositionX = Double.parseDouble(m.group(1));
 
         m = p.matcher(hitboxPositionY);
         m.find();
-        this.hitboxPositionY = Float.parseFloat(m.group(1));
+        this.hitboxPositionY = Double.parseDouble(m.group(1));
 
         m = p.matcher(hitEffect);
         m.find();
-        this.hitEffect = Float.parseFloat(m.group(1));
+        this.hitEffect = Double.parseDouble(m.group(1));
 
         m = p.matcher(asdiModifier);
         m.find();
-        this.asdiModifier = Float.parseFloat(m.group(1));
+        this.asdiModifier = Double.parseDouble(m.group(1));
 
         m = p.matcher(hitstunModifier);
         m.find();
-        this.hitstunModifier = Float.parseFloat(m.group(1));
+        this.hitstunModifier = Double.parseDouble(m.group(1));
 
         m = p.matcher(untechable);
         m.find();
-        this.untechable = Float.parseFloat(m.group(1));
+        this.untechable = Double.parseDouble(m.group(1));
 
         m = p.matcher(priority);
         m.find();
-        this.priority = Float.parseFloat(m.group(1));
+        this.priority = Double.parseDouble(m.group(1));
 
         m = p.matcher(baseHitpause);
         m.find();
-        this.baseHitpause = Float.parseFloat(m.group(1));
+        this.baseHitpause = Double.parseDouble(m.group(1));
 
         m = p.matcher(hitpauseScaling);
         m.find();
-        this.hitpauseScaling = Float.parseFloat(m.group(1));
+        this.hitpauseScaling = Double.parseDouble(m.group(1));
 
         m = p.matcher(visualEffect);
         m.find();
-        this.visualEffect = Float.parseFloat(m.group(1));
+        this.visualEffect = Double.parseDouble(m.group(1));
 
         m = p.matcher(visualEffectXOffset);
         m.find();
-        this.visualEffectXOffset = Float.parseFloat(m.group(1));
+        this.visualEffectXOffset = Double.parseDouble(m.group(1));
 
         m = p.matcher(visualEffectYOffset);
         m.find();
-        this.visualEffectYOffset = Float.parseFloat(m.group(1));
+        this.visualEffectYOffset = Double.parseDouble(m.group(1));
 
         m = p.matcher(hitSoundEffect);
         m.find();
-        this.hitSoundEffect = Float.parseFloat(m.group(1));
+        this.hitSoundEffect = Double.parseDouble(m.group(1));
 
         m = p.matcher(extraCameraShake);
         m.find();
-        this.extraCameraShake = Float.parseFloat(m.group(1));
+        this.extraCameraShake = Double.parseDouble(m.group(1));
 
         m = p.matcher(canKillProjectiles);
         m.find();
-        this.canKillProjectiles = Float.parseFloat(m.group(1));
+        this.canKillProjectiles = Double.parseDouble(m.group(1));
 
         m = p.matcher(hitLockoutTime);
         m.find();
-        this.hitLockoutTime = Float.parseFloat(m.group(1));
+        this.hitLockoutTime = Double.parseDouble(m.group(1));
 
         m = p.matcher(causesExtendedParryStun);
         m.find();
-        this.causesExtendedParryStun = Float.parseFloat(m.group(1));
+        this.causesExtendedParryStun = Double.parseDouble(m.group(1));
 
         m = p.matcher(forceFlinch);
         m.find();
-        this.forceFlinch = Float.parseFloat(m.group(1));
+        this.forceFlinch = Double.parseDouble(m.group(1));
 
         m = p.matcher(hitboxShape);
         m.find();
-        this.hitboxShape = Float.parseFloat(m.group(1));
+        this.hitboxShape = Double.parseDouble(m.group(1));
     }
 
     public Hitbox(String[] tempHitbox)
@@ -235,152 +235,152 @@ public class Hitbox
         return id;
     }
 
-    public float getParentHitbox()
+    public double getParentHitbox()
     {
         return parentHitbox;
     }
 
-    public float getHitboxWindow()
+    public double getHitboxWindow()
     {
         return hitboxWindow;
     }
 
-    public float getHitboxWindowCreationFrame()
+    public double getHitboxWindowCreationFrame()
     {
         return hitboxWindowCreationFrame;
     }
 
-    public float getHitboxLifetime()
+    public double getHitboxLifetime()
     {
         return hitboxLifetime;
     }
 
-    public float getBaseKnockback()
+    public double getBaseKnockback()
     {
         return baseKnockback;
     }
 
-    public float getKnockbackScaling()
+    public double getKnockbackScaling()
     {
         return knockbackScaling;
     }
 
-    public float getKnockbackAngle()
+    public double getKnockbackAngle()
     {
         return knockbackAngle;
     }
 
-    public float getAngleFlipper()
+    public double getAngleFlipper()
     {
         return angleFlipper;
     }
 
-    public float getDamage()
+    public double getDamage()
     {
         return damage;
     }
 
-    public float getHitboxSizeX()
+    public double getHitboxSizeX()
     {
         return hitboxSizeX;
     }
 
-    public float getHitboxSizeY()
+    public double getHitboxSizeY()
     {
         return hitboxSizeY;
     }
 
-    public float getHitboxPositionX()
+    public double getHitboxPositionX()
     {
         return hitboxPositionX;
     }
 
-    public float getHitboxPositionY()
+    public double getHitboxPositionY()
     {
         return hitboxPositionY;
     }
 
-    public float getHitEffect()
+    public double getHitEffect()
     {
         return hitEffect;
     }
 
-    public float getAsdiModifier()
+    public double getAsdiModifier()
     {
         return asdiModifier;
     }
 
-    public float getHitstunModifier()
+    public double getHitstunModifier()
     {
         return hitstunModifier;
     }
 
-    public float getUntechable()
+    public double getUntechable()
     {
         return untechable;
     }
 
-    public float getPriority()
+    public double getPriority()
     {
         return priority;
     }
 
-    public float getBaseHitpause()
+    public double getBaseHitpause()
     {
         return baseHitpause;
     }
 
-    public float getHitpauseScaling()
+    public double getHitpauseScaling()
     {
         return hitpauseScaling;
     }
 
-    public float getVisualEffect()
+    public double getVisualEffect()
     {
         return visualEffect;
     }
 
-    public float getVisualEffectXOffset()
+    public double getVisualEffectXOffset()
     {
         return visualEffectXOffset;
     }
 
-    public float getVisualEffectYOffset()
+    public double getVisualEffectYOffset()
     {
         return visualEffectYOffset;
     }
 
-    public float getHitSoundEffect()
+    public double getHitSoundEffect()
     {
         return hitSoundEffect;
     }
 
-    public float getExtraCameraShake()
+    public double getExtraCameraShake()
     {
         return extraCameraShake;
     }
 
-    public float getCanKillProjectiles()
+    public double getCanKillProjectiles()
     {
         return canKillProjectiles;
     }
 
-    public float getHitLockoutTime()
+    public double getHitLockoutTime()
     {
         return hitLockoutTime;
     }
 
-    public float getCausesExtendedParryStun()
+    public double getCausesExtendedParryStun()
     {
         return causesExtendedParryStun;
     }
 
-    public float getForceFlinch()
+    public double getForceFlinch()
     {
         return forceFlinch;
     }
 
-    public float getHitboxShape()
+    public double getHitboxShape()
     {
         return hitboxShape;
     }
