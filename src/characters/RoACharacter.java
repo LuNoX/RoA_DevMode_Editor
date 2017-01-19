@@ -80,7 +80,7 @@ public class RoACharacter
                 String name = line.substring(line.indexOf("[") + 1, line.indexOf("]"));
                 if (name.equals("GENERAL"))
                 {
-                    this.general = new CharacterGeneral(this.content.subList(startIndex, endIndex));
+                    this.general = new CharacterGeneral(this.content.subList(startIndex, endIndex), "noSetFields");
                 }
                 else
                 {

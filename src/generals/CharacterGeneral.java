@@ -69,20 +69,24 @@ public class CharacterGeneral
     protected double walkAccel = 0;
     protected double walkSpeed = 0;
 
-    /**
-     * Placeholder constructor to avoid errors in all CharacterGeneral classes
-     */
     public CharacterGeneral()
     {
-        // TODO make this constructor do at least something
+    }
+    
+    public CharacterGeneral(List<String> code)
+    {
+        this(code, "");
     }
 
-    public CharacterGeneral(List<String> code)
+    public CharacterGeneral(List<String> code, String arg)
     {
         this.code = code;
         this.other = code;
 
-        this.initializeEverything();
+        if (!arg.equals("noSetFields"))
+        {
+            this.initializeEverything();
+        }
     }
 
     public void initializeEverything()
