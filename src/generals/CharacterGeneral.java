@@ -89,14 +89,14 @@ public class CharacterGeneral
     {
         String[] generalCommands = CommandStorage.generalCommands;
         int numberOfCommands = 0;
-        int[] commandPositions = new int[this.code.size()];
+        int[] commandPositions = new int[this.other.size()];
 
         Pattern p = Pattern.compile("\"([^\"]*)\"");
         Matcher m = null;
 
-        for (int i = 0; i < this.code.size(); i++)
+        for (int i = 0; i < this.other.size(); i++)
         {
-            String command = this.code.get(i);
+            String command = this.other.get(i);
             for (int j = 0; j < generalCommands.length; j++)
             {
                 if (Utilities.isSpecificCommand(command, generalCommands[j]))
