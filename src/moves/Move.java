@@ -135,12 +135,12 @@ public class Move
 
     public List<String> getCode()
     {
-        return code;
+        return this.code;
     }
 
     public List<String> getOther()
     {
-        return other;
+        return this.other;
     }
 
     public HitboxManager getHm()

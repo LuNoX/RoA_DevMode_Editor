@@ -94,7 +94,7 @@ public class RoACharacter
                         {
                             isCharacterSpecific = true;
                             CharacterSpecificMove charcterSpecificMove = new CharacterSpecificMove(
-                                            name, this.content.subList(startIndex, endIndex));
+                                            name, new ArrayList<>(this.content.subList(startIndex, endIndex)));
                             this.characterSpecificMoves.add(charcterSpecificMove);
                             break;
                         }
@@ -112,13 +112,13 @@ public class RoACharacter
                         }
                         if (isProjectile)
                         {
-                            Projectile projectile = new Projectile(name, this.content.subList(
-                                            startIndex, endIndex));
+                            Projectile projectile = new Projectile(name, new ArrayList<>(this.content.subList(
+                                            startIndex, endIndex)));
                             this.allMoves.add(projectile);
                         }
                         else
                         {
-                            Move move = new Move(name, this.content.subList(startIndex, endIndex));
+                            Move move = new Move(name, new ArrayList<>(this.content.subList(startIndex, endIndex)));
                             this.allMoves.add(move);
                         }
                     }
