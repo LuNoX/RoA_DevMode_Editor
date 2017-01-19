@@ -5,6 +5,7 @@ import java.util.*;
 
 public class WindowManager
 {
+    //TODO add "other"-field
     protected List<String> code = null;
 
     protected ArrayList<Window> windows = new ArrayList<Window>();

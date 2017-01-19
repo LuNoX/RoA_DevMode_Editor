@@ -9,6 +9,7 @@ import java.util.*;
 
 public class HitboxManager
 {
+    //TODO add "other"-field
     protected List<String> code = null;
 
     protected boolean hasHitbox = false;
