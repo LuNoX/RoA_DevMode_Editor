@@ -38,8 +38,9 @@ public class Orcane extends RoACharacter
     
     public void initializeOrcaneGeneral()
     {
-        OrcaneGeneral orcaneGeneral = new OrcaneGeneral(this.general.getCode());
-        this.general = orcaneGeneral;
+        OrcaneGeneral orcaneGeneral = new OrcaneGeneral(this.generalCode);
+        //CharacterGeneral orcaneGeneral = new CharacterGeneral(this.generalCode);
+        //this.general = orcaneGeneral;
         this.orcaneGeneral = orcaneGeneral;
     }
 

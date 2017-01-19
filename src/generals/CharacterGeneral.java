@@ -75,18 +75,9 @@ public class CharacterGeneral
     
     public CharacterGeneral(List<String> code)
     {
-        this(code, "");
-    }
-
-    public CharacterGeneral(List<String> code, String arg)
-    {
         this.code = code;
         this.other = code;
-
-        if (!arg.equals("noSetFields"))
-        {
-            this.initializeEverything();
-        }
+        this.initializeEverything();
     }
 
     public void initializeEverything()
@@ -127,6 +118,7 @@ public class CharacterGeneral
                         System.out.println(e.getLocalizedMessage());
                         e.printStackTrace();
                     }
+                    
                     numberOfCommands++;
                     commandPositions[numberOfCommands - 1] = i;
                     break;

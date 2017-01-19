@@ -14,9 +14,11 @@ public class RoACharacter
     protected List<String> content = new ArrayList<String>();
 
     protected List<Move> allMoves = new ArrayList<Move>();
-    protected List<CharacterSpecificMove> characterSpecificMoves = new ArrayList<CharacterSpecificMove>();
+    protected List<CharacterSpecificMove> characterSpecificMoves
+                    = new ArrayList<CharacterSpecificMove>();
     protected String[] characterSpecificMoveNames = new String[0];
     protected CharacterGeneral general = null;
+    protected List<String> generalCode = null;
 
     // TODO make this abstract
     public RoACharacter(File character)
@@ -24,7 +26,7 @@ public class RoACharacter
         this.characterFile = character;
         this.initializeEveryting();
     }
-    
+
     public RoACharacter(File character, String[] characterSpecificMoveNames)
     {
         this.characterSpecificMoveNames = characterSpecificMoveNames;
@@ -80,7 +82,8 @@ public class RoACharacter
                 String name = line.substring(line.indexOf("[") + 1, line.indexOf("]"));
                 if (name.equals("GENERAL"))
                 {
-                    this.general = new CharacterGeneral(this.content.subList(startIndex, endIndex), "noSetFields");
+                    // Not copying the list throws CME
+                    this.generalCode = new ArrayList<>(this.content.subList(startIndex, endIndex));
                 }
                 else
                 {
