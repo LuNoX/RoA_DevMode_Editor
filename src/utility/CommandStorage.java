@@ -153,6 +153,53 @@ public class CommandStorage
     {CommandStorage.projectileHSpeed, CommandStorage.projectileVSpeed,
                     CommandStorage.projectileGravity, CommandStorage.projectileLifetime};
 
+    // Character specific moves
+    public static final String[] characterSpecificMoveNames =
+    {"Orcane.BUBBLES", "Absa.CLOUD_BURST", "Wrastor.NSPECIAL", "Kragg.FSPECIAL", "Kragg.NSPECIAL"};
+
+    public static final String[] wrastorSpecificMoveNames =
+    {"NSPECIAL"};
+
+    public static final String[] absaSpecificMoveNames =
+    {"CLOUD_BURST"};
+
+    public static final String[] kraggSpecificMoveNames =
+    {"NSPECIAL", "FSPECIAL"};
+
+    // Orcane
+    public static final String[] orcaneSpecificMoveNames =
+    {"BUBBLES"};
+
+    public static final String hitstun = "hitstun";
+    public static final String hitstop = "hitstop";
+    public static final String lockoutTime = "lockout_time";
+    public static final String fairVKnockback = "fair_v_knockback";
+    public static final String fairHKnockback = "fair_h_knockback";
+    public static final String dspecialVKnockback = "dspecial_v_knockback";
+    public static final String dspecialHKnockback = "dspecial_h_knockback";
+    // damage = "damage";
+    public static final String fairInputDrift = "fair_input_drift";
+    public static final String fairVSpeedRange = "fair_v_speed_range";
+    public static final String fairHSpeedMin = "fair_h_speed_min";
+    public static final String fairHSpeedMax = "fair_h_speed_max";
+    public static final String bubblesPerFrameFair = "bubbles_per_frame_fair";
+    public static final String dspecialInputDrift = "dspecial_input_drift";
+    public static final String dspecialVSpeedMin = "dspecial_v_speed_min";
+    public static final String dspecialVSpeedMax = "dspecial_v_speed_max";
+    public static final String dspecialHSpeedRange = "dspecial_h_speed_range";
+    public static final String bubblesPerFrameDspecial = "bubbles_per_frame_dspecial";
+
+    public static final String[] orcaneBubblesCommands =
+    {CommandStorage.hitstun, CommandStorage.hitstop, CommandStorage.lockoutTime,
+                    CommandStorage.fairVKnockback, CommandStorage.fairHKnockback,
+                    CommandStorage.dspecialVKnockback, CommandStorage.dspecialHKnockback,
+                    CommandStorage.damage, CommandStorage.fairInputDrift,
+                    CommandStorage.fairVSpeedRange, CommandStorage.fairHSpeedMin,
+                    CommandStorage.fairHSpeedMax, CommandStorage.bubblesPerFrameFair,
+                    CommandStorage.dspecialInputDrift, CommandStorage.dspecialVSpeedMin,
+                    CommandStorage.dspecialVSpeedMax, CommandStorage.dspecialHSpeedRange,
+                    CommandStorage.bubblesPerFrameDspecial};
+
     // General
     public static final String knockbackAdjustment = "knockback_adjustment";
     public static final String hitstunGravityAccel = "hitstun_gravity_accel";
@@ -255,15 +302,4 @@ public class CommandStorage
                     CommandStorage.windowHasSfx, CommandStorage.windowSfxFrame,
                     CommandStorage.hitboxWindowCreationFrame, CommandStorage.visualEffectXOffset,
                     CommandStorage.visualEffectYOffset};
-    
-    public static final String[] characterSpecificMoveNames =
-    {"Orcane.BUBBLES", "Absa.CLOUD_BURST", "Wrastor.NSPECIAL", "Kragg.FSPECIAL", "Kragg.NSPECIAL"};
-    
-    public static final String[] wrastorSpecificMoveNames = {"NSPECIAL"};
-    
-    public static final String[] orcaneSpecificMoveNames = {"BUBBLES"};
-    
-    public static final String[] absaSpecificMoveNames = {"CLOUD_BURST"};
-    
-    public static final String[] kraggSpecificMoveNames = {"NSPECIAL", "FSPECIAL"};
 }

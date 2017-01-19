@@ -2,8 +2,12 @@ package moves;
 
 import java.util.List;
 
-public class CharacterSpecificMove extends Move
+public class CharacterSpecificMove
 {    
+    protected String name = null;
+
+    protected List<String> code = null;
+    protected List<String> other = null;
     /**
      * Placeholder constructor to avoid errors in all CharacterSpecificMove classes
      */
@@ -16,5 +20,21 @@ public class CharacterSpecificMove extends Move
     {
         this.name = name;
         this.code = code;
+        this.other = code;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public List<String> getCode()
+    {
+        return code;
+    }
+
+    public List<String> getOther()
+    {
+        return other;
     }
 }
