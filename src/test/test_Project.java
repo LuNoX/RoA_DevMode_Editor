@@ -1,5 +1,6 @@
 package test;
 
+import characters.RoACharacter;
 import managers.Hitbox;
 import managers.Project;
 import moves.Move;
@@ -14,7 +15,7 @@ public class test_Project
 
         Project prj = new Project(ifc.chooseFile("C:\\Users\\Timo\\Desktop\\roa editor\\active"));
 
-        for (int i = 0; i < prj.getCharacters().size(); i++)
+        /*for (int i = 0; i < prj.getCharacters().size(); i++)
         {
             if (prj.getCharacters().get(i).getClass().getName() == "characters.Orcane")
             {
@@ -33,6 +34,21 @@ public class test_Project
                 }
                 break;
             }
+        }*/
+        
+        for(RoACharacter character : prj.getCharacters())
+        {
+            System.out.println(character.getClass().getName());
+            for(Move move : character.getAllMoves())
+            {
+                System.out.println(move.getName());
+                for(String string : move.getOther())
+                {
+                    System.out.println(string);
+                }
+                System.out.println("_______________");
+            }
+            System.out.println("__________________________________________________________");
         }
     }
 
