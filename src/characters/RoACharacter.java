@@ -68,16 +68,15 @@ public class RoACharacter
     public void initializeAllMovesAndGeneral()
     {
         String line = null;
-        int startIndex = this.content.size();
-        int endIndex = startIndex;
+        int startIndex = this.content.size()+1;
 
         for (int i = this.content.size() - 1; i >= 0; i--)
         {
             line = this.content.get(i);
             if (line.contains("[") && line.contains("]"))
             {
-                endIndex = startIndex;
-                startIndex = i;
+                int endIndex = startIndex-1;
+                startIndex = i+1;
 
                 String name = line.substring(line.indexOf("[") + 1, line.indexOf("]"));
                 if (name.equals("GENERAL"))
