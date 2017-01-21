@@ -2,6 +2,10 @@ package utility;
 
 // Credit to u/yougblood for the command descriptions
 
+// TODO sort this MESS
+// TODO rename specific stuff to exclusive or something to avoid confusion with isSpecificCommand()
+// alternatively just rename that method to isDistinctCommand() or something like that
+
 public class CommandStorage
 {
     // TODO add description and additional description to all fields
@@ -83,7 +87,7 @@ public class CommandStorage
     public static final String forceFlinch = "force_flinch";
     public static final String hitboxShape = "hitbox_shape";
 
-    // Projectile
+    // //Projectile
     public static final String useSpriteCollison = "use_sprite_collision";
     public static final String projectileHSpeed = "projectile_h_speed";
     public static final String projectileVSpeed = "projectile_v_speed";
@@ -164,19 +168,82 @@ public class CommandStorage
     public static final String[] characterSpecificMoveNames =
     {"Orcane.BUBBLES", "Absa.CLOUD_BURST", "Wrastor.NSPECIAL", "Kragg.FSPECIAL", "Kragg.NSPECIAL"};
 
-    public static final String[] wrastorSpecificMoveNames =
-    {"NSPECIAL"};
-
+    // //Absa
     public static final String[] absaSpecificMoveNames =
     {"CLOUD_BURST"};
 
+    // // //Ftilt
+    public static final String maxRange = "max_range";
+
+    // // //Fspecial
+    public static final String initialSpeed = "initial_speed";
+    public static final String acceleration = "acceleration";
+
+    // // //Lightning Bolt
+    public static final String boltWidth = "bolt_width";
+
+    // //Etalus
+
+    // // //Dattack
+    public static final String minSlideSpeed = "min_slide_speed";
+    public static final String slidingBoost = "sliding_boost";
+
+    // // //Fair
+    public static final String armorValue = "armor_value";
+    public static final String minArmorFrames = "min_armor_frames";
+
+    // // //Uspecial
+    public static final String minActionableSpeed = "min_actionable_speed";
+    public static final String maxBoost = "max_boost";
+    public static final String minBoost = "min_boost";
+    public static final String maxChargeTime = "max_charge_time";
+    public static final String minChargeTime = "min_charge_time";
+
+    // // //Nspecial
+    // // // //public static final String maxFallSpeed = "max_fall_speed";
+    public static final String gravityChange = "gravity_change";
+
+    // //Forsburn
+
+    // // //Fspecial
+    public static final String cloneCreationFrame = "clone_creation_frame";
+
+    // // //Uspecial
+    public static final String teleportDistance = "teleport_distance";
+    public static final String teleportFrame = "teleport_frame";
+    public static final String upwardLeniency = "upward_leniency";
+    public static final String postTeleportSmokeCancelFrames = "post_teleport_smoke_cancel_frames";
+
+    // // //Dspecial
+    public static final String inhaleFrame = "inhale_frame";
+    public static final String inhaleFinishFrame = "inhale_finish_frame";
+
+    // //Kragg
     public static final String[] kraggSpecificMoveNames =
     {"NSPECIAL", "FSPECIAL"};
+    
+    // //Maypul
 
-    // Orcane
+    // // //Fspecial
+    public static final String boostSpeedGround = "boost_speed_ground";
+    public static final String boostSpeedAir = "boost_speed_air";
+
+    // // //Uspecial Marked
+    public static final String baseSlingTime = "base_sling_time";
+    public static final String slingDistanceDivider = "sling_distance_divisor";
+
+    // // //Dspecial
+    public static final String plantLifespan = "plant_lifespan";
+    public static final String upwardSeedSpeed = "upward_seed_speed";
+    public static final String plantStartupFrames = "plant_startup_frames";
+    public static final String plantBaseWrapFrames = "plant_base_wrap_frames";
+    public static final String plantWrapScaling = "plant_wrap_scaling";
+
+    // //Orcane
     public static final String[] orcaneSpecificMoveNames =
     {"BUBBLES"};
 
+    // // //Bubbles
     public static final String hitstun = "hitstun";
     public static final String hitstop = "hitstop";
     public static final String lockoutTime = "lockout_time";
@@ -184,7 +251,7 @@ public class CommandStorage
     public static final String fairHKnockback = "fair_h_knockback";
     public static final String dspecialVKnockback = "dspecial_v_knockback";
     public static final String dspecialHKnockback = "dspecial_h_knockback";
-    // damage = "damage";
+    // // // //damage = "damage";
     public static final String fairInputDrift = "fair_input_drift";
     public static final String fairVSpeedRange = "fair_v_speed_range";
     public static final String fairHSpeedMin = "fair_h_speed_min";
@@ -206,6 +273,30 @@ public class CommandStorage
                     CommandStorage.dspecialInputDrift, CommandStorage.dspecialVSpeedMin,
                     CommandStorage.dspecialVSpeedMax, CommandStorage.dspecialHSpeedRange,
                     CommandStorage.bubblesPerFrameDspecial};
+    
+    // //Wrastor
+    public static final String[] wrastorSpecificMoveNames =
+    {"NSPECIAL"};
+    
+    // // //Dstrong
+    public static final String minTravelDistance = "min_travel_distance";
+
+    public static final String[] moveSpecificCommands =
+    {CommandStorage.maxRange, CommandStorage.initialSpeed, CommandStorage.acceleration,
+                    CommandStorage.boltWidth, CommandStorage.minSlideSpeed,
+                    CommandStorage.slidingBoost, CommandStorage.armorValue,
+                    CommandStorage.minArmorFrames, CommandStorage.minActionableSpeed,
+                    CommandStorage.maxBoost, CommandStorage.minBoost, CommandStorage.maxChargeTime,
+                    CommandStorage.minChargeTime, CommandStorage.maxFallSpeed,
+                    CommandStorage.gravityChange, CommandStorage.cloneCreationFrame,
+                    CommandStorage.teleportDistance, CommandStorage.teleportFrame,
+                    CommandStorage.upwardLeniency, CommandStorage.postTeleportSmokeCancelFrames,
+                    CommandStorage.inhaleFrame, CommandStorage.inhaleFinishFrame,
+                    CommandStorage.boostSpeedGround, CommandStorage.boostSpeedAir,
+                    CommandStorage.baseSlingTime, CommandStorage.slingDistanceDivider,
+                    CommandStorage.plantLifespan, CommandStorage.upwardSeedSpeed,
+                    CommandStorage.plantStartupFrames, CommandStorage.plantBaseWrapFrames,
+                    CommandStorage.plantWrapScaling, CommandStorage.minTravelDistance};
 
     // General
     public static final String knockbackAdjustment = "knockback_adjustment";

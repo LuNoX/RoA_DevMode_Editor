@@ -18,8 +18,8 @@ public class test_HitboxManager
         for (Move move : cm.getAllMoves())
         {
             System.out.println(move.getName());
-            System.out.println("Number of Hitboxes: " + move.getHm().getHitboxes().size());
-            for (Hitbox hitbox : move.getHm().getHitboxes())
+            System.out.println("Number of Hitboxes: " + move.getHitboxManager().getHitboxes().size());
+            for (Hitbox hitbox : move.getHitboxManager().getHitboxes())
             {
                 System.out.println("Hitbox id: " + hitbox.getId());
                 System.out.println("Hitbox parent id: " + hitbox.getParentHitbox());

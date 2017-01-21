@@ -15,11 +15,13 @@ public class Move
 {
     protected String name = "";
 
-    protected List<String> code = new ArrayList<String>(); // TODO think about the consequences of removing this.other,
-                                        // is there a reason to have the copy?
+    protected List<String> code = new ArrayList<String>(); // TODO think about the consequences of
+                                                           // removing this.other,
+    // is there a reason to have the copy?
 
-    protected HitboxManager hm = new HitboxManager();
-    protected WindowManager wm = null;
+    protected HitboxManager hitboxManager = new HitboxManager();
+    protected WindowManager windowManager = new WindowManager();
+    protected List<MoveSpecificCommand> moveSpecificCommands = new ArrayList<MoveSpecificCommand>();
 
     protected boolean hasCooldown = false;
     protected double cooldown = 0;
@@ -28,12 +30,12 @@ public class Move
     protected double landingLag = 0;
     protected boolean isHasWhiffLanding = false;
     protected double hasWhiffLanding = 0;
-    //TODO add armor
+    // TODO add armor
 
     protected List<String> other = new ArrayList<String>();
 
     public Move()
-    {     
+    {
     }
 
     public Move(String name, List<String> code)
@@ -41,21 +43,27 @@ public class Move
         this.name = name;
         this.code = code;
         this.other = code;
+        this.initializeEverything();
+    }
+
+    public void initializeEverything()
+    {
         this.initializeWindows();
         this.initializeHitboxes();
         this.initializeOtherValues();
+        this.initializeMoveSpecificCommands();
     }
 
     public void initializeWindows()
     {
-        this.wm = new WindowManager(this.other);
-        this.other = wm.getCodeWithoutWindowCommands();
+        this.windowManager = new WindowManager(this.other);
+        this.other = windowManager.getCodeWithoutWindowCommands();
     }
 
     public void initializeHitboxes()
     {
-        this.hm = new HitboxManager(this.other);
-        this.other = hm.getCodeWithoutHitboxCommands();
+        this.hitboxManager = new HitboxManager(this.other);
+        this.other = hitboxManager.getCodeWithoutHitboxCommands();
     }
 
     public void initializeOtherValues()
@@ -138,6 +146,48 @@ public class Move
         }
     }
 
+    public void initializeMoveSpecificCommands()
+    {
+        int numberOfCommands = 0;
+        int[] commandPositions = new int[this.other.size()];
+
+        Pattern p = Pattern.compile("\"([^\"]*)\"");
+        Matcher m = null;
+
+        for (int i = 0; i < this.other.size(); i++)
+        {
+            String command = this.other.get(i);
+
+            for (int j = 0; j < CommandStorage.moveSpecificCommands.length; j++)
+            {
+                if (Utilities.isSpecificCommand(command, CommandStorage.moveSpecificCommands[j]))
+                {
+                    m = p.matcher(command);
+                    m.find();
+                    double value = Double.parseDouble(m.group(1));
+                    String name = Utilities.convertLowerCaseUnderscoresToCamelCase(CommandStorage.moveSpecificCommands[j]);
+
+                    MoveSpecificCommand moveSpecificCommand = new MoveSpecificCommand(name, value);
+                    this.moveSpecificCommands.add(moveSpecificCommand);
+
+                    numberOfCommands++;
+                    commandPositions[numberOfCommands - 1] = i;
+                    break;
+                }
+            }
+
+        }
+
+        // remove the commands from the code
+        Arrays.sort(commandPositions); // sort the indices and then go through the list backwards to
+                                       // avoid index errors
+        for (int i = 1; i <= numberOfCommands; i++) // dont use commandPositions.length because
+        // the Array is far longer than needed
+        {
+            this.other.remove(commandPositions[commandPositions.length - i]);
+        }
+    }
+
     public String getName()
     {
         return name;
@@ -153,14 +203,14 @@ public class Move
         return this.other;
     }
 
-    public HitboxManager getHm()
+    public HitboxManager getHitboxManager()
     {
-        return hm;
+        return hitboxManager;
     }
 
-    public WindowManager getWm()
+    public WindowManager getWindowManager()
     {
-        return wm;
+        return windowManager;
     }
 
     public boolean isHasCooldown()
