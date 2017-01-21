@@ -152,6 +152,7 @@ public class CommandStorage
     // Move
     public static final String hasCooldown = "has_cooldown";
     public static final String cooldown = "cooldown";
+    public static final String hasWhiffLanding = "has_whiff_landing";
     public static final String autocancelFrame = "autocancel_frame";
     public static final String landingLag = "landing_lag";
 

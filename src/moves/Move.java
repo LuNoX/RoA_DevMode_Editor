@@ -26,6 +26,8 @@ public class Move
     protected boolean isAutocancelable = false;
     protected double autocancelFrame = 0;
     protected double landingLag = 0;
+    protected boolean isHasWhiffLanding = false;
+    protected double hasWhiffLanding = 0;
     //TODO add armor
 
     protected List<String> other = null;
@@ -91,6 +93,17 @@ public class Move
                 m.find();
                 double value = Double.parseDouble(m.group(1));
                 this.cooldown = value;
+
+                numberOfCommands++;
+                commandPositions[numberOfCommands - 1] = i;
+            }
+            else if (Utilities.isSpecificCommand(command, CommandStorage.hasWhiffLanding))
+            {
+                m = p.matcher(command);
+                m.find();
+                double value = Double.parseDouble(m.group(1));
+                this.isHasWhiffLanding = true;
+                this.hasWhiffLanding = value;
 
                 numberOfCommands++;
                 commandPositions[numberOfCommands - 1] = i;
