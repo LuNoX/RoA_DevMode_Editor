@@ -5,7 +5,7 @@ import java.util.*;
 
 public class WindowManager
 {
-    //TODO add "other"-field
+    // TODO add "other"-field
     protected List<String> code = null;
 
     protected ArrayList<Window> windows = new ArrayList<Window>();
@@ -51,10 +51,12 @@ public class WindowManager
             this.windows.add(window);
         }
         // remove everything related to the Window from the code
-        Arrays.sort(commandPositions); //sort the indices and then go through the list backwards to avoid index errors
-        for (int i = numberOfCommands-1; i >= 0; i--) //dont use commandPositions.length because the Array is far longer than needed
+        Arrays.sort(commandPositions); // sort the indices and then go through the list backwards to
+                                       // avoid index errors
+        for (int i = 1; i <= numberOfCommands; i++) // dont use commandPositions.length because
+        // the Array is far longer than needed
         {
-            this.code.remove(commandPositions[i]);
+            this.code.remove(commandPositions[commandPositions.length - i]);
         }
     }
 

@@ -78,10 +78,30 @@ public class Projectile extends Move
         // remove the commands from the code
         Arrays.sort(commandPositions); // sort the indices and then go through the list backwards to
                                        // avoid index errors
-        for (int i = numberOfCommands - 1; i >= 0; i--) // dont use commandPositions.length because
+        for (int i = 1; i <= numberOfCommands; i++) // dont use commandPositions.length because
                                                         // the Array is far longer than needed
         {
-            this.other.remove(commandPositions[i]);
+            this.other.remove(commandPositions[commandPositions.length-i]);
         }
+    }
+
+    public double getProjectileHSpeed()
+    {
+        return projectileHSpeed;
+    }
+
+    public double getProjectileVSpeed()
+    {
+        return projectileVSpeed;
+    }
+
+    public double getProjectileGravity()
+    {
+        return projectileGravity;
+    }
+
+    public double getProjectileLifetime()
+    {
+        return projectileLifetime;
     }
 }

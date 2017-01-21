@@ -72,7 +72,7 @@ public class CharacterGeneral
     public CharacterGeneral()
     {
     }
-    
+
     public CharacterGeneral(List<String> code)
     {
         this.code = code;
@@ -118,7 +118,7 @@ public class CharacterGeneral
                         System.out.println(e.getLocalizedMessage());
                         e.printStackTrace();
                     }
-                    
+
                     numberOfCommands++;
                     commandPositions[numberOfCommands - 1] = i;
                     break;
@@ -128,10 +128,10 @@ public class CharacterGeneral
         // remove all commands from code
         Arrays.sort(commandPositions); // sort the indices and then go through the list backwards to
                                        // avoid index errors
-        for (int i = numberOfCommands - 1; i >= 0; i--) // dont use commandPositions.length because
-                                                        // the Array is far longer than needed
+        for (int i = 1; i <= numberOfCommands; i++) // dont use commandPositions.length because
+        // the Array is far longer than needed
         {
-            this.other.remove(commandPositions[i]);
+            this.other.remove(commandPositions[commandPositions.length - i]);
         }
     }
 

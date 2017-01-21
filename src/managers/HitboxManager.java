@@ -9,7 +9,7 @@ import java.util.*;
 
 public class HitboxManager
 {
-    //TODO add "other"-field
+    // TODO add "other"-field
     protected List<String> code = null;
 
     protected boolean hasHitbox = false;
@@ -23,8 +23,8 @@ public class HitboxManager
 
     protected int[] multihitIds = null;
     protected int[] finalIds = null;
-    
-    //TODO think about implementing an enum that determines multihibox type
+
+    // TODO think about implementing an enum that determines multihibox type
 
     public HitboxManager(List<String> code)
     {
@@ -111,15 +111,16 @@ public class HitboxManager
         // remove everything related to the Hitboxes from the code
         Arrays.sort(commandPositions); // sort the indices and then go through the list backwards to
                                        // avoid index errors
-        for (int i = numberOfCommands - 1; i >= 0; i--) // dont use commandPositions.length because
-                                                        // the Array is far longer than needed
+        for (int i = 1; i <= numberOfCommands; i++) // dont use commandPositions.length because
+        // the Array is far longer than needed
         {
-            this.code.remove(commandPositions[i]);
+            this.code.remove(commandPositions[commandPositions.length - i]);
         }
     }
 
     public void determineNumberOfHitboxes()
     {
+        //TODO change the commandPositions array to be like the one in Projectile
         boolean numHitboxesSaved = false;
         boolean numUniqueHitboxesSaved = false;
         boolean numFinalHitboxesSaved = false;
@@ -207,7 +208,7 @@ public class HitboxManager
                 String command = this.code.get(i);
                 if (Utilities.isSpecificCommand(command, CommandStorage.parentHitbox))
                 {
-                    int tmp = command.indexOf(CommandStorage.parentHitbox+"_")
+                    int tmp = command.indexOf(CommandStorage.parentHitbox + "_")
                                     + (CommandStorage.parentHitbox + "_").length();
                     int id = Integer.parseInt(command.substring(tmp, tmp + 1));
 

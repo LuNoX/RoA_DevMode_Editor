@@ -4,6 +4,7 @@ import characters.RoACharacter;
 import managers.Hitbox;
 import managers.Project;
 import moves.Move;
+import moves.Projectile;
 import utility.RoAFileChooser;
 
 public class test_Project
@@ -46,6 +47,12 @@ public class test_Project
                 {
                     System.out.println(string);
                 }
+                /*if (move.isProjectile())
+                {
+                    Projectile tmp = (Projectile) move;
+                    System.out.println(tmp.getProjectileLifetime());
+                }*/
+                //.getHm().getHitboxes().get(0);
                 System.out.println("_______________");
             }
             System.out.println("__________________________________________________________");
