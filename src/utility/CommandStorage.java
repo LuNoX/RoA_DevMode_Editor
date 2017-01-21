@@ -156,7 +156,7 @@ public class CommandStorage
     // Move
     public static final String hasCooldown = "has_cooldown";
     public static final String cooldown = "cooldown";
-    public static final String hasWhiffLanding = "has_whiff_landing";
+    public static final String hasWhiffLanding = "has_whiff_landing"; // unnecessary?
     public static final String autocancelFrame = "autocancel_frame";
     public static final String landingLag = "landing_lag";
 
@@ -168,82 +168,82 @@ public class CommandStorage
     public static final String[] characterSpecificMoveNames =
     {"Orcane.BUBBLES", "Absa.CLOUD_BURST", "Wrastor.NSPECIAL", "Kragg.FSPECIAL", "Kragg.NSPECIAL"};
 
-    // //Absa
+    // // Absa
     public static final String[] absaSpecificMoveNames =
     {"CLOUD_BURST"};
 
-    // // //Ftilt
+    // // // Ftilt
     public static final String maxRange = "max_range";
 
-    // // //Fspecial
+    // // // Fspecial
     public static final String initialSpeed = "initial_speed";
     public static final String acceleration = "acceleration";
 
-    // // //Lightning Bolt
+    // // // Lightning Bolt
     public static final String boltWidth = "bolt_width";
 
-    // //Etalus
+    // // Etalus
 
-    // // //Dattack
+    // // // Dattack
     public static final String minSlideSpeed = "min_slide_speed";
     public static final String slidingBoost = "sliding_boost";
 
-    // // //Fair
+    // // // Fair
     public static final String armorValue = "armor_value";
     public static final String minArmorFrames = "min_armor_frames";
 
-    // // //Uspecial
+    // // // Uspecial
     public static final String minActionableSpeed = "min_actionable_speed";
     public static final String maxBoost = "max_boost";
     public static final String minBoost = "min_boost";
     public static final String maxChargeTime = "max_charge_time";
     public static final String minChargeTime = "min_charge_time";
 
-    // // //Nspecial
+    // // // Nspecial
     // // // //public static final String maxFallSpeed = "max_fall_speed";
     public static final String gravityChange = "gravity_change";
 
-    // //Forsburn
+    // // Forsburn
 
-    // // //Fspecial
+    // // // Fspecial
     public static final String cloneCreationFrame = "clone_creation_frame";
 
-    // // //Uspecial
+    // // // Uspecial
     public static final String teleportDistance = "teleport_distance";
     public static final String teleportFrame = "teleport_frame";
     public static final String upwardLeniency = "upward_leniency";
     public static final String postTeleportSmokeCancelFrames = "post_teleport_smoke_cancel_frames";
 
-    // // //Dspecial
+    // // // Dspecial
     public static final String inhaleFrame = "inhale_frame";
     public static final String inhaleFinishFrame = "inhale_finish_frame";
 
-    // //Kragg
+    // // Kragg
     public static final String[] kraggSpecificMoveNames =
     {"NSPECIAL", "FSPECIAL"};
-    
-    // //Maypul
 
-    // // //Fspecial
+    // // Maypul
+
+    // // // Fspecial
     public static final String boostSpeedGround = "boost_speed_ground";
     public static final String boostSpeedAir = "boost_speed_air";
 
-    // // //Uspecial Marked
+    // // // Uspecial Marked
     public static final String baseSlingTime = "base_sling_time";
     public static final String slingDistanceDivider = "sling_distance_divisor";
 
-    // // //Dspecial
+    // // // Dspecial
     public static final String plantLifespan = "plant_lifespan";
     public static final String upwardSeedSpeed = "upward_seed_speed";
     public static final String plantStartupFrames = "plant_startup_frames";
     public static final String plantBaseWrapFrames = "plant_base_wrap_frames";
     public static final String plantWrapScaling = "plant_wrap_scaling";
 
-    // //Orcane
+    // // Orcane
     public static final String[] orcaneSpecificMoveNames =
     {"BUBBLES"};
 
-    // // //Bubbles
+    // // // Bubbles
     public static final String hitstun = "hitstun";
     public static final String hitstop = "hitstop";
     public static final String lockoutTime = "lockout_time";
@@ -273,12 +273,12 @@ public class CommandStorage
                     CommandStorage.dspecialInputDrift, CommandStorage.dspecialVSpeedMin,
                     CommandStorage.dspecialVSpeedMax, CommandStorage.dspecialHSpeedRange,
                     CommandStorage.bubblesPerFrameDspecial};
-    
-    // //Wrastor
+
+    // // Wrastor
     public static final String[] wrastorSpecificMoveNames =
     {"NSPECIAL"};
-    
-    // // //Dstrong
+
+    // // // Dstrong
     public static final String minTravelDistance = "min_travel_distance";
 
     public static final String[] moveSpecificCommands =
@@ -382,6 +382,47 @@ public class CommandStorage
                     CommandStorage.dashTurnTime, CommandStorage.dashSpeed,
                     CommandStorage.walkTurnTime, CommandStorage.walkAccel,
                     CommandStorage.walkSpeed};
+
+    // Settings
+
+    // // Gameplay
+    public static final String driftDiMaxPercent = "drift_di_max_percent";
+    public static final String driftDiMinPercent = "drift_di_min_percent";
+    public static final String asdiStrength = "asdi_strength";
+    public static final String knockdownStateTime = "knockdown_state_time";
+    public static final String maxSpeedToActOutOfTumble = "max_speed_to_act_out_of_tumble";
+    public static final String postHitpauseDiFrames = "post_hitpause_di_frames";
+    public static final String driftDiStrength = "drift_di_strength";
+    public static final String tumbleDiMaxAngle = "tumble_di_max_angle";
+    public static final String diMaxAngle = "di_max_angle";
+    public static final String parryStun = "parry_stun";
+    public static final String parryMode = "parry_mode";
+
+    public static final String[] gameplayCommands =
+    {CommandStorage.driftDiMaxPercent, CommandStorage.driftDiMinPercent,
+                    CommandStorage.asdiStrength, CommandStorage.knockdownStateTime,
+                    CommandStorage.maxSpeedToActOutOfTumble, CommandStorage.postHitpauseDiFrames,
+                    CommandStorage.driftDiStrength, CommandStorage.tumbleDiMaxAngle,
+                    CommandStorage.diMaxAngle, CommandStorage.parryStun, CommandStorage.parryMode};
+
+    // // Resets
+    public static final String resetAbsa = "reset_Absa";
+    public static final String resetEtalus = "reset_Etalus";
+    public static final String resetForsburn = "reset_Forsburn";
+    public static final String resetKragg = "reset_Kragg";
+    public static final String resetMaypul = "reset_Maypul";
+    public static final String resetOrcane = "reset_Orcane";
+    public static final String resetWrastor = "reset_Wrastor";
+    public static final String resetZetterburn = "reset_Zetterburn";
+    public static final String resetGeneral = "reset_General";
+    public static final String resetEverything = "reset_Everything";
+
+    public static final String[] resetCommands =
+    {CommandStorage.resetAbsa, CommandStorage.resetEtalus, CommandStorage.resetForsburn,
+                    CommandStorage.resetKragg, CommandStorage.resetMaypul,
+                    CommandStorage.resetOrcane, CommandStorage.resetWrastor,
+                    CommandStorage.resetZetterburn, CommandStorage.resetGeneral,
+                    CommandStorage.resetEverything};
 
     // File names
     public static final String customAbsa = "custom_absa.ini";

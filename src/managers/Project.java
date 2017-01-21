@@ -3,6 +3,7 @@ package managers;
 import java.util.*;
 import java.io.File;
 import characters.*;
+import settings.GeneralSettings;
 import utility.*;
 
 public class Project
@@ -10,7 +11,7 @@ public class Project
     protected File directory = null;
 
     protected List<RoACharacter> characters = new ArrayList<RoACharacter>();
-    protected GeneralSettings general = null;
+    protected GeneralSettings general = new GeneralSettings();
 
     public Project()
     {

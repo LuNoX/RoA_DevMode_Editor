@@ -13,12 +13,14 @@ public class RoACharacter
     protected File characterFile = null;
     protected List<String> content = new ArrayList<String>();
 
+    protected CharacterGeneral general = new CharacterGeneral();
+    protected List<String> generalCode = new ArrayList<String>();
     protected List<Move> allMoves = new ArrayList<Move>();
+    
     protected List<CharacterSpecificMove> characterSpecificMoves
                     = new ArrayList<CharacterSpecificMove>();
     protected String[] characterSpecificMoveNames = new String[0];
-    protected CharacterGeneral general = new CharacterGeneral();
-    protected List<String> generalCode = new ArrayList<String>();
+
 
     // TODO make this abstract
     public RoACharacter(File character)
@@ -50,7 +52,7 @@ public class RoACharacter
         RoAFileReader ifr = new RoAFileReader(this.characterFile);
         ifr.nextLine();
 
-        // save the file as an Array of Strings
+        // save the file as an ArrayList of Strings
         while (ifr.getActiveLine() != null)
         {
             if (!ifr.getActiveLine().equals(""))
