@@ -7,6 +7,8 @@ public class Window
     protected String id = "0";
 
     protected double length = 0;
+    protected boolean isCancelable = false;
+    protected double windowCancelFrame = 0;
     protected double hBoost = 0;
     protected double vBoost = 0;
     protected double hBoostConst = 0;
@@ -17,12 +19,13 @@ public class Window
     protected double whiffFrames = 0;
     protected double invincibility = 0;
 
-    public Window(String id, double length, double hBoost, double vBoost, double hBoostConst,
+    public Window(String id, double length, double windowCancelFrame, double hBoost, double vBoost, double hBoostConst,
                     double vBoostConst, double hasSfx, double sfx, double sfxFrame, double whiffFrames,
                     double invincibility)
     {
         this.id = id;
         this.length = length;
+        this.windowCancelFrame = windowCancelFrame;
         this.hBoost = hBoost;
         this.vBoost = vBoost;
         this.hBoostConst = hBoostConst;
@@ -32,9 +35,14 @@ public class Window
         this.sfxFrame = sfxFrame;
         this.whiffFrames = whiffFrames;
         this.invincibility = invincibility;
+        
+        if(this.windowCancelFrame > 0)
+        {
+            this.isCancelable = true;
+        }
     }
 
-    public Window(String id, String length, String hBoost, String vBoost, String hBoostConst,
+    public Window(String id, String length, String windowCancelFrame, String hBoost, String vBoost, String hBoostConst,
                     String vBoostConst, String hasSfx, String sfx, String sfxFrames,
                     String whiffFrames, String invincibility)
     {
@@ -43,6 +51,10 @@ public class Window
         Matcher m = null;
 
         m = p.matcher(length);
+        m.find();
+        this.length = Double.parseDouble(m.group(1));
+        
+        m = p.matcher(windowCancelFrame);
         m.find();
         this.length = Double.parseDouble(m.group(1));
 
@@ -81,6 +93,11 @@ public class Window
         m = p.matcher(invincibility);
         m.find();
         this.invincibility = Double.parseDouble(m.group(1));
+        
+        if(this.windowCancelFrame > 0)
+        {
+            this.isCancelable = true;
+        }
     }
 
     public String getId()
