@@ -1,19 +1,17 @@
 package moves;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CharacterSpecificMove
 {    
-    protected String name = null;
+    protected String name = "";
 
-    protected List<String> code = null;
-    protected List<String> other = null;
-    /**
-     * Placeholder constructor to avoid errors in all CharacterSpecificMove classes
-     */
+    protected List<String> code = new ArrayList<String>();
+    protected List<String> other = new ArrayList<String>();
+
     public CharacterSpecificMove()
     {
-        // TODO make this constructor do at least something
     }
     
     public CharacterSpecificMove(String name, List<String> code)

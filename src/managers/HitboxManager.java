@@ -10,7 +10,7 @@ import java.util.*;
 public class HitboxManager
 {
     // TODO add "other"-field
-    protected List<String> code = null;
+    protected List<String> code = new ArrayList<String>();
 
     protected boolean hasHitbox = false;
     protected boolean hasMultihitbox = false;
@@ -21,11 +21,13 @@ public class HitboxManager
     protected int numberOfFinalHitboxes = 0;
     protected int numberOfMultihitboxes = 0;
 
-    protected int[] multihitIds = null;
-    protected int[] finalIds = null;
-
-    // TODO think about implementing an enum that determines multihibox type
-
+    protected int[] multihitIds = new int[0];
+    protected int[] finalIds = new int[0];
+    
+    public HitboxManager()
+    {
+    }
+    
     public HitboxManager(List<String> code)
     {
         this.code = code;
@@ -36,6 +38,7 @@ public class HitboxManager
 
     public void createHitboxes()
     {
+        //TODO instead of messing around with TempHitboxes just create a hitbox and then set the values afterwards, rest is going to stay default
         int numberOfCommands = 0;
         int[] commandPositions = new int[this.code.size()];
         String append = "_";

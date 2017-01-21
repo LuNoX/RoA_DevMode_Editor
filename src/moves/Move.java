@@ -1,5 +1,6 @@
 package moves;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -12,15 +13,14 @@ import utility.Utilities;
 
 public class Move
 {
-    protected String name = null;
+    protected String name = "";
 
-    protected List<String> code = null; // TODO think about the consequences of removing this.other,
+    protected List<String> code = new ArrayList<String>(); // TODO think about the consequences of removing this.other,
                                         // is there a reason to have the copy?
 
-    protected HitboxManager hm = null;
+    protected HitboxManager hm = new HitboxManager();
     protected WindowManager wm = null;
 
-    protected boolean isProjectile = false;
     protected boolean hasCooldown = false;
     protected double cooldown = 0;
     protected boolean isAutocancelable = false;
@@ -30,14 +30,10 @@ public class Move
     protected double hasWhiffLanding = 0;
     //TODO add armor
 
-    protected List<String> other = null;
+    protected List<String> other = new ArrayList<String>();
 
-    /**
-     * Placeholder constructor to avoid errors in all Character classes
-     */
     public Move()
-    {
-        // TODO make this constructor do at least something
+    {     
     }
 
     public Move(String name, List<String> code)
@@ -165,11 +161,6 @@ public class Move
     public WindowManager getWm()
     {
         return wm;
-    }
-
-    public boolean isProjectile()
-    {
-        return isProjectile;
     }
 
     public boolean isHasCooldown()

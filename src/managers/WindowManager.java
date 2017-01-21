@@ -6,12 +6,16 @@ import java.util.*;
 public class WindowManager
 {
     // TODO add "other"-field
-    protected List<String> code = null;
+    protected List<String> code = new ArrayList<String>();
 
     protected ArrayList<Window> windows = new ArrayList<Window>();
 
     protected CommandStorage cs = new CommandStorage();
 
+    public WindowManager()
+    {
+    }
+    
     public WindowManager(List<String> code)
     {
         this.code = code;
@@ -20,6 +24,7 @@ public class WindowManager
 
     public void createWindows()
     {
+        //TODO instead of messing around with TempWindows just create a window and then set the values afterwards, rest is going to stay default
         int[] commandPositions = new int[this.code.size()];
         int numberOfCommands = 0;
 

@@ -1,7 +1,6 @@
 package test;
 
 import characters.RoACharacter;
-import managers.Hitbox;
 import managers.Project;
 import moves.Move;
 import utility.RoAFileChooser;

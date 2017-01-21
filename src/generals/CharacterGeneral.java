@@ -1,6 +1,7 @@
 package generals;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -11,8 +12,8 @@ import utility.Utilities;
 
 public class CharacterGeneral
 {
-    protected List<String> code = null;
-    protected List<String> other = null;
+    protected List<String> code = new ArrayList<String>();
+    protected List<String> other = new ArrayList<String>();
 
     protected double knockbackAdjustment = 0;
     protected double hitstunGravityAccel = 0;

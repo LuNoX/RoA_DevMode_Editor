@@ -17,8 +17,8 @@ public class RoACharacter
     protected List<CharacterSpecificMove> characterSpecificMoves
                     = new ArrayList<CharacterSpecificMove>();
     protected String[] characterSpecificMoveNames = new String[0];
-    protected CharacterGeneral general = null;
-    protected List<String> generalCode = null;
+    protected CharacterGeneral general = new CharacterGeneral();
+    protected List<String> generalCode = new ArrayList<String>();
 
     // TODO make this abstract
     public RoACharacter(File character)
@@ -34,12 +34,9 @@ public class RoACharacter
         this.initializeEveryting();
     }
 
-    /**
-     * Placeholder constructor to avoid errors in all Character classes
-     */
+
     public RoACharacter()
     {
-        // TODO make this constructor do at least something
     }
 
     public void initializeEveryting()
