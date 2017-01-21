@@ -38,16 +38,25 @@ public class Hitbox
     protected double forceFlinch = 0;
     protected double hitboxShape = 0;
 
+    protected boolean isProjectile = false;
+    protected double useSpriteCollision = 0;
+    protected double projectileHSpeed = 0;
+    protected double projectileVSpeed = 0;
+    protected double projectileGravity = 0;
+    protected double projectileLifetime = 0;
+
     public Hitbox(String id, double parentHitbox, double hitboxWindow,
                     double hitboxWindowCreationFrame, double hitboxLifetime, double baseKnockback,
-                    double knockbackScaling, double knockbackAngle, double angleFlipper, double damage,
-                    double hitboxSizeX, double hitboxSizeY, double hitboxPositionX,
+                    double knockbackScaling, double knockbackAngle, double angleFlipper,
+                    double damage, double hitboxSizeX, double hitboxSizeY, double hitboxPositionX,
                     double hitboxPositionY, double hitEffect, double asdiModifier,
                     double hitstunModifier, double untechable, double priority, double baseHitpause,
                     double hitpauseScaling, double visualEffect, double visualEffectXOffset,
                     double visualEffectYOffset, double hitSoundEffect, double extraCameraShake,
-                    double canKillProjectiles, double hitLockoutTime, double causesExtendedParryStun,
-                    double forceFlinch, double hitboxShape)
+                    double canKillProjectiles, double hitLockoutTime,
+                    double causesExtendedParryStun, double forceFlinch, double hitboxShape,
+                    double useSpriteCollision, double projectileHSpeed, double projectileVSpeed,
+                    double projectileGravity, double projectileLifetime)
     {
         this.id = id;
         this.parentHitbox = parentHitbox;
@@ -80,6 +89,16 @@ public class Hitbox
         this.causesExtendedParryStun = causesExtendedParryStun;
         this.forceFlinch = forceFlinch;
         this.hitboxShape = hitboxShape;
+        this.useSpriteCollision = useSpriteCollision;
+        this.projectileHSpeed = projectileHSpeed;
+        this.projectileVSpeed = projectileLifetime;
+        this.projectileGravity = projectileGravity;
+        this.projectileLifetime = projectileLifetime;
+
+        if (this.projectileLifetime > 0)
+        {
+            this.isProjectile = true;
+        }
     }
 
     public Hitbox(String id, String parentHitbox, String hitboxWindow,
@@ -91,7 +110,9 @@ public class Hitbox
                     String hitpauseScaling, String visualEffect, String visualEffectXOffset,
                     String visualEffectYOffset, String hitSoundEffect, String extraCameraShake,
                     String canKillProjectiles, String hitLockoutTime,
-                    String causesExtendedParryStun, String forceFlinch, String hitboxShape)
+                    String causesExtendedParryStun, String forceFlinch, String hitboxShape,
+                    String useSpriteCollision, String projectileHSpeed, String projectileVSpeed,
+                    String projectileGravity, String projectileLifetime)
     {
         this.id = id;
         Pattern p = Pattern.compile("\"([^\"]*)\"");
@@ -216,6 +237,31 @@ public class Hitbox
         m = p.matcher(hitboxShape);
         m.find();
         this.hitboxShape = Double.parseDouble(m.group(1));
+
+        m = p.matcher(useSpriteCollision);
+        m.find();
+        this.useSpriteCollision = Double.parseDouble(m.group(1));
+
+        m = p.matcher(projectileHSpeed);
+        m.find();
+        this.projectileHSpeed = Double.parseDouble(m.group(1));
+
+        m = p.matcher(projectileVSpeed);
+        m.find();
+        this.projectileVSpeed = Double.parseDouble(m.group(1));
+
+        m = p.matcher(projectileGravity);
+        m.find();
+        this.projectileGravity = Double.parseDouble(m.group(1));
+
+        m = p.matcher(projectileLifetime);
+        m.find();
+        this.projectileLifetime = Double.parseDouble(m.group(1));
+
+        if (this.projectileLifetime > 0)
+        {
+            this.isProjectile = true;
+        }
     }
 
     public Hitbox(String[] tempHitbox)
@@ -227,7 +273,8 @@ public class Hitbox
                         tempHitbox[18], tempHitbox[19], tempHitbox[20], tempHitbox[21],
                         tempHitbox[22], tempHitbox[23], tempHitbox[24], tempHitbox[25],
                         tempHitbox[26], tempHitbox[27], tempHitbox[28], tempHitbox[29],
-                        tempHitbox[30]);
+                        tempHitbox[30], tempHitbox[31], tempHitbox[32], tempHitbox[33],
+                        tempHitbox[34], tempHitbox[35]);
     }
 
     public String getId()

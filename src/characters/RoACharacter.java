@@ -68,15 +68,15 @@ public class RoACharacter
     public void initializeAllMovesAndGeneral()
     {
         String line = null;
-        int startIndex = this.content.size()+1;
+        int startIndex = this.content.size() + 1;
 
         for (int i = this.content.size() - 1; i >= 0; i--)
         {
             line = this.content.get(i);
             if (line.contains("[") && line.contains("]"))
             {
-                int endIndex = startIndex-1;
-                startIndex = i+1;
+                int endIndex = startIndex - 1;
+                startIndex = i + 1;
 
                 String name = line.substring(line.indexOf("[") + 1, line.indexOf("]"));
                 if (name.equals("GENERAL"))
@@ -93,33 +93,17 @@ public class RoACharacter
                         {
                             isCharacterSpecific = true;
                             CharacterSpecificMove charcterSpecificMove = new CharacterSpecificMove(
-                                            name, new ArrayList<>(this.content.subList(startIndex, endIndex)));
+                                            name, new ArrayList<>(this.content.subList(startIndex,
+                                                            endIndex)));
                             this.characterSpecificMoves.add(charcterSpecificMove);
                             break;
                         }
                     }
                     if (!isCharacterSpecific)
                     {
-                        boolean isProjectile = false;
-                        for (int k = startIndex; k < endIndex; k++)
-                        {
-                            if (this.content.get(k).contains(CommandStorage.projectileLifetime))
-                            {
-                                isProjectile = true;
-                                break;
-                            }
-                        }
-                        if (isProjectile)
-                        {
-                            Projectile projectile = new Projectile(name, new ArrayList<>(this.content.subList(
-                                            startIndex, endIndex)));
-                            this.allMoves.add(projectile);
-                        }
-                        else
-                        {
-                            Move move = new Move(name, new ArrayList<>(this.content.subList(startIndex, endIndex)));
-                            this.allMoves.add(move);
-                        }
+                        Move move = new Move(name, new ArrayList<>(this.content.subList(startIndex,
+                                        endIndex)));
+                        this.allMoves.add(move);
                     }
                 }
             }

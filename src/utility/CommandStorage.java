@@ -9,6 +9,7 @@ public class CommandStorage
     // Window
     public static final String windowLength = "window_length_";
     public static final String windowLengthDescription = "The number of frames in a certain window";
+    public static final String windowCancelFrame = "window_cancel_frame_";
     public static final String windowHBoost = "window_h_boost_";
     public static final String windowHBoostDescription = "The horizontal boost during that window";
     public static final String windowVBoost = "window_v_boost_";
@@ -40,11 +41,12 @@ public class CommandStorage
 
     public static final String[] windowCommands =
     {"This is a placeholder string representing the id of the window and is here for convenience of conversion between this Array and tempWindow Arrays",
-                    CommandStorage.windowLength, CommandStorage.windowHBoost,
-                    CommandStorage.windowVBoost, CommandStorage.windowHBoostConst,
-                    CommandStorage.windowVBoostConst, CommandStorage.windowHasSfx,
-                    CommandStorage.windowSfx, CommandStorage.windowSfxFrame,
-                    CommandStorage.windowWhiffFrames, CommandStorage.windowInvincibility};
+                    CommandStorage.windowLength, CommandStorage.windowCancelFrame,
+                    CommandStorage.windowHBoost, CommandStorage.windowVBoost,
+                    CommandStorage.windowHBoostConst, CommandStorage.windowVBoostConst,
+                    CommandStorage.windowHasSfx, CommandStorage.windowSfx,
+                    CommandStorage.windowSfxFrame, CommandStorage.windowWhiffFrames,
+                    CommandStorage.windowInvincibility};
 
     // Hitbox
     public static final String numHitboxes = "num_hitboxes";
@@ -81,6 +83,13 @@ public class CommandStorage
     public static final String forceFlinch = "force_flinch";
     public static final String hitboxShape = "hitbox_shape";
 
+    // Projectile
+    public static final String useSpriteCollison = "use_sprite_collision";
+    public static final String projectileHSpeed = "projectile_h_speed";
+    public static final String projectileVSpeed = "projectile_v_speed";
+    public static final String projectileGravity = "projectile_gravity";
+    public static final String projectileLifetime = "projectile_lifetime";
+
     public static final String[] hitboxCommands =
     {"This is a placeholder string representing the id of the hitbox and is here for convenience of conversion between this Array and tempHitbox Arrays",
                     CommandStorage.parentHitbox, CommandStorage.hitboxWindow,
@@ -97,7 +106,9 @@ public class CommandStorage
                     CommandStorage.hitSoundEffect, CommandStorage.extraCameraShake,
                     CommandStorage.canKillProjectiles, CommandStorage.hitLockoutTime,
                     CommandStorage.causesExtendedParryStun, CommandStorage.forceFlinch,
-                    CommandStorage.hitboxShape};
+                    CommandStorage.hitboxShape, CommandStorage.useSpriteCollison,
+                    CommandStorage.projectileHSpeed, CommandStorage.projectileVSpeed,
+                    CommandStorage.projectileGravity, CommandStorage.projectileLifetime};
 
     public static final boolean[] isMultihitOrFinalCommand =
     {false, // id
@@ -131,6 +142,11 @@ public class CommandStorage
                     true, // causesExtendedParryStun
                     true, // forceFlinch
                     true, // hitboxShape
+                    false, // useSpriteCollison
+                    false, // projectileHSpeed
+                    false, // projectileVSpeed
+                    false, // projectileGravity
+                    false// projectileLifetime
     };
 
     // Move
@@ -142,16 +158,6 @@ public class CommandStorage
     public static final String[] moveCommands =
     {CommandStorage.hasCooldown, CommandStorage.cooldown, CommandStorage.autocancelFrame,
                     CommandStorage.landingLag};
-
-    // Projectile
-    public static final String projectileHSpeed = "projectile_h_speed";
-    public static final String projectileVSpeed = "projectile_v_speed";
-    public static final String projectileGravity = "projectile_gravity";
-    public static final String projectileLifetime = "projectile_lifetime";
-
-    public static final String[] projectileCommands =
-    {CommandStorage.projectileHSpeed, CommandStorage.projectileVSpeed,
-                    CommandStorage.projectileGravity, CommandStorage.projectileLifetime};
 
     // Character specific moves
     public static final String[] characterSpecificMoveNames =

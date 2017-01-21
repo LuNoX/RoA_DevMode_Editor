@@ -26,6 +26,7 @@ public class Move
     protected boolean isAutocancelable = false;
     protected double autocancelFrame = 0;
     protected double landingLag = 0;
+    //TODO add armor
 
     protected List<String> other = null;
 
