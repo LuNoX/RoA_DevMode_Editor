@@ -175,9 +175,15 @@ public class CommandStorage
     // // // Ftilt
     public static final String maxRange = "max_range";
 
+    // // // Uspecial
+    // // // // public static final String dashSpeed = "dash_speed";
+
     // // // Fspecial
     public static final String initialSpeed = "initial_speed";
     public static final String acceleration = "acceleration";
+
+    // // // Nspecial
+    public static final String cloudPlaceBoost = "cloud_place_boost";
 
     // // // Lightning Bolt
     public static final String boltWidth = "bolt_width";
@@ -257,6 +263,8 @@ public class CommandStorage
     public static final String plantStartupFrames = "plant_startup_frames";
     public static final String plantBaseWrapFrames = "plant_base_wrap_frames";
     public static final String plantWrapScaling = "plant_wrap_scaling";
+    public static final String plantAttackStartupHitstun = "plant_attack_startup_hitstun";
+    public static final String plantAttackStartupNeutral = "plant_attack_startup_neutral";
 
     // // Orcane
     public static final String[] orcaneSpecificMoveNames =
@@ -301,7 +309,8 @@ public class CommandStorage
     public static final String minTravelDistance = "min_travel_distance";
 
     public static final String[] moveSpecificCommands =
-    {CommandStorage.maxRange, CommandStorage.initialSpeed, CommandStorage.acceleration,
+    {CommandStorage.maxRange, CommandStorage.dashSpeed, CommandStorage.initialSpeed,
+                    CommandStorage.acceleration, CommandStorage.cloudPlaceBoost,
                     CommandStorage.boltWidth, CommandStorage.minSlideSpeed,
                     CommandStorage.slidingBoost, CommandStorage.armorValue,
                     CommandStorage.minArmorFrames, CommandStorage.minActionableSpeed,
@@ -315,7 +324,8 @@ public class CommandStorage
                     CommandStorage.baseSlingTime, CommandStorage.slingDistanceDivider,
                     CommandStorage.plantLifespan, CommandStorage.upwardSeedSpeed,
                     CommandStorage.plantStartupFrames, CommandStorage.plantBaseWrapFrames,
-                    CommandStorage.plantWrapScaling, CommandStorage.minTravelDistance};
+                    CommandStorage.plantWrapScaling, CommandStorage.plantAttackStartupHitstun,
+                    CommandStorage.plantAttackStartupNeutral, CommandStorage.minTravelDistance};
 
     // General
     public static final String knockbackAdjustment = "knockback_adjustment";
