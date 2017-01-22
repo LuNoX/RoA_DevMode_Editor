@@ -23,14 +23,19 @@ public class HitboxManager
 
     protected int[] multihitIds = new int[0];
     protected int[] finalIds = new int[0];
-    
+
     public HitboxManager()
     {
     }
-    
+
     public HitboxManager(List<String> code)
     {
         this.code = code;
+        this.initializeEverything();
+    }
+
+    public void initializeEverything()
+    {
         this.determineNumberOfHitboxes();
         this.determineNumberOfMultihitboxes();
         this.createHitboxes();
@@ -38,14 +43,37 @@ public class HitboxManager
 
     public void createHitboxes()
     {
-        //TODO instead of messing around with TempHitboxes just create a hitbox and then set the values afterwards, rest is going to stay default
-        int numberOfCommands = 0;
-        int[] commandPositions = new int[this.code.size()];
         String append = "_";
         if (this.numberOfHitboxes == 1)
         {
             append = "";
         }
+        this.createHitboxes(append);
+    }
+
+    public void createHitboxes(String specificAppend)
+    {
+        String[] tmp = new String[0];
+        this.createHitboxes(specificAppend, tmp);
+    }
+
+    public void createHitboxes(String[] specificIds)
+    {
+        String append = "_";
+        if (this.numberOfHitboxes == 1)
+        {
+            append = "";
+        }
+        this.createHitboxes(append, specificIds);
+    }
+
+    public void createHitboxes(String specificAppend, String[] specificIds)
+    {
+        // TODO instead of messing around with TempHitboxes just create a hitbox and then set the
+        // values afterwards, rest is going to stay default
+        int numberOfCommands = 0;
+        int[] commandPositions = new int[this.code.size()];
+        String append = specificAppend;
 
         Pattern p = Pattern.compile("\"([^\"]*)\"");
         Matcher m = null;
@@ -95,7 +123,23 @@ public class HitboxManager
                         int id = 1;
                         if (this.numberOfHitboxes > 1)
                         {
-                            id = Integer.parseInt(command.substring(tmp, tmp + 1));
+                            boolean hasSpecificId = false;
+                            for (int k = 0; k < specificIds.length; k++)
+                            {
+                                if (command.substring(tmp, tmp + specificIds[k].length()).equals(
+                                                specificIds[k]))
+                                // possible bug if some specificIds are substrings of others
+                                {
+                                    hasSpecificId = true;
+                                    id = k + 1;
+                                    break;
+                                }
+                            }
+
+                            if (!hasSpecificId)
+                            {
+                                id = Integer.parseInt(command.substring(tmp, tmp + 1));
+                            }
                         }
                         tempHitboxes[id - 1][j] = value;
                     }
@@ -123,7 +167,7 @@ public class HitboxManager
 
     public void determineNumberOfHitboxes()
     {
-        //TODO change the commandPositions array to be like the one in Projectile
+        // TODO change the commandPositions array to be like the one in Projectile
         boolean numHitboxesSaved = false;
         boolean numUniqueHitboxesSaved = false;
         boolean numFinalHitboxesSaved = false;
@@ -315,5 +359,55 @@ public class HitboxManager
     public int[] getFinalIds()
     {
         return finalIds;
+    }
+
+    public List<String> getCode()
+    {
+        return code;
+    }
+
+    public boolean isHasHitbox()
+    {
+        return hasHitbox;
+    }
+
+    public boolean isHasMultihitbox()
+    {
+        return hasMultihitbox;
+    }
+
+    public void setNumberOfHitboxes(int numberOfHitboxes)
+    {
+        this.numberOfHitboxes = numberOfHitboxes;
+    }
+
+    public void setNumberOfUniqueHitboxes(int numberOfUniqueHitboxes)
+    {
+        this.numberOfUniqueHitboxes = numberOfUniqueHitboxes;
+    }
+
+    public void setNumberOfFinalHitboxes(int numberOfFinalHitboxes)
+    {
+        this.numberOfFinalHitboxes = numberOfFinalHitboxes;
+    }
+
+    public void setNumberOfMultihitboxes(int numberOfMultihitboxes)
+    {
+        this.numberOfMultihitboxes = numberOfMultihitboxes;
+    }
+
+    public void setCode(List<String> code)
+    {
+        this.code = code;
+    }
+
+    public void setHasHitbox(boolean hasHitbox)
+    {
+        this.hasHitbox = hasHitbox;
+    }
+
+    public void setHasMultihitbox(boolean hasMultihitbox)
+    {
+        this.hasMultihitbox = hasMultihitbox;
     }
 }

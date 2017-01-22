@@ -7,6 +7,8 @@ public class Hitbox
 {
     protected String id = null;
 
+    protected boolean hasCustomId = false;
+
     protected double parentHitbox = 0;
     protected double hitboxWindow = 0;
     protected double hitboxWindowCreationFrame = 0;
@@ -430,6 +432,196 @@ public class Hitbox
     public double getHitboxShape()
     {
         return hitboxShape;
+    }
+
+    public void setId(String id)
+    {
+        this.id = id;
+    }
+
+    public void setHasCustomId(boolean hasCustomId)
+    {
+        this.hasCustomId = hasCustomId;
+    }
+
+    public void setParentHitbox(double parentHitbox)
+    {
+        this.parentHitbox = parentHitbox;
+    }
+
+    public void setHitboxWindow(double hitboxWindow)
+    {
+        this.hitboxWindow = hitboxWindow;
+    }
+
+    public void setHitboxWindowCreationFrame(double hitboxWindowCreationFrame)
+    {
+        this.hitboxWindowCreationFrame = hitboxWindowCreationFrame;
+    }
+
+    public void setHitboxLifetime(double hitboxLifetime)
+    {
+        this.hitboxLifetime = hitboxLifetime;
+    }
+
+    public void setBaseKnockback(double baseKnockback)
+    {
+        this.baseKnockback = baseKnockback;
+    }
+
+    public void setKnockbackScaling(double knockbackScaling)
+    {
+        this.knockbackScaling = knockbackScaling;
+    }
+
+    public void setKnockbackAngle(double knockbackAngle)
+    {
+        this.knockbackAngle = knockbackAngle;
+    }
+
+    public void setAngleFlipper(double angleFlipper)
+    {
+        this.angleFlipper = angleFlipper;
+    }
+
+    public void setDamage(double damage)
+    {
+        this.damage = damage;
+    }
+
+    public void setHitboxSizeX(double hitboxSizeX)
+    {
+        this.hitboxSizeX = hitboxSizeX;
+    }
+
+    public void setHitboxSizeY(double hitboxSizeY)
+    {
+        this.hitboxSizeY = hitboxSizeY;
+    }
+
+    public void setHitboxPositionX(double hitboxPositionX)
+    {
+        this.hitboxPositionX = hitboxPositionX;
+    }
+
+    public void setHitboxPositionY(double hitboxPositionY)
+    {
+        this.hitboxPositionY = hitboxPositionY;
+    }
+
+    public void setHitEffect(double hitEffect)
+    {
+        this.hitEffect = hitEffect;
+    }
+
+    public void setAsdiModifier(double asdiModifier)
+    {
+        this.asdiModifier = asdiModifier;
+    }
+
+    public void setHitstunModifier(double hitstunModifier)
+    {
+        this.hitstunModifier = hitstunModifier;
+    }
+
+    public void setUntechable(double untechable)
+    {
+        this.untechable = untechable;
+    }
+
+    public void setPriority(double priority)
+    {
+        this.priority = priority;
+    }
+
+    public void setBaseHitpause(double baseHitpause)
+    {
+        this.baseHitpause = baseHitpause;
+    }
+
+    public void setHitpauseScaling(double hitpauseScaling)
+    {
+        this.hitpauseScaling = hitpauseScaling;
+    }
+
+    public void setVisualEffect(double visualEffect)
+    {
+        this.visualEffect = visualEffect;
+    }
+
+    public void setVisualEffectXOffset(double visualEffectXOffset)
+    {
+        this.visualEffectXOffset = visualEffectXOffset;
+    }
+
+    public void setVisualEffectYOffset(double visualEffectYOffset)
+    {
+        this.visualEffectYOffset = visualEffectYOffset;
+    }
+
+    public void setHitSoundEffect(double hitSoundEffect)
+    {
+        this.hitSoundEffect = hitSoundEffect;
+    }
+
+    public void setExtraCameraShake(double extraCameraShake)
+    {
+        this.extraCameraShake = extraCameraShake;
+    }
+
+    public void setCanKillProjectiles(double canKillProjectiles)
+    {
+        this.canKillProjectiles = canKillProjectiles;
+    }
+
+    public void setHitLockoutTime(double hitLockoutTime)
+    {
+        this.hitLockoutTime = hitLockoutTime;
+    }
+
+    public void setCausesExtendedParryStun(double causesExtendedParryStun)
+    {
+        this.causesExtendedParryStun = causesExtendedParryStun;
+    }
+
+    public void setForceFlinch(double forceFlinch)
+    {
+        this.forceFlinch = forceFlinch;
+    }
+
+    public void setHitboxShape(double hitboxShape)
+    {
+        this.hitboxShape = hitboxShape;
+    }
+
+    public void setProjectile(boolean isProjectile)
+    {
+        this.isProjectile = isProjectile;
+    }
+
+    public void setUseSpriteCollision(double useSpriteCollision)
+    {
+        this.useSpriteCollision = useSpriteCollision;
+    }
+
+    public void setProjectileHSpeed(double projectileHSpeed)
+    {
+        this.projectileHSpeed = projectileHSpeed;
+    }
+
+    public void setProjectileVSpeed(double projectileVSpeed)
+    {
+        this.projectileVSpeed = projectileVSpeed;
+    }
+
+    public void setProjectileGravity(double projectileGravity)
+    {
+        this.projectileGravity = projectileGravity;
+    }
+
+    public void setProjectileLifetime(double projectileLifetime)
+    {
+        this.projectileLifetime = projectileLifetime;
     }
 
 }

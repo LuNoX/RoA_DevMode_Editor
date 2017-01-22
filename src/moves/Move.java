@@ -30,7 +30,6 @@ public class Move
     protected double landingLag = 0;
     protected boolean isHasWhiffLanding = false;
     protected double hasWhiffLanding = 0;
-    // TODO add armor
 
     protected List<String> other = new ArrayList<String>();
 

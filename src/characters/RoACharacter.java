@@ -58,8 +58,8 @@ public class RoACharacter
             if (!ifr.getActiveLine().equals(""))
             {
                 this.content.add(ifr.getActiveLine());
-                ifr.nextLine();
             }
+            ifr.nextLine();
         }
         ifr.close();
     }

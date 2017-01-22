@@ -222,6 +222,25 @@ public class CommandStorage
     public static final String[] kraggSpecificMoveNames =
     {"NSPECIAL", "FSPECIAL"};
 
+    // // // Nspecial
+    public static final String rockHealth = "rock_health";
+
+    // // // Fspecial
+    public static final String maxGroundSpeed = "max_ground_speed";
+    public static final String initialFallSpeed = "initial_fall_speed";
+    public static final String initialAerialSpeed = "initial_aerial_speed";
+    public static final String maxRollTime = "max_roll_time";
+    public static final String minRollTime = "min_roll_time";
+    public static final String rollAccel = "roll_accel";
+    public static final String minTimeBeforeTurn = "min_time_before_turn";
+    public static final String turnAccel = "turn_accel";
+
+    public static final String[] kraggFspecialCommands =
+    {CommandStorage.maxGroundSpeed, CommandStorage.initialFallSpeed,
+                    CommandStorage.initialAerialSpeed, CommandStorage.maxRollTime,
+                    CommandStorage.minRollTime, CommandStorage.rollAccel,
+                    CommandStorage.minTimeBeforeTurn, CommandStorage.turnAccel};
+
     // // Maypul
 
     // // // Fspecial

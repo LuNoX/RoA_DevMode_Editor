@@ -17,7 +17,8 @@ public class Orcane extends RoACharacter
     public Orcane(File file)
     {
         super(file, CommandStorage.orcaneSpecificMoveNames);
-        this.initializeOrcaneGeneral();
+        this.orcaneGeneral = new OrcaneGeneral(this.generalCode);
+        this.general = this.orcaneGeneral;
         this.initializeSpecificMoves();
     }
     

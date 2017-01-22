@@ -3,15 +3,12 @@ package moves;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CharacterSpecificMove
+//TODO make this a child of Move
+public class CharacterSpecificMove extends Move
 {    
-    protected String name = "";
-
-    protected List<String> code = new ArrayList<String>();
-    protected List<String> other = new ArrayList<String>();
-
     public CharacterSpecificMove()
     {
+        super();
     }
     
     public CharacterSpecificMove(String name, List<String> code)

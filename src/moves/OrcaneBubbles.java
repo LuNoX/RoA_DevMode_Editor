@@ -63,8 +63,7 @@ public class OrcaneBubbles extends CharacterSpecificMove
 
     public OrcaneBubbles(List<String> code)
     {
-        this.code = code;
-        this.other = code;
+        super("BUBBLES", code);
         this.initializeValues();
     }
 
