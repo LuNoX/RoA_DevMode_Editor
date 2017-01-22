@@ -9,13 +9,12 @@ public class WindowManager
     protected List<String> code = new ArrayList<String>();
 
     protected ArrayList<Window> windows = new ArrayList<Window>();
-
-    protected CommandStorage cs = new CommandStorage();
+    protected boolean hasWindows = false;
 
     public WindowManager()
     {
     }
-    
+
     public WindowManager(List<String> code)
     {
         this.code = code;
@@ -24,7 +23,8 @@ public class WindowManager
 
     public void createWindows()
     {
-        //TODO instead of messing around with TempWindows just create a window and then set the values afterwards, rest is going to stay default
+        // TODO instead of messing around with TempWindows just create a window and then set the
+        // values afterwards, rest is going to stay default
         int[] commandPositions = new int[this.code.size()];
         int numberOfCommands = 0;
 
@@ -52,8 +52,13 @@ public class WindowManager
         {
             Window window = new Window("" + tempWindow[0] + "", tempWindow[1], tempWindow[2],
                             tempWindow[3], tempWindow[4], tempWindow[5], tempWindow[6],
-                            tempWindow[7], tempWindow[8], tempWindow[9], tempWindow[10], tempWindow[11]);
+                            tempWindow[7], tempWindow[8], tempWindow[9], tempWindow[10],
+                            tempWindow[11]);
             this.windows.add(window);
+        }
+        if (this.windows.size() > 0)
+        {
+            this.hasWindows = true;
         }
         // remove everything related to the Window from the code
         Arrays.sort(commandPositions); // sort the indices and then go through the list backwards to
@@ -73,10 +78,5 @@ public class WindowManager
     public ArrayList<Window> getWindows()
     {
         return windows;
-    }
-
-    public CommandStorage getCs()
-    {
-        return cs;
     }
 }

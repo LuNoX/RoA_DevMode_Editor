@@ -7,9 +7,7 @@ public class KraggGeneral extends CharacterGeneral
 
     public KraggGeneral(List<String> code)
     {
-        this.code = code;
-        this.other = code;
-        this.initializeEverything();
+        super(code);
     }
 
     public KraggGeneral()

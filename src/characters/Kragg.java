@@ -35,7 +35,7 @@ public class Kragg extends RoACharacter
                 characterSpecificMoves.add(nspecial);
                 this.nspecial = nspecial;
             }
-            if(move.getName().equals("FSPECIAL"))
+            else if(move.getName().equals("FSPECIAL"))
             {
                 KraggFspecial fspecial = new KraggFspecial(move.getCode());
                 characterSpecificMoves.add(fspecial);
