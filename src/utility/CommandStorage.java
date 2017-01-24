@@ -9,11 +9,13 @@ package utility;
 public class CommandStorage
 {
     // TODO add description and additional description to all fields
+    // TODO rewrite all descriptions
 
     // Window
     public static final String windowLength = "window_length_";
     public static final String windowLengthDescription = "The number of frames in a certain window";
     public static final String windowCancelFrame = "window_cancel_frame_";
+    public static final String windowCancelFrameDescription = "The last frame it is possible to cancel the window";
     public static final String windowHBoost = "window_h_boost_";
     public static final String windowHBoostDescription = "The horizontal boost during that window";
     public static final String windowVBoost = "window_v_boost_";
@@ -54,21 +56,39 @@ public class CommandStorage
 
     // Hitbox
     public static final String numHitboxes = "num_hitboxes";
+    public static final String numHitboxesDescription = "The number of hitboxes the moves has";
     public static final String numUniqueHitboxes = "num_unique_hitboxes";
+    public static final String numUniqueHitboxesDescription = "The number of hitboxes with no parent other than itself";
     public static final String numFinalHitboxes = "num_final_hitboxes";
+    public static final String numFinalHitboxesDescription = "The number of final hitboxes the move has";
     public static final String parentHitbox = "parent_hitbox";
+    public static final String parentHitboxDescription = "The ID of the parent of the hitbox";
+    public static final String parentHitboxAdditionalDescription = "Choose it self for a unique or final hitbox \nChoose something else for a multihit";
     public static final String hitboxWindow = "hitbox_window";
+    public static final String hitboxWindowDescription = "The window the hitbox belongs to";
     public static final String hitboxWindowCreationFrame = "hitbox_window_creation_frame";
+    public static final String hitboxWindowCreationFrameDescription = "The frame the hitbox gets created relative to the window";
     public static final String hitboxLifetime = "hitbox_lifetime";
+    public static final String hitboxLifetimeDescription = "The number of frames the hitbox stays active";
     public static final String baseKnockback = "base_knockback";
+    public static final String baseKnockbackDescription = "The knockback the hitbox does";
     public static final String knockbackScaling = "knockback_scaling";
+    public static final String knockbackScalingDescription = "How much the knockback scales with %";
+    public static final String knockbackScalingAdditionalDescription = "0 = no scaling"; //TODO fact check this
     public static final String knockbackAngle = "knockback_angle";
+    public static final String knockbackAngleDescription = "The angle the hitbox sends the opponent at";
     public static final String angleFlipper = "angle_flipper";
+    public static final String angleFlipperDescription = "I have no idea what this does and I'm too lazy to google it atm";
     public static final String damage = "damage";
+    public static final String damageDescription = "The damage the hitbox does";
     public static final String hitboxSizeX = "hitbox_size_x";
+    public static final String hitboxSizeXDescription = "The size of the hitbox in X-direction";
     public static final String hitboxSizeY = "hitbox_size_y";
+    public static final String hitboxSizeYDescription = "The size of the hitbox in Y-direction";
     public static final String hitboxPositionX = "hitbox_position_x";
+    public static final String hitboxPositionXDescription = "The position of the hitbox relative to the character in X-Direction";
     public static final String hitboxPositionY = "hitbox_position_y";
+    public static final String hitboxPositionYDescription = "The position of the hitbox relative to the character in Y-Direction";
     public static final String hitEffect = "hit_effect";
     public static final String asdiModifier = "asdi_modifier";
     public static final String hitstunModifier = "hitstun_modifier";
@@ -150,7 +170,7 @@ public class CommandStorage
                     false, // projectileHSpeed
                     false, // projectileVSpeed
                     false, // projectileGravity
-                    false// projectileLifetime
+                    false // projectileLifetime
     };
 
     // Move
@@ -308,7 +328,7 @@ public class CommandStorage
     // // // Dstrong
     public static final String minTravelDistance = "min_travel_distance";
 
-    public static final String[] moveSpecificCommands =
+    public static final String[] moveSpecificCommands = //Contains all Move specific commands except for characterSpecificMoves
     {CommandStorage.maxRange, CommandStorage.dashSpeed, CommandStorage.initialSpeed,
                     CommandStorage.acceleration, CommandStorage.cloudPlaceBoost,
                     CommandStorage.boltWidth, CommandStorage.minSlideSpeed,
