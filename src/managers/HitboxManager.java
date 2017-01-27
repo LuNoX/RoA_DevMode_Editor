@@ -95,9 +95,11 @@ public class HitboxManager
                     if (this.hasMultihitbox && CommandStorage.isMultihitOrFinalCommand[j])
                     {
                         int[] respectiveHitboxIds = this.multihitIds;
+                        String additionalAppend = "multihit_";
                         if (command.contains("final"))
                         {
                             respectiveHitboxIds = this.finalIds;
+                            additionalAppend = "final_";
                         }
 
                         if (respectiveHitboxIds.length > 1)
@@ -105,8 +107,8 @@ public class HitboxManager
                             int id = 1;
                             if (this.numberOfHitboxes > 0)
                             {
-                                int tmp = command.indexOf(specificCommand + "multihit_")
-                                                + (specificCommand + "multihit_").length();
+                                int tmp = command.indexOf(specificCommand + additionalAppend)
+                                                + (specificCommand + additionalAppend).length();
                                 id = Integer.parseInt(command.substring(tmp, tmp + 1));
                             }
                             tempHitboxes[respectiveHitboxIds[id - 1] - 1][j] = value;
@@ -409,5 +411,15 @@ public class HitboxManager
     public void setHasMultihitbox(boolean hasMultihitbox)
     {
         this.hasMultihitbox = hasMultihitbox;
+    }
+
+    public void setMultihitIds(int[] multihitIds)
+    {
+        this.multihitIds = multihitIds;
+    }
+
+    public void setFinalIds(int[] finalIds)
+    {
+        this.finalIds = finalIds;
     }
 }

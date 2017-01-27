@@ -36,4 +36,14 @@ public class Wrastor extends RoACharacter
         }
         this.characterSpecificMoves = characterSpecificMoves;
     }
+
+    public WrastorGeneral getWrastorGeneral()
+    {
+        return wrastorGeneral;
+    }
+
+    public WrastorNspecial getNspecial()
+    {
+        return nspecial;
+    }
 }
