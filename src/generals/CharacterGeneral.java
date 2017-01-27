@@ -10,6 +10,7 @@ import java.util.regex.Pattern;
 import utility.CommandStorage;
 import utility.Utilities;
 
+//TODO delete all specific character generals and add custom commands to this one instead
 public class CharacterGeneral
 {
     protected List<String> code = new ArrayList<String>();

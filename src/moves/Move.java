@@ -15,9 +15,9 @@ public class Move
 {
     protected String name = "";
 
-    protected List<String> code = new ArrayList<String>(); // TODO think about the consequences of
-                                                           // removing this.other,
+    // TODO think about the consequences of removing this.other,
     // is there a reason to have the copy?
+    protected List<String> code = new ArrayList<String>();
 
     protected HitboxManager hitboxManager = new HitboxManager();
     protected WindowManager windowManager = new WindowManager();
@@ -164,7 +164,8 @@ public class Move
                     m = p.matcher(command);
                     m.find();
                     double value = Double.parseDouble(m.group(1));
-                    String name = Utilities.convertLowerCaseUnderscoresToCamelCase(CommandStorage.moveSpecificCommands[j]);
+                    String name = Utilities.convertLowerCaseUnderscoresToCamelCase(
+                                    CommandStorage.moveSpecificCommands[j]);
 
                     MoveSpecificCommand moveSpecificCommand = new MoveSpecificCommand(name, value);
                     this.moveSpecificCommands.add(moveSpecificCommand);

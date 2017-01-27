@@ -17,7 +17,7 @@ public class GeneralSettings
     public GeneralSettings()
     {
     }
-    // TODO fill this constructor
+    
     public GeneralSettings(File file)
     {
         this.settingsFile = file;

@@ -169,7 +169,6 @@ public class HitboxManager
 
     public void determineNumberOfHitboxes()
     {
-        // TODO change the commandPositions array to be like the one in Projectile
         boolean numHitboxesSaved = false;
         boolean numUniqueHitboxesSaved = false;
         boolean numFinalHitboxesSaved = false;
