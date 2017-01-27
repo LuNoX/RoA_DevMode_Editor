@@ -12,7 +12,7 @@ public class test_Project
     {
         RoAFileChooser ifc = new RoAFileChooser();
 
-        Project prj = new Project(ifc.chooseFile("C:\\Users\\Timo\\AppData\\Local\\RivalsofAether\\dev_mode\\dev_ver_0.3\\active"));
+        Project prj = new Project(ifc.chooseFile("E:\\Schule\\Informatik\\recources\\actives\\current active"));
 
         /*
          * for (int i = 0; i < prj.getCharacters().size(); i++) { if
