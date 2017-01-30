@@ -4,7 +4,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import generals.KraggGeneral;
 import moves.CharacterSpecificMove;
 import moves.KraggFspecial;
 import moves.KraggNspecial;
@@ -12,15 +11,12 @@ import utility.CommandStorage;
 
 public class Kragg extends RoACharacter
 {
-    protected KraggGeneral kraggGeneral = new KraggGeneral();
     protected KraggNspecial nspecial = new KraggNspecial();
     protected KraggFspecial fspecial = new KraggFspecial();
     
     public Kragg(File file)
     {
         super(file, CommandStorage.kraggSpecificMoveNames);
-        this.kraggGeneral = new KraggGeneral(this.generalCode);
-        this.general = this.kraggGeneral;
         this.initializeSpecificMoves();
     }
     
@@ -43,11 +39,6 @@ public class Kragg extends RoACharacter
             }
         }
         this.characterSpecificMoves = characterSpecificMoves;
-    }
-
-    public KraggGeneral getKraggGeneral()
-    {
-        return kraggGeneral;
     }
 
     public KraggNspecial getNspecial()

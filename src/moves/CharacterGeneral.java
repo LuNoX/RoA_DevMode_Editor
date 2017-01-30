@@ -1,4 +1,4 @@
-package generals;
+package moves;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -10,11 +10,13 @@ import java.util.regex.Pattern;
 import utility.CommandStorage;
 import utility.Utilities;
 
-//TODO delete all specific character generals and add custom commands to this one instead
+// TODO delete all specific character generals and add custom commands to this one instead
 public class CharacterGeneral
 {
     protected List<String> code = new ArrayList<String>();
     protected List<String> other = new ArrayList<String>();
+
+    protected List<CustomCommand> characterSpecificCommands = new ArrayList<CustomCommand>();
 
     protected double knockbackAdjustment = 0;
     protected double hitstunGravityAccel = 0;
@@ -84,6 +86,12 @@ public class CharacterGeneral
 
     public void initializeEverything()
     {
+        this.initializeValues();
+        this.initializeCustomCommands();
+    }
+
+    public void initializeValues()
+    {
         String[] generalCommands = CommandStorage.generalCommands;
         int numberOfCommands = 0;
         int[] commandPositions = new int[this.other.size()];
@@ -127,6 +135,47 @@ public class CharacterGeneral
                 }
             }
         }
+        // remove all commands from code
+        Arrays.sort(commandPositions); // sort the indices and then go through the list backwards to
+                                       // avoid index errors
+        for (int i = 1; i <= numberOfCommands; i++) // dont use commandPositions.length because
+        // the Array is far longer than needed
+        {
+            this.other.remove(commandPositions[commandPositions.length - i]);
+        }
+    }
+
+    public void initializeCustomCommands()
+    {
+        String[] characterSpecificGeneralCommands = CommandStorage.characterSpecificGeneralCommands;
+        int numberOfCommands = 0;
+        int[] commandPositions = new int[this.other.size()];
+
+        Pattern p = Pattern.compile("\"([^\"]*)\"");
+        Matcher m = null;
+
+        for (int i = 0; i < this.other.size(); i++)
+        {
+            String command = this.other.get(i);
+            for (int j = 0; j < characterSpecificGeneralCommands.length; j++)
+            {
+                if (Utilities.isSpecificCommand(command, characterSpecificGeneralCommands[j]))
+                {
+                    m = p.matcher(command);
+                    m.find();
+                    double value = Double.parseDouble(m.group(1));
+                    String name = Utilities.convertLowerCaseUnderscoresToCamelCase(
+                                    characterSpecificGeneralCommands[j]);
+                    CustomCommand characterSpecificGeneralCommand = new CustomCommand(name, value);
+                    this.characterSpecificCommands.add(characterSpecificGeneralCommand);
+
+                    numberOfCommands++;
+                    commandPositions[numberOfCommands - 1] = i;
+                    break;
+                }
+            }
+        }
+
         // remove all commands from code
         Arrays.sort(commandPositions); // sort the indices and then go through the list backwards to
                                        // avoid index errors
@@ -415,5 +464,10 @@ public class CharacterGeneral
     public double getWalkSpeed()
     {
         return walkSpeed;
+    }
+
+    public List<CustomCommand> getCharacterSpecificCommands()
+    {
+        return characterSpecificCommands;
     }
 }

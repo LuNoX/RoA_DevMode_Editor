@@ -4,7 +4,6 @@ import java.util.List;
 import java.io.File;
 import java.util.ArrayList;
 
-import generals.CharacterGeneral;
 import moves.*;
 import utility.*;
 
@@ -14,7 +13,6 @@ public class RoACharacter
     protected List<String> content = new ArrayList<String>();
 
     protected CharacterGeneral general = new CharacterGeneral();
-    protected List<String> generalCode = new ArrayList<String>();
     protected List<Move> allMoves = new ArrayList<Move>();
     
     protected List<CharacterSpecificMove> characterSpecificMoves
@@ -22,7 +20,6 @@ public class RoACharacter
     protected String[] characterSpecificMoveNames = new String[0];
 
 
-    // TODO make this abstract
     public RoACharacter(File character)
     {
         this.characterFile = character;
@@ -81,7 +78,7 @@ public class RoACharacter
                 if (name.equals("GENERAL"))
                 {
                     // Not copying the list throws CME
-                    this.generalCode = new ArrayList<>(this.content.subList(startIndex, endIndex));
+                    this.general = new CharacterGeneral(new ArrayList<>(this.content.subList(startIndex, endIndex)));
                 }
                 else
                 {

@@ -4,7 +4,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import generals.AbsaGeneral;
 import moves.AbsaCloudBurst;
 import moves.CharacterSpecificMove;
 import utility.CommandStorage;
@@ -12,13 +11,10 @@ import utility.CommandStorage;
 public class Absa extends RoACharacter
 {
     protected AbsaCloudBurst cloudBurst = new AbsaCloudBurst();
-    protected AbsaGeneral absaGeneral = new AbsaGeneral();
     
     public Absa(File file)
     {
         super(file, CommandStorage.absaSpecificMoveNames);
-        this.absaGeneral = new AbsaGeneral(this.generalCode);
-        this.general = this.absaGeneral;
         this.initializeSpecificMoves();
     }
     
@@ -40,10 +36,5 @@ public class Absa extends RoACharacter
     public AbsaCloudBurst getCloudBurst()
     {
         return cloudBurst;
-    }
-
-    public AbsaGeneral getAbsaGeneral()
-    {
-        return absaGeneral;
     }
 }

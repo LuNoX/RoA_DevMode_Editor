@@ -458,6 +458,19 @@ public class CommandStorage
                     CommandStorage.walkTurnTime, CommandStorage.walkAccel,
                     CommandStorage.walkSpeed};
 
+    public static final String dblJumpAccel = "dbl_jump_accel";
+    public static final String iceArmorKbScale = "ice_armor_kb_scale";
+    public static final String iceArmorThreshold = "ice_armor_threshold";
+    public static final String frozenTime = "frozen_time";
+    public static final String iceTileLifetime = "ice_tile_lifetime";
+    public static final String wrapScaling = "wrap_scaling";
+    public static final String baseWrapFrames = "base_wrap_frames";
+
+    public static final String[] characterSpecificGeneralCommands =
+    {CommandStorage.dblJumpAccel, CommandStorage.iceArmorKbScale, CommandStorage.iceArmorThreshold,
+                    CommandStorage.frozenTime, CommandStorage.iceTileLifetime,
+                    CommandStorage.wrapScaling, CommandStorage.baseWrapFrames};
+
     // Settings
 
     // // Gameplay

@@ -1,6 +1,8 @@
 package test;
 
 import characters.RoACharacter;
+import managers.Project;
+import moves.CustomCommand;
 import utility.RoAFileChooser;
 
 public class test_CharacterGeneral
@@ -10,10 +12,23 @@ public class test_CharacterGeneral
     {
         RoAFileChooser ifc = new RoAFileChooser();
 
-        RoACharacter cm = new RoACharacter(ifc.chooseFile(
-                        "C:\\Users\\Timo\\Desktop\\roa editor\\active\\custom_etalus.ini"));
+        Project prj = new Project(ifc.chooseFile(
+                        "C:\\Users\\Timo\\Desktop\\roa editor\\actives\\current active"));
 
-        System.out.println(cm.getGeneral().getAirDodgeActiveTime());
+        for (RoACharacter character : prj.getCharacters())
+        {
+            System.out.println(character.getClass().getName());
+            if (character.getGeneral().getCharacterSpecificCommands().size() > 0)
+            {
+                System.out.println("_______________");
+                for (CustomCommand customCommand: character.getGeneral().getCharacterSpecificCommands())
+                {
+                    System.out.println(customCommand.getName());
+                }
+            }
+
+            System.out.println("__________________________________________________________");
+        }
     }
 
 }
