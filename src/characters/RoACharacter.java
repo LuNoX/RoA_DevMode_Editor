@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import moves.*;
 import utility.*;
 
-public class RoACharacter
+public abstract class RoACharacter
 {
     protected File characterFile = null;
     protected List<String> content = new ArrayList<String>();
