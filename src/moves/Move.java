@@ -21,7 +21,7 @@ public class Move
 
     protected HitboxManager hitboxManager = new HitboxManager();
     protected WindowManager windowManager = new WindowManager();
-    protected List<MoveSpecificCommand> moveSpecificCommands = new ArrayList<MoveSpecificCommand>();
+    protected List<CustomCommand> moveSpecificCommands = new ArrayList<CustomCommand>();
 
     protected boolean hasCooldown = false;
     protected double cooldown = 0;
@@ -167,7 +167,7 @@ public class Move
                     String name = Utilities.convertLowerCaseUnderscoresToCamelCase(
                                     CommandStorage.moveSpecificCommands[j]);
 
-                    MoveSpecificCommand moveSpecificCommand = new MoveSpecificCommand(name, value);
+                    CustomCommand moveSpecificCommand = new CustomCommand(name, value);
                     this.moveSpecificCommands.add(moveSpecificCommand);
 
                     numberOfCommands++;

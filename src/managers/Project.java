@@ -12,7 +12,8 @@ public class Project
 
     protected List<RoACharacter> characters = new ArrayList<RoACharacter>();
     protected GeneralSettings general = new GeneralSettings();
-
+    
+    //TODO add an ArrayList of strings that shouldnt be printed when saving a file to every class
     public Project()
     {
         RoAFileChooser rfc = new RoAFileChooser();
