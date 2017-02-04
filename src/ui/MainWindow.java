@@ -14,6 +14,18 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JSeparator;
 import javax.swing.JTree;
+import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
+import javax.swing.BoxLayout;
+import javax.swing.JTextField;
+import javax.swing.JEditorPane;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import javax.swing.JLabel;
+import java.awt.Insets;
+import javax.swing.JSplitPane;
+import javax.swing.AbstractListModel;
+import javax.swing.JTextPane;
 
 public class MainWindow
 {
@@ -58,15 +70,47 @@ public class MainWindow
         frame = new JFrame();
         frame.setBounds(100, 100, 450, 300);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        GridBagLayout gridBagLayout = new GridBagLayout();
+        gridBagLayout.columnWidths = new int[]{-7, 159, 0};
+        gridBagLayout.rowHeights = new int[]{23, 0, 0, 0, 0, 0, 0, 0, 0};
+        gridBagLayout.columnWeights = new double[]{1.0, 1.0, Double.MIN_VALUE};
+        gridBagLayout.rowWeights = new double[]{0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+        frame.getContentPane().setLayout(gridBagLayout);
         
         JToolBar toolBar = new JToolBar();
-        frame.getContentPane().add(toolBar, BorderLayout.NORTH);
+        GridBagConstraints gbc_toolBar = new GridBagConstraints();
+        gbc_toolBar.gridwidth = 2;
+        gbc_toolBar.insets = new Insets(0, 0, 5, 0);
+        gbc_toolBar.anchor = GridBagConstraints.WEST;
+        gbc_toolBar.gridx = 0;
+        gbc_toolBar.gridy = 0;
+        frame.getContentPane().add(toolBar, gbc_toolBar);
         
-        JButton btnNewFile = new JButton("New File");
-        toolBar.add(btnNewFile);
+        JButton btnSave = new JButton("Save");
+        toolBar.add(btnSave);
         
-        JButton btnSaveFiles = new JButton("Save Files");
-        toolBar.add(btnSaveFiles);
+        JButton btnNew = new JButton("New");
+        toolBar.add(btnNew);
+        
+        JPanel panel = new JPanel();
+        GridBagConstraints gbc_panel = new GridBagConstraints();
+        gbc_panel.gridheight = 7;
+        gbc_panel.insets = new Insets(0, 0, 5, 5);
+        gbc_panel.fill = GridBagConstraints.BOTH;
+        gbc_panel.gridx = 0;
+        gbc_panel.gridy = 1;
+        frame.getContentPane().add(panel, gbc_panel);
+        
+        JSplitPane splitPane = new JSplitPane();
+        GridBagConstraints gbc_splitPane = new GridBagConstraints();
+        gbc_splitPane.gridheight = 7;
+        gbc_splitPane.fill = GridBagConstraints.BOTH;
+        gbc_splitPane.gridx = 1;
+        gbc_splitPane.gridy = 1;
+        frame.getContentPane().add(splitPane, gbc_splitPane);
+        
+        JSplitPane splitPane_1 = new JSplitPane();
+        splitPane.setRightComponent(splitPane_1);
         
         JMenuBar menuBar = new JMenuBar();
         frame.setJMenuBar(menuBar);
@@ -181,6 +225,9 @@ public class MainWindow
         
         JMenuItem mntmKeybindings = new JMenuItem("Keybindings");
         mnSettings.add(mntmKeybindings);
+        
+        JMenuItem mntmToolbar = new JMenuItem("Toolbar");
+        mnSettings.add(mntmToolbar);
         
         JMenu mnHelp = new JMenu("Help");
         menuBar.add(mnHelp);
