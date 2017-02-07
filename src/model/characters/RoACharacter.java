@@ -12,6 +12,8 @@ public abstract class RoACharacter
 {
     protected File characterFile = null;
     protected List<String> content = new ArrayList<String>();
+    
+    protected String name = this.getClass().getName().replaceAll(".*\\.", "");
 
     protected CharacterGeneral general = new CharacterGeneral();
     protected List<Move> allMoves = new ArrayList<Move>();
@@ -125,5 +127,20 @@ public abstract class RoACharacter
     public CharacterGeneral getGeneral()
     {
         return general;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public List<CharacterSpecificMove> getCharacterSpecificMoves()
+    {
+        return characterSpecificMoves;
+    }
+
+    public String[] getCharacterSpecificMoveNames()
+    {
+        return characterSpecificMoveNames;
     }
 }

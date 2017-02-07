@@ -11,6 +11,8 @@ public class GeneralSettings
     protected File settingsFile = null;
     protected List<String> content = new ArrayList<String>();
     
+    protected String name = "Settings";
+    
     protected Gameplay gameplay = new Gameplay();
     protected Reset reset = new Reset();
     
@@ -21,6 +23,13 @@ public class GeneralSettings
     public GeneralSettings(File file)
     {
         this.settingsFile = file;
+        this.initializeEverything();
+    }
+    
+    public GeneralSettings(File file, String name)
+    {
+        this.settingsFile = file;
+        this.name = name;
         this.initializeEverything();
     }
     
@@ -91,5 +100,10 @@ public class GeneralSettings
     public Reset getReset()
     {
         return reset;
+    }
+
+    public String getName()
+    {
+        return name;
     }
 }

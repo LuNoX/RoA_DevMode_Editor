@@ -29,4 +29,9 @@ public class ProjectManager
     {
         return roaFileChooser;
     }
+    
+    public void addProject(Project project)
+    {
+        this.projects.add(project);
+    }
 }
