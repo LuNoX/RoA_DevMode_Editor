@@ -19,4 +19,14 @@ public class ProjectManager
     {
         projects = new ArrayList<Project>();
     }
+
+    public List<Project> getProjects()
+    {
+        return projects;
+    }
+
+    public static RoAFileChooser getRoaFileChooser()
+    {
+        return roaFileChooser;
+    }
 }

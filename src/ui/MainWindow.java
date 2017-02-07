@@ -14,6 +14,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JSeparator;
 import javax.swing.JTree;
+
+import controller.Controller;
+
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.BoxLayout;
@@ -71,10 +74,10 @@ public class MainWindow
         frame.setBounds(100, 100, 450, 300);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         GridBagLayout gridBagLayout = new GridBagLayout();
-        gridBagLayout.columnWidths = new int[]{-7, 159, 0};
+        gridBagLayout.columnWidths = new int[]{175, 159, 0};
         gridBagLayout.rowHeights = new int[]{23, 0, 0, 0, 0, 0, 0, 0, 0};
         gridBagLayout.columnWeights = new double[]{1.0, 1.0, Double.MIN_VALUE};
-        gridBagLayout.rowWeights = new double[]{0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+        gridBagLayout.rowWeights = new double[]{0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
         frame.getContentPane().setLayout(gridBagLayout);
         
         JToolBar toolBar = new JToolBar();
@@ -92,25 +95,14 @@ public class MainWindow
         JButton btnNew = new JButton("New");
         toolBar.add(btnNew);
         
-        JPanel panel = new JPanel();
-        GridBagConstraints gbc_panel = new GridBagConstraints();
-        gbc_panel.gridheight = 7;
-        gbc_panel.insets = new Insets(0, 0, 5, 5);
-        gbc_panel.fill = GridBagConstraints.BOTH;
-        gbc_panel.gridx = 0;
-        gbc_panel.gridy = 1;
-        frame.getContentPane().add(panel, gbc_panel);
-        
-        JSplitPane splitPane = new JSplitPane();
-        GridBagConstraints gbc_splitPane = new GridBagConstraints();
-        gbc_splitPane.gridheight = 7;
-        gbc_splitPane.fill = GridBagConstraints.BOTH;
-        gbc_splitPane.gridx = 1;
-        gbc_splitPane.gridy = 1;
-        frame.getContentPane().add(splitPane, gbc_splitPane);
-        
-        JSplitPane splitPane_1 = new JSplitPane();
-        splitPane.setRightComponent(splitPane_1);
+        ProjectTree tree = new ProjectTree(Controller.projectManager);
+        GridBagConstraints gbc_tree = new GridBagConstraints();
+        gbc_tree.gridheight = 7;
+        gbc_tree.insets = new Insets(0, 0, 5, 5);
+        gbc_tree.fill = GridBagConstraints.BOTH;
+        gbc_tree.gridx = 0;
+        gbc_tree.gridy = 1;
+        frame.getContentPane().add(tree, gbc_tree);
         
         JMenuBar menuBar = new JMenuBar();
         frame.setJMenuBar(menuBar);
@@ -250,5 +242,4 @@ public class MainWindow
         JMenuItem mntmAbout = new JMenuItem("About");
         mnHelp.add(mntmAbout);
     }
-
 }
