@@ -1,8 +1,8 @@
 package test;
 
-import characters.Orcane;
-import managers.Project;
-import utility.RoAFileChooser;
+import model.characters.Orcane;
+import model.managers.Project;
+import model.utility.RoAFileChooser;
 
 public class test_OrcaneBubbles
 {

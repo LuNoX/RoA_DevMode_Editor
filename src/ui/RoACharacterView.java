@@ -6,8 +6,8 @@ import java.util.List;
 import javax.swing.JComponent;
 import javax.swing.JSplitPane;
 
-import characters.RoACharacter;
-import moves.Move;
+import model.characters.RoACharacter;
+import model.moves.Move;
 
 public class RoACharacterView extends ClassView
 {

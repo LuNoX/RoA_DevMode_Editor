@@ -1,9 +1,9 @@
 package test;
 
-import characters.Wrastor;
-import managers.Hitbox;
-import managers.Project;
-import utility.RoAFileChooser;
+import model.characters.Wrastor;
+import model.managers.Hitbox;
+import model.managers.Project;
+import model.utility.RoAFileChooser;
 
 public class test_WrastorNspecial
 {

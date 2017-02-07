@@ -1,9 +1,9 @@
 package test;
 
-import characters.RoACharacter;
-import managers.Project;
-import moves.Move;
-import utility.RoAFileChooser;
+import model.characters.RoACharacter;
+import model.managers.Project;
+import model.moves.Move;
+import model.utility.RoAFileChooser;
 
 public class test_Project
 {

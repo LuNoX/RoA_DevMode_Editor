@@ -1,6 +1,6 @@
 package test;
 
-import utility.CommandStorage;
+import model.utility.CommandStorage;
 
 public class test_CommandStorage
 {

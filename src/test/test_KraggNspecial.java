@@ -1,8 +1,8 @@
 package test;
 
-import characters.Kragg;
-import managers.Project;
-import utility.RoAFileChooser;
+import model.characters.Kragg;
+import model.managers.Project;
+import model.utility.RoAFileChooser;
 
 public class test_KraggNspecial
 {

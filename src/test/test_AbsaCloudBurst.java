@@ -1,8 +1,8 @@
 package test;
 
-import characters.Absa;
-import managers.Project;
-import utility.RoAFileChooser;
+import model.characters.Absa;
+import model.managers.Project;
+import model.utility.RoAFileChooser;
 
 public class test_AbsaCloudBurst
 {
