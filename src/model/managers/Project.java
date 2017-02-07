@@ -11,8 +11,10 @@ public class Project
 {
     protected File directory = null;
 
+    protected String name = "Project";
+    
     protected List<RoACharacter> characters = new ArrayList<RoACharacter>();
-    protected GeneralSettings general = new GeneralSettings();
+    protected List<GeneralSettings> generals = new ArrayList<GeneralSettings>();
     
     //TODO add an ArrayList of strings that shouldnt be printed when saving a file to every class
     public Project()
@@ -21,10 +23,18 @@ public class Project
         this.directory = rfc.chooseDirectory();
         this.initializeEverything();
     }
+    
+    public Project (File directory, String name)
+    {
+        this.directory = directory;
+        this.name = name;
+        this.initializeEverything();
+    }
 
     public Project(File directory)
     {
         this.directory = directory;
+        this.name = directory.getAbsolutePath();
         this.initializeEverything();
     }
 
@@ -84,7 +94,7 @@ public class Project
         else if (name.equals(CommandStorage.customGeneral))
         {
             GeneralSettings general = new GeneralSettings(file);
-            this.general = general;
+            this.generals.add(general);
         }
 
     }
@@ -99,8 +109,13 @@ public class Project
         return characters;
     }
 
-    public GeneralSettings getGeneral()
+    public List<GeneralSettings> getGenerals()
     {
-        return general;
+        return generals;
+    }
+
+    public String getName()
+    {
+        return name;
     }
 }

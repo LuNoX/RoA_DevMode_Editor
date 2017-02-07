@@ -12,8 +12,8 @@ public class test_GeneralSettings
 
         Project prj = new Project(ifc.chooseFile("C:\\Users\\Timo\\Desktop\\roa editor\\active"));
         
-        System.out.println(prj.getGeneral().getGameplay().getAsdiStrength());
-        System.out.println(prj.getGeneral().getReset().getResetAbsa());
+        System.out.println(prj.getGenerals().get(0).getGameplay().getAsdiStrength());
+        System.out.println(prj.getGenerals().get(0).getReset().getResetAbsa());
     }
 
 }
