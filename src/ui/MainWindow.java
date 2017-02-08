@@ -11,6 +11,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JList;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.awt.event.ActionEvent;
 import javax.swing.JSeparator;
 import javax.swing.JTree;
@@ -21,6 +22,7 @@ import controller.Controller;
 import model.characters.RoACharacter;
 import model.managers.Project;
 import model.managers.ProjectManager;
+import model.moves.CharacterSpecificMove;
 import model.moves.Move;
 import model.settings.GeneralSettings;
 
@@ -36,6 +38,7 @@ import java.awt.Insets;
 import javax.swing.JSplitPane;
 import javax.swing.AbstractListModel;
 import javax.swing.JTextPane;
+import javax.swing.JScrollPane;
 
 public class MainWindow
 {   
@@ -115,10 +118,13 @@ public class MainWindow
         gbc_splitPane.gridx = 0;
         gbc_splitPane.gridy = 1;
         frame.getContentPane().add(splitPane, gbc_splitPane);
-        
-                JTree tree = new JTree();
-                splitPane.setLeftComponent(tree);
-                this.projectTree = tree;
+                
+                JScrollPane scrollPane = new JScrollPane();
+                splitPane.setLeftComponent(scrollPane);
+                        
+                                JTree tree = new JTree();
+                                scrollPane.setViewportView(tree);
+                                this.projectTree = tree;
 
         JMenuBar menuBar = new JMenuBar();
         frame.setJMenuBar(menuBar);
@@ -265,26 +271,37 @@ public class MainWindow
         DefaultTreeModel model = (DefaultTreeModel)this.projectTree.getModel();
         DefaultMutableTreeNode root = (DefaultMutableTreeNode)model.getRoot();
         root.removeAllChildren();
-        
+        this.projectTree.setCellRenderer(new CharacterTreeCellRenderer());
         for (Project prj : projectManager.getProjects())
         {
             DefaultMutableTreeNode project = new DefaultMutableTreeNode(prj.getName());
             for(RoACharacter chr : prj.getCharacters())
             {
-                DefaultMutableTreeNode character = new DefaultMutableTreeNode(chr.getName());
+                DefaultMutableTreeNode character = new DefaultMutableTreeNode(chr);
                 for(Move mov : chr.getAllMoves())
                 {
-                    DefaultMutableTreeNode move = new DefaultMutableTreeNode(mov.getName());
+                    DefaultMutableTreeNode move = new DefaultMutableTreeNode(mov);
                     character.add(move);
                 }
-                //TODO add character specific moves
-                //TODO add the chaaracter generals
+                for(CharacterSpecificMove csm : chr.getCharacterSpecificMoves())
+                {
+                    DefaultMutableTreeNode move = new DefaultMutableTreeNode(csm.getName());
+                    character.add(move);
+                }
+                DefaultMutableTreeNode general = new DefaultMutableTreeNode(chr.getGeneral().getName());
+                character.add(general);
+                
                 project.add(character);
             }
             for (GeneralSettings stn : prj.getGenerals())
             {
-                DefaultMutableTreeNode settings = new DefaultMutableTreeNode(stn.getName());
-                project.add(settings); //TODO add this the proper way (with gameplay and reset as subnodes and shit)
+                DefaultMutableTreeNode settings = new DefaultMutableTreeNode(stn);
+                DefaultMutableTreeNode gameplay = new DefaultMutableTreeNode(stn.getGameplay());
+                DefaultMutableTreeNode reset = new DefaultMutableTreeNode(stn.getReset());
+                settings.add(gameplay);
+                settings.add(reset);
+                
+                project.add(settings);
             }
             root.add(project);
         }

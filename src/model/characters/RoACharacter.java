@@ -2,8 +2,11 @@ package model.characters;
 
 import java.util.List;
 
+import javax.swing.Icon;
+
 import model.moves.*;
 import model.utility.*;
+import ui.Resources;
 
 import java.io.File;
 import java.util.ArrayList;

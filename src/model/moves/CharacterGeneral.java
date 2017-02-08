@@ -14,6 +14,8 @@ public class CharacterGeneral
 {
     protected List<String> code = new ArrayList<String>();
     protected List<String> other = new ArrayList<String>();
+    
+    protected String name = "GENERAL";
 
     protected List<CustomCommand> characterSpecificCommands = new ArrayList<CustomCommand>();
 
@@ -80,6 +82,14 @@ public class CharacterGeneral
     {
         this.code = code;
         this.other = code;
+        this.initializeEverything();
+    }
+    
+    public CharacterGeneral(List<String> code, String name)
+    {
+        this.code = code;
+        this.other = code;
+        this.name = name;
         this.initializeEverything();
     }
 
@@ -468,5 +478,10 @@ public class CharacterGeneral
     public List<CustomCommand> getCharacterSpecificCommands()
     {
         return characterSpecificCommands;
+    }
+
+    public String getName()
+    {
+        return name;
     }
 }
