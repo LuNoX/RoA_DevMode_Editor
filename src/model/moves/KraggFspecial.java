@@ -24,7 +24,7 @@ public class KraggFspecial extends CharacterSpecificMove
 
     public KraggFspecial(List<String> code)
     {
-        super("NSPECIAL", code);
+        super("FSPECIAL", code);
         this.initializeEverything();
         this.initializeValues();
     }

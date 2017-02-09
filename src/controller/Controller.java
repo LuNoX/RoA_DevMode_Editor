@@ -19,7 +19,8 @@ public class Controller
         this.projectManager = projectManager;
         RoAFileChooser ifc = new RoAFileChooser();
 
-        Project prj = new Project(ifc.chooseFile("C:\\Users\\Timo\\Desktop\\roa editor\\actives\\current active"), "Active Project");
+        //Project prj = new Project(ifc.chooseFile("C:\\Users\\Timo\\Desktop\\roa editor\\actives\\current active"), "Active Project");
+        Project prj = new Project(ifc.chooseFile("E:\\Schule\\Informatik\\recources\\actives\\current active"), "Active Project");
         this.projectManager.addProject(prj);
         this.mainWindow = mainWindow;
         

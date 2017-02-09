@@ -1,4 +1,6 @@
-// credit to xelu from http://opengameart.org/content/free-keyboard-and-controllers-prompts-pack for the button images
+// credit to xelu from
+// http://opengameart.org/content/free-keyboard-and-controllers-prompts-pack for
+// the button images
 // credit to smash.gg for the character images
 
 package ui;
@@ -9,9 +11,9 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 public class Resources
-{    
+{
     public static String relativePath = "/resources/Icons/16/";
-    
+
     public static Icon absaIcon;
     public static Icon etalusIcon;
     public static Icon forsburnIcon;
@@ -20,19 +22,19 @@ public class Resources
     public static Icon orcaneIcon;
     public static Icon wrastorIcon;
     public static Icon zetterburnIcon;
-    
+
     public static Icon settingsIcon;
-    
+
     public static Icon aButtonIcon;
     public static Icon bButtonIcon;
     public static Icon xButtonIcon;
     public static Icon yButtonIcon;
-    
+
     public Resources()
     {
         this.initalizeEverything();
     }
-    
+
     public void initalizeEverything()
     {
         URL url = getClass().getResource(Resources.relativePath + "Absa.png");
@@ -51,10 +53,10 @@ public class Resources
         Resources.wrastorIcon = new ImageIcon(url);
         url = getClass().getResource(Resources.relativePath + "Zetterburn.png");
         Resources.zetterburnIcon = new ImageIcon(url);
-        
+
         url = getClass().getResource(Resources.relativePath + "Settings.png");
         Resources.settingsIcon = new ImageIcon(url);
-        
+
         url = getClass().getResource(Resources.relativePath + "A Button.png");
         Resources.aButtonIcon = new ImageIcon(url);
         url = getClass().getResource(Resources.relativePath + "B Button.png");
@@ -64,7 +66,7 @@ public class Resources
         url = getClass().getResource(Resources.relativePath + "Y Button.png");
         Resources.yButtonIcon = new ImageIcon(url);
     }
-    
+
     public static Icon getCharacterIcon(String name)
     {
         if (name.contains("Absa"))
@@ -101,10 +103,14 @@ public class Resources
         }
         return null;
     }
-    
+
     public static Icon getMoveIcon(String name)
-    {        
-        if (name.contains("AIR"))
+    {
+        if (name.contains("SPECIAL"))
+        {
+            return Resources.xButtonIcon;
+        }
+        else if (name.contains("AIR"))
         {
             return Resources.yButtonIcon;
         }
@@ -112,13 +118,9 @@ public class Resources
         {
             return Resources.bButtonIcon;
         }
-        else if (name.contains("TILT"))
+        else if (name.contains("TILT") || name.contains("JAB") || name.contains("DATTACK"))
         {
             return Resources.aButtonIcon;
-        }
-        else if (name.contains("SPECIAL"))
-        {
-            return Resources.xButtonIcon;
         }
         Icon result = null;
         return result;

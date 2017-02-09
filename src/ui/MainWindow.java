@@ -288,7 +288,7 @@ public class MainWindow
                     DefaultMutableTreeNode move = new DefaultMutableTreeNode(csm.getName());
                     character.add(move);
                 }
-                DefaultMutableTreeNode general = new DefaultMutableTreeNode(chr.getGeneral().getName());
+                DefaultMutableTreeNode general = new DefaultMutableTreeNode(chr.getGeneral());
                 character.add(general);
                 
                 project.add(character);

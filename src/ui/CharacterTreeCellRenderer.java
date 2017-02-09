@@ -8,6 +8,7 @@ import javax.swing.JTree;
 import javax.swing.tree.TreeCellRenderer;
 
 import model.characters.RoACharacter;
+import model.moves.CharacterGeneral;
 import model.moves.Move;
 import model.settings.GeneralSettings;
 
@@ -46,6 +47,13 @@ public class CharacterTreeCellRenderer implements TreeCellRenderer
         {
             GeneralSettings generalSettings = (GeneralSettings) o;
             label.setText(generalSettings.getName());
+            label.setIcon(Resources.settingsIcon);
+            return label;
+        }
+        else if (o instanceof CharacterGeneral)
+        {
+            CharacterGeneral characterGeneral = (CharacterGeneral) o;
+            label.setText(characterGeneral.getName());
             label.setIcon(Resources.settingsIcon);
             return label;
         }
