@@ -283,11 +283,6 @@ public class MainWindow
                     DefaultMutableTreeNode move = new DefaultMutableTreeNode(mov);
                     character.add(move);
                 }
-                for(CharacterSpecificMove csm : chr.getCharacterSpecificMoves())
-                {
-                    DefaultMutableTreeNode move = new DefaultMutableTreeNode(csm.getName());
-                    character.add(move);
-                }
                 DefaultMutableTreeNode general = new DefaultMutableTreeNode(chr.getGeneral());
                 character.add(general);
                 

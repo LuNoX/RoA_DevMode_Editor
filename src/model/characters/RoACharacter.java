@@ -98,7 +98,7 @@ public abstract class RoACharacter
                                             name, new ArrayList<>(this.content.subList(startIndex,
                                                             endIndex)));
                             this.characterSpecificMoves.add(charcterSpecificMove);
-                            //TODO add this to this.allMoves and updated the Characters to use these instead
+                            this.allMoves.add(charcterSpecificMove);
                             break;
                         }
                     }

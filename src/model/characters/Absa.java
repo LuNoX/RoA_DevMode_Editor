@@ -6,6 +6,7 @@ import java.util.List;
 
 import model.moves.AbsaCloudBurst;
 import model.moves.CharacterSpecificMove;
+import model.moves.Move;
 import model.utility.CommandStorage;
 
 public class Absa extends RoACharacter
@@ -21,11 +22,13 @@ public class Absa extends RoACharacter
     public void initializeSpecificMoves()
     {
         List<CharacterSpecificMove> characterSpecificMoves = new ArrayList<CharacterSpecificMove>();
-        for (CharacterSpecificMove move : this.characterSpecificMoves)
+        for (int i = 0; i < this.allMoves.size(); i++)
         {
+            Move move = this.allMoves.get(i);
             if(move.getName().equals("CLOUD_BURST"))
             {
                 AbsaCloudBurst  cloudBurst = new AbsaCloudBurst(move.getCode());
+                this.allMoves.set(i, cloudBurst);
                 characterSpecificMoves.add(cloudBurst);
                 this.cloudBurst = cloudBurst;
             }
