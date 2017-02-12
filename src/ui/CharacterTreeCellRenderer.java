@@ -10,6 +10,7 @@ import javax.swing.tree.TreeCellRenderer;
 import model.characters.RoACharacter;
 import model.moves.CharacterGeneral;
 import model.moves.Move;
+import model.settings.Gameplay;
 import model.settings.GeneralSettings;
 
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -27,6 +28,7 @@ public class CharacterTreeCellRenderer implements TreeCellRenderer
     public Component getTreeCellRendererComponent(JTree tree, Object value, boolean selected,
                     boolean expanded, boolean leaf, int row, boolean hasFocus)
     {
+        //TODO remove duplicate code
         Object o = ((DefaultMutableTreeNode) value).getUserObject();
         if (o instanceof RoACharacter)
         {
@@ -53,8 +55,14 @@ public class CharacterTreeCellRenderer implements TreeCellRenderer
         else if (o instanceof CharacterGeneral)
         {
             CharacterGeneral characterGeneral = (CharacterGeneral) o;
-            label.setText(characterGeneral.getName());
+            label.setText(characterGeneral.getName()); //TODO This shouldnt have a name
             label.setIcon(Resources.settingsIcon);
+            return label;
+        }
+        else if (o instanceof Gameplay)
+        {
+            label.setText("GAMEPLAY");
+            label.setIcon(Resources.startButtonIcon);
             return label;
         }
         //TODO add icons for CSMs and Reset/Gameplay

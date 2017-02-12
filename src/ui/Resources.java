@@ -2,6 +2,7 @@
 // http://opengameart.org/content/free-keyboard-and-controllers-prompts-pack for
 // the button images
 // credit to smash.gg for the character images
+//creedit to http://www.iconsplace.com/red-icons/restart-icon for the restart button
 
 package ui;
 
@@ -29,6 +30,8 @@ public class Resources
     public static Icon bButtonIcon;
     public static Icon xButtonIcon;
     public static Icon yButtonIcon;
+    
+    public static Icon startButtonIcon;
 
     public Resources()
     {
@@ -65,6 +68,9 @@ public class Resources
         Resources.xButtonIcon = new ImageIcon(url);
         url = getClass().getResource(Resources.relativePath + "Y Button.png");
         Resources.yButtonIcon = new ImageIcon(url);
+        
+        url = getClass().getResource(Resources.relativePath + "Start Button.png");
+        Resources.startButtonIcon = new ImageIcon(url);
     }
 
     public static Icon getCharacterIcon(String name)
