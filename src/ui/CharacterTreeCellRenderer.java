@@ -1,5 +1,6 @@
 package ui;
 
+import java.awt.Color;
 import java.awt.Component;
 
 import javax.swing.Icon;
@@ -16,18 +17,30 @@ import model.settings.GeneralSettings;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
 
-public class CharacterTreeCellRenderer implements TreeCellRenderer
+public class CharacterTreeCellRenderer extends DefaultTreeCellRenderer
 {
-    private JLabel label;
+    private JLabel label = this;
 
     CharacterTreeCellRenderer()
-    {
-        label = new JLabel();
+    {        
+        //this.setBackgroundSelectionColor(Color.WHITE);
+        this.setOpaque(false);
     }
 
     public Component getTreeCellRendererComponent(JTree tree, Object value, boolean selected,
                     boolean expanded, boolean leaf, int row, boolean hasFocus)
     {
+        this.selected = selected;
+        this.hasFocus = hasFocus;           
+
+        if (selected) {
+            super.setBackground(getBackgroundSelectionColor());
+            setForeground(getTextSelectionColor());
+        } else {
+            super.setBackground(getBackgroundNonSelectionColor());
+            setForeground(getTextNonSelectionColor());
+        }
+        
         //TODO remove duplicate code
         Object o = ((DefaultMutableTreeNode) value).getUserObject();
         if (o instanceof RoACharacter)
@@ -73,13 +86,5 @@ public class CharacterTreeCellRenderer implements TreeCellRenderer
                             hasFocus);
         }
 
-    }
-
-    public void setIcon(Icon icon)
-    {
-        if (icon == null)
-        {
-
-        }
     }
 }

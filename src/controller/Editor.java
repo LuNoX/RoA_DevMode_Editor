@@ -12,6 +12,6 @@ public class Editor
         ProjectManager projectManager = new ProjectManager();
         MainWindow mainWindow = new MainWindow();
         mainWindow.getFrame().setVisible(true);
-        Controller controller = new Controller(projectManager, mainWindow);
+        Controller controller = Controller.getInstance(projectManager, mainWindow);
     }
 }

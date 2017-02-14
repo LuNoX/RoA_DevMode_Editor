@@ -33,6 +33,7 @@ public class Resources
     
     public static Icon startButtonIcon;
 
+    //TODO make only one instance at a time
     public Resources()
     {
         this.initalizeEverything();
@@ -127,6 +128,10 @@ public class Resources
         else if (name.contains("TILT") || name.contains("JAB") || name.contains("DATTACK"))
         {
             return Resources.aButtonIcon;
+        }
+        else if (name.contains("THROW") || name.contains("LIGHTNING") || name.contains("CLOUD") || name.contains("BUBBLES"))
+        {
+            return Resources.xButtonIcon;
         }
         Icon result = null;
         return result;

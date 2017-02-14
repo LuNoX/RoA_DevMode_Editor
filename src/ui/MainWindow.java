@@ -17,6 +17,7 @@ import javax.swing.JSeparator;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.TreeSelectionModel;
 
 import controller.Controller;
 import model.characters.RoACharacter;
@@ -272,6 +273,7 @@ public class MainWindow
         DefaultMutableTreeNode root = (DefaultMutableTreeNode)model.getRoot();
         root.removeAllChildren();
         this.projectTree.setCellRenderer(new CharacterTreeCellRenderer());
+        this.projectTree.addTreeSelectionListener(new NodeSelectionListener(this.projectTree));
         for (Project prj : projectManager.getProjects())
         {
             DefaultMutableTreeNode project = new DefaultMutableTreeNode(prj.getName());
