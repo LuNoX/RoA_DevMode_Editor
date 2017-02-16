@@ -53,6 +53,21 @@ public class Move
         this.initializeMoveSpecificCommands();
     }
 
+    public List<CustomCommand> getMoveSpecificCommands()
+    {
+        return moveSpecificCommands;
+    }
+
+    public boolean isHasWhiffLanding()
+    {
+        return isHasWhiffLanding;
+    }
+
+    public double getHasWhiffLanding()
+    {
+        return hasWhiffLanding;
+    }
+
     public void initializeWindows()
     {
         this.windowManager = new WindowManager(this.other);

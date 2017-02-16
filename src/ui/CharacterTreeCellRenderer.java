@@ -9,6 +9,8 @@ import javax.swing.JTree;
 import javax.swing.tree.TreeCellRenderer;
 
 import model.characters.RoACharacter;
+import model.managers.HitboxManager;
+import model.managers.WindowManager;
 import model.moves.CharacterGeneral;
 import model.moves.Move;
 import model.settings.Gameplay;
@@ -56,6 +58,17 @@ public class CharacterTreeCellRenderer extends DefaultTreeCellRenderer
             Move move = (Move) o;
             label.setText(move.getName());
             label.setIcon(Resources.getMoveIcon(move.getName()));
+            return label;
+        }
+        else if (o instanceof HitboxManager)
+        {
+            //TODO remove icon
+            label.setText("Hitboxes");
+            return label;
+        }
+        else if (o instanceof WindowManager)
+        {
+            label.setText("Windows");
             return label;
         }
         else if (o instanceof GeneralSettings)

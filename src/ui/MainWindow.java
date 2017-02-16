@@ -23,8 +23,10 @@ import controller.Controller;
 import model.characters.RoACharacter;
 import model.managers.Project;
 import model.managers.ProjectManager;
+import model.moves.AbsaCloudBurst;
 import model.moves.CharacterSpecificMove;
 import model.moves.Move;
+import model.moves.OrcaneBubbles;
 import model.settings.GeneralSettings;
 
 import javax.swing.JPanel;
@@ -283,6 +285,14 @@ public class MainWindow
                 for(Move mov : chr.getAllMoves())
                 {
                     DefaultMutableTreeNode move = new DefaultMutableTreeNode(mov);
+                    //TODO open settings when selecting node instead of saving as subnode
+                    if (!(mov instanceof CharacterSpecificMove))
+                    {
+                        DefaultMutableTreeNode windows = new DefaultMutableTreeNode(mov.getWindowManager());
+                        DefaultMutableTreeNode hitboxes = new DefaultMutableTreeNode(mov.getHitboxManager());
+                        move.add(windows);
+                        move.add(hitboxes);
+                    }
                     character.add(move);
                 }
                 DefaultMutableTreeNode general = new DefaultMutableTreeNode(chr.getGeneral());
