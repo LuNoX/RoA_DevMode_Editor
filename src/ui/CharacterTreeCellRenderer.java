@@ -62,13 +62,14 @@ public class CharacterTreeCellRenderer extends DefaultTreeCellRenderer
         }
         else if (o instanceof HitboxManager)
         {
-            //TODO remove icon
             label.setText("Hitboxes");
+            label.setIcon(null);
             return label;
         }
         else if (o instanceof WindowManager)
         {
             label.setText("Windows");
+            label.setIcon(null);
             return label;
         }
         else if (o instanceof GeneralSettings)

@@ -143,4 +143,12 @@ public class Utilities
         }
         return result;
     }
+    
+    public static String parseCommandName (String command)
+    {
+        //TODO implement pareCommandName(String)
+        String result = command;
+        return result;
+    }
+    
 }
