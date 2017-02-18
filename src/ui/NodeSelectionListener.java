@@ -1,10 +1,13 @@
 package ui;
 
+import javax.swing.JLabel;
 import javax.swing.JTree;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 
+import controller.Controller;
+import model.managers.HitboxManager;
 import model.moves.CharacterSpecificMove;
 import model.moves.Move;
 
@@ -32,9 +35,10 @@ public class NodeSelectionListener implements TreeSelectionListener
         Object nodeInfo = node.getUserObject();
         if (node.isLeaf())
         {
-            if (nodeInfo instanceof Move)
+            if (nodeInfo instanceof HitboxManager)
             {
                 //System.out.println("true");
+                Controller.setCodePanel((HitboxManager)nodeInfo);
             }
             else if (nodeInfo instanceof CharacterSpecificMove)
             {

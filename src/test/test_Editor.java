@@ -1,6 +1,7 @@
 package test;
 
 import controller.Editor;
+import ui.MainWindow;
 
 public class test_Editor
 {

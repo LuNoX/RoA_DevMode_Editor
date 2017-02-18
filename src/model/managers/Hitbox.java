@@ -3,6 +3,8 @@ package model.managers;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import model.moves.CustomCommand;
+
 public class Hitbox
 {
     protected String id = null;
@@ -277,6 +279,76 @@ public class Hitbox
                         tempHitbox[26], tempHitbox[27], tempHitbox[28], tempHitbox[29],
                         tempHitbox[30], tempHitbox[31], tempHitbox[32], tempHitbox[33],
                         tempHitbox[34], tempHitbox[35]);
+    }
+
+    public CustomCommand[] getHitboxCommands()
+    {
+        CustomCommand parentHitbox = new CustomCommand("parentHitbox", this.parentHitbox);
+        CustomCommand hitboxWindow = new CustomCommand("hitboxWindow", this.hitboxWindow);
+        CustomCommand hitboxWindowCreationFrame = new CustomCommand("hitboxWindowCreationFrame",
+                        this.hitboxWindowCreationFrame);
+        CustomCommand hitboxLifetime = new CustomCommand("hitboxLifetime", this.hitboxLifetime);
+        CustomCommand baseKnockback = new CustomCommand("baseKnockback", this.baseKnockback);
+        CustomCommand knockbackScaling = new CustomCommand("knockbackScaling",
+                        this.knockbackScaling);
+        CustomCommand knockbackAngle = new CustomCommand("knockbackAngle", this.knockbackAngle);
+        CustomCommand angleFlipper = new CustomCommand("angleFlipper", this.angleFlipper);
+        CustomCommand damage = new CustomCommand("damage", this.damage);
+        CustomCommand hitboxSizeX = new CustomCommand("hitboxSizeX", this.hitboxSizeX);
+        CustomCommand hitboxSizeY = new CustomCommand("hitboxSizeY", this.hitboxSizeY);
+        CustomCommand hitboxPositionX = new CustomCommand("hitboxPositionX", this.hitboxPositionX);
+        CustomCommand hitboxPositionY = new CustomCommand("hitboxPositionY", this.hitboxPositionY);
+        CustomCommand hitEffect = new CustomCommand("hitEffect", this.hitEffect);
+        CustomCommand asdiModifier = new CustomCommand("asdiModifier", this.asdiModifier);
+        CustomCommand hitstunModifier = new CustomCommand("hitstunModifier", this.hitstunModifier);
+        CustomCommand untechable = new CustomCommand("untechable", this.untechable);
+        CustomCommand priority = new CustomCommand("priority", this.priority);
+        CustomCommand baseHitpause = new CustomCommand("baseHitpause", this.baseHitpause);
+        CustomCommand hitpauseScaling = new CustomCommand("hitpauseScaling", this.hitpauseScaling);
+        CustomCommand visualEffect = new CustomCommand("visualEffect", this.visualEffect);
+        CustomCommand visualEffectXOffset = new CustomCommand("visualEffectXOffset",
+                        this.visualEffectXOffset);
+        CustomCommand visualEffectYOffset = new CustomCommand("visualEffectYOffset",
+                        this.visualEffectYOffset);
+        CustomCommand hitSoundEffect = new CustomCommand("hitSoundEffect", this.hitSoundEffect);
+        CustomCommand extraCameraShake = new CustomCommand("extraCameraShake",
+                        this.extraCameraShake);
+        CustomCommand canKillProjectiles = new CustomCommand("canKillProjectiles",
+                        this.canKillProjectiles);
+        CustomCommand hitLockoutTime = new CustomCommand("hitLockoutTime", this.hitLockoutTime);
+        CustomCommand causesExtendedParryStun = new CustomCommand("causesExtendedParryStun",
+                        this.causesExtendedParryStun);
+        CustomCommand forceFlinch = new CustomCommand("forceFlinch", this.forceFlinch);
+        CustomCommand hitboxShape = new CustomCommand("hitboxShape", this.hitboxShape);
+
+        CustomCommand[] result =
+        {parentHitbox, hitboxWindow, hitboxWindowCreationFrame, hitboxLifetime, baseKnockback, knockbackScaling,
+                        knockbackAngle, angleFlipper, damage, hitboxSizeX, hitboxSizeY,
+                        hitboxPositionX, hitboxPositionY, hitEffect, asdiModifier, hitstunModifier,
+                        untechable, priority, baseHitpause, hitpauseScaling, visualEffect,
+                        visualEffectXOffset, visualEffectYOffset, hitSoundEffect, extraCameraShake,
+                        canKillProjectiles, hitLockoutTime, causesExtendedParryStun, forceFlinch,
+                        hitboxShape};
+        return result;
+    }
+
+    public CustomCommand[] getProjectileCommands()
+    {
+        CustomCommand useSpriteCollision = new CustomCommand("useSpriteCollision",
+                        this.useSpriteCollision);
+        CustomCommand projectileHSpeed = new CustomCommand("projectileHSpeed",
+                        this.projectileHSpeed);
+        CustomCommand projectileVSpeed = new CustomCommand("projectileLifetime",
+                        this.projectileLifetime);
+        CustomCommand projectileGravity = new CustomCommand("projectileGravity",
+                        this.projectileGravity);
+        CustomCommand projectileLifetime = new CustomCommand("projectileLifetime",
+                        this.projectileLifetime);
+
+        CustomCommand[] result =
+        {useSpriteCollision, projectileHSpeed, projectileVSpeed, projectileGravity,
+                        projectileLifetime};
+        return result;
     }
 
     public String getId()

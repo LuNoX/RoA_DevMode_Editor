@@ -2,15 +2,19 @@ package controller;
 
 import java.util.ResourceBundle.Control;
 
+import javax.swing.JLabel;
+
+import model.managers.HitboxManager;
 import model.managers.Project;
 import model.managers.ProjectManager;
 import model.utility.RoAFileChooser;
+import ui.CodePanel;
 import ui.MainWindow;
 
 public class Controller
 {
     protected ProjectManager projectManager = new ProjectManager();
-    protected MainWindow mainWindow = new MainWindow();
+    protected static MainWindow mainWindow = new MainWindow();
     private static Controller instance = null;
     
     public Controller ()
@@ -22,12 +26,12 @@ public class Controller
         this.projectManager = projectManager;
         RoAFileChooser ifc = new RoAFileChooser();
 
-        //Project prj = new Project(ifc.chooseFile("C:\\Users\\Timo\\Desktop\\roa editor\\actives\\current active"), "Active Project");
-        Project prj = new Project(ifc.chooseFile("E:\\Schule\\Informatik\\recources\\actives\\current active"), "Active Project");
+        Project prj = new Project(ifc.chooseFile("C:\\Users\\Timo\\Desktop\\roa editor\\actives\\current active"), "Active Project");
+        //Project prj = new Project(ifc.chooseFile("E:\\Schule\\Informatik\\recources\\actives\\current active"), "Active Project");
         this.projectManager.addProject(prj);
-        this.mainWindow = mainWindow;
+        Controller.mainWindow = mainWindow;
         
-        this.mainWindow.initalizeTree(this.projectManager);
+        Controller.mainWindow.initalizeTree(this.projectManager);
         
         Controller.instance = this;
     }
@@ -40,5 +44,10 @@ public class Controller
             result = new Controller(projectManager, mainWindow);
         }
         return result;
+    }
+    
+    public static void setCodePanel(HitboxManager manager)
+    {
+        mainWindow.setCodePanel(CodePanel.getHitboxPanel(manager));
     }
 }
