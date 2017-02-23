@@ -50,15 +50,23 @@ public class CodePanel
             gbl_panel.columnWidths = new int[]{1, 0, 0};
             gbl_panel.columnWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
             panel.setLayout(gbl_panel);
+           
+            Component verticalGlue = Box.createVerticalGlue();
+            GridBagConstraints gbc_verticalGlue = new GridBagConstraints();
+            gbc_verticalGlue.gridwidth = 2;
+            gbc_verticalGlue.insets = new Insets(0, 0, 5, 5);
+            gbc_verticalGlue.gridx = 0;
+            gbc_verticalGlue.gridy = 0;
+            panel.add(verticalGlue, gbc_verticalGlue);
 
             // TODO add ID textfield
             CustomCommand[] hitboxCommands = hitbox.getHitboxCommands();
             for (int i = 0; i < hitboxCommands.length; i++) // For every attribute
             {
-                panel = addCommand(panel, hitboxCommands[i].getName(), hitboxCommands[i].getValue(), i);
+                panel = addCommand(panel, hitboxCommands[i].getName(), hitboxCommands[i].getValue(), i+1);
             }
             
-            offset = hitboxCommands.length;
+            offset = hitboxCommands.length+1;
             
             // TODO grey out if Projectile is false
             CustomCommand[] projectileCommands = hitbox.getProjectileCommands();
@@ -66,10 +74,23 @@ public class CodePanel
             {
                 panel = addCommand(panel, projectileCommands[i].getName(), projectileCommands[i].getValue(), i+offset);
             }
+            offset = offset + projectileCommands.length;
+            
+            Component verticalGlue2 = Box.createVerticalGlue();
+            GridBagConstraints gbc_verticalGlue2 = new GridBagConstraints();
+            gbc_verticalGlue2.gridwidth = 2;
+            gbc_verticalGlue2.insets = new Insets(0, 0, 5, 5);
+            gbc_verticalGlue2.gridx = offset;
+            gbc_verticalGlue2.gridy = 0;
+            panel.add(verticalGlue, gbc_verticalGlue);
            
-            offset = offset + projectileCommands.length +1;
-            double[] weights = new double[offset];
-            weights[offset-1] = 1.0;
+
+            double[] weights = new double[offset+1];
+            for (int i = 0; i < weights.length; i++)
+            {
+                weights[i] = 0;
+            }
+            weights[offset] = Double.MIN_VALUE;
             gbl_panel.rowWeights = weights;
         }
 

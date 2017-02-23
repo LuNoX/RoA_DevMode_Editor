@@ -170,29 +170,97 @@ public class MainWindow
                                 JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
                                 splitPane.setRightComponent(tabbedPane);
                                 
+                                JScrollPane scrollPane_1 = new JScrollPane();
+                                tabbedPane.addTab("New tab", null, scrollPane_1, null);
+                                
                                 JPanel panel = new JPanel();
-                                tabbedPane.addTab("New tab", null, panel, null);
+                                scrollPane_1.setViewportView(panel);
                                 GridBagLayout gbl_panel = new GridBagLayout();
                                 gbl_panel.columnWidths = new int[]{1, 0, 0};
-                                gbl_panel.rowHeights = new int[]{0, 0};
+                                gbl_panel.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
                                 gbl_panel.columnWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
-                                gbl_panel.rowWeights = new double[]{0.0, Double.MIN_VALUE};
+                                gbl_panel.rowWeights = new double[]{1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
                                 panel.setLayout(gbl_panel);
                                 
-                                JLabel lblNewLabel = new JLabel("New label");
-                                GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
-                                gbc_lblNewLabel.anchor = GridBagConstraints.WEST;
-                                gbc_lblNewLabel.insets = new Insets(0, 0, 0, 5);
-                                gbc_lblNewLabel.gridx = 0;
-                                gbc_lblNewLabel.gridy = 0;
-                                panel.add(lblNewLabel, gbc_lblNewLabel);
+                                Component verticalGlue = Box.createVerticalGlue();
+                                GridBagConstraints gbc_verticalGlue = new GridBagConstraints();
+                                gbc_verticalGlue.gridwidth = 2;
+                                gbc_verticalGlue.insets = new Insets(0, 0, 5, 0);
+                                gbc_verticalGlue.gridx = 0;
+                                gbc_verticalGlue.gridy = 0;
+                                panel.add(verticalGlue, gbc_verticalGlue);
+                                
+                                JLabel label = new JLabel("New label");
+                                GridBagConstraints gbc_label = new GridBagConstraints();
+                                gbc_label.anchor = GridBagConstraints.WEST;
+                                gbc_label.insets = new Insets(0, 0, 5, 5);
+                                gbc_label.gridx = 0;
+                                gbc_label.gridy = 1;
+                                panel.add(label, gbc_label);
                                 
                                 JSpinner spinner = new JSpinner();
                                 GridBagConstraints gbc_spinner = new GridBagConstraints();
                                 gbc_spinner.anchor = GridBagConstraints.EAST;
+                                gbc_spinner.insets = new Insets(0, 0, 5, 0);
                                 gbc_spinner.gridx = 1;
-                                gbc_spinner.gridy = 0;
+                                gbc_spinner.gridy = 1;
                                 panel.add(spinner, gbc_spinner);
+                                
+                                JLabel label_1 = new JLabel("New label");
+                                GridBagConstraints gbc_label_1 = new GridBagConstraints();
+                                gbc_label_1.insets = new Insets(0, 0, 5, 5);
+                                gbc_label_1.gridx = 0;
+                                gbc_label_1.gridy = 2;
+                                panel.add(label_1, gbc_label_1);
+                                
+                                JLabel label_2 = new JLabel("New label");
+                                GridBagConstraints gbc_label_2 = new GridBagConstraints();
+                                gbc_label_2.insets = new Insets(0, 0, 5, 5);
+                                gbc_label_2.gridx = 0;
+                                gbc_label_2.gridy = 3;
+                                panel.add(label_2, gbc_label_2);
+                                
+                                JLabel label_3 = new JLabel("New label");
+                                GridBagConstraints gbc_label_3 = new GridBagConstraints();
+                                gbc_label_3.insets = new Insets(0, 0, 5, 5);
+                                gbc_label_3.gridx = 0;
+                                gbc_label_3.gridy = 4;
+                                panel.add(label_3, gbc_label_3);
+                                
+                                JLabel label_4 = new JLabel("New label");
+                                GridBagConstraints gbc_label_4 = new GridBagConstraints();
+                                gbc_label_4.insets = new Insets(0, 0, 5, 5);
+                                gbc_label_4.gridx = 0;
+                                gbc_label_4.gridy = 5;
+                                panel.add(label_4, gbc_label_4);
+                                
+                                JLabel label_5 = new JLabel("New label");
+                                GridBagConstraints gbc_label_5 = new GridBagConstraints();
+                                gbc_label_5.insets = new Insets(0, 0, 5, 5);
+                                gbc_label_5.gridx = 0;
+                                gbc_label_5.gridy = 6;
+                                panel.add(label_5, gbc_label_5);
+                                
+                                JLabel label_6 = new JLabel("New label");
+                                GridBagConstraints gbc_label_6 = new GridBagConstraints();
+                                gbc_label_6.insets = new Insets(0, 0, 5, 5);
+                                gbc_label_6.gridx = 0;
+                                gbc_label_6.gridy = 7;
+                                panel.add(label_6, gbc_label_6);
+                                
+                                JLabel label_7 = new JLabel("New label");
+                                GridBagConstraints gbc_label_7 = new GridBagConstraints();
+                                gbc_label_7.insets = new Insets(0, 0, 5, 5);
+                                gbc_label_7.gridx = 0;
+                                gbc_label_7.gridy = 8;
+                                panel.add(label_7, gbc_label_7);
+                                
+                                JLabel label_8 = new JLabel("New label");
+                                GridBagConstraints gbc_label_8 = new GridBagConstraints();
+                                gbc_label_8.insets = new Insets(0, 0, 0, 5);
+                                gbc_label_8.gridx = 0;
+                                gbc_label_8.gridy = 9;
+                                panel.add(label_8, gbc_label_8);
 
         JMenuBar menuBar = new JMenuBar();
         frame.setJMenuBar(menuBar);
