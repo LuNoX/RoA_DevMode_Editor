@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.lang.reflect.Field;
 
 import javax.swing.Box;
 import javax.swing.JComponent;
@@ -16,10 +17,13 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTree;
 import javax.swing.SpinnerModel;
 import javax.swing.SpinnerNumberModel;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 import model.managers.Hitbox;
 import model.managers.HitboxManager;
 import model.moves.CustomCommand;
+import model.settings.Gameplay;
 import model.utility.Utilities;
 
 public class CodePanel
@@ -63,7 +67,7 @@ public class CodePanel
             CustomCommand[] hitboxCommands = hitbox.getHitboxCommands();
             for (int i = 0; i < hitboxCommands.length; i++) // For every attribute
             {
-                panel = addCommand(panel, hitboxCommands[i].getName(), hitboxCommands[i].getValue(), i+1);
+                panel = addCommand(panel, hitboxCommands[i].getName(), hitboxCommands[i].getValue(), hitbox, i+1);
             }
             
             offset = hitboxCommands.length+1;
@@ -72,7 +76,7 @@ public class CodePanel
             CustomCommand[] projectileCommands = hitbox.getProjectileCommands();
             for (int i = 0; i < projectileCommands.length; i++)
             {
-                panel = addCommand(panel, projectileCommands[i].getName(), projectileCommands[i].getValue(), i+offset);
+                panel = addCommand(panel, projectileCommands[i].getName(), projectileCommands[i].getValue(), hitbox, i+offset);
             }
             offset = offset + projectileCommands.length;
             
@@ -97,7 +101,7 @@ public class CodePanel
         return tabbedPane;
     }
 
-    public static JPanel addCommand(JPanel panel, String commandName, double commandValue, int row)
+    public static JPanel addCommand(JPanel panel, String commandName, double commandValue, Object spinnerObject, int row)
     {
 
         JLabel lblName = new JLabel(Utilities.parseCommandName(commandName));
@@ -115,11 +119,39 @@ public class CodePanel
         double stepSize = 1.0;
         SpinnerModel model = new SpinnerNumberModel(value, minimum, maximum, stepSize);
         
-        JSpinner spinner = new JSpinner(model);
+        FieldSpinner spinner = new FieldSpinner(model, spinnerObject, commandName);
         JComponent field = ((JSpinner.DefaultEditor) spinner.getEditor());
         Dimension prefSize = field.getPreferredSize();
         prefSize = new Dimension(28, prefSize.height);
         field.setPreferredSize(prefSize);
+        
+        spinner.addChangeListener(new ChangeListener()
+        {
+            
+            @Override
+            public void stateChanged(ChangeEvent arg0)
+            {
+                System.out.println("Value changed to: " + spinner.getValue());
+                Field declaredField = null;
+                try
+                {
+                    String fieldName = commandName;
+                    declaredField = spinnerObject.getClass().class.getDeclaredField(fieldName); //TODO make this work
+                    boolean accessible = declaredField.isAccessible();
+
+                    declaredField.setAccessible(true);
+                    declaredField.set(this, (double) spinner.getValue());
+                    declaredField.setAccessible(accessible);
+
+                }
+                catch (NoSuchFieldException | SecurityException | IllegalArgumentException
+                                | IllegalAccessException e)
+                {
+                    System.out.println(e.getLocalizedMessage());
+                    e.printStackTrace();
+                }
+            }
+        });
         
         GridBagConstraints gbc_spinner = new GridBagConstraints();
         gbc_spinner.anchor = GridBagConstraints.EAST;
