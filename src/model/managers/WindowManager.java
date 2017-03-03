@@ -2,6 +2,7 @@ package model.managers;
 
 import java.util.*;
 
+import model.moves.CustomCommand;
 import model.utility.*;
 
 public class WindowManager
@@ -51,7 +52,7 @@ public class WindowManager
         // add the temporary local windows to the actual window
         for (double[] tempWindow : tempWindows)
         {
-            Window window = new Window("" + tempWindow[0] + "", tempWindow[1], tempWindow[2],
+            Window window = new Window("" + (int) tempWindow[0] + "", tempWindow[1], tempWindow[2],
                             tempWindow[3], tempWindow[4], tempWindow[5], tempWindow[6],
                             tempWindow[7], tempWindow[8], tempWindow[9], tempWindow[10],
                             tempWindow[11]);
@@ -80,4 +81,27 @@ public class WindowManager
     {
         return windows;
     }
+    
+    public List<String> exportCode()
+    {
+        List<String> result = new ArrayList<>();
+        
+        String append = "";
+        for (Window window : this.windows)
+        {
+            if (this.windows.size()>1)
+            {
+                append = "_" + window.getId();
+            }
+            CustomCommand[] windowCommands = window.getWindowCommands();
+            for (int i = 0; i<windowCommands.length; i++)
+            {
+                String command = windowCommands[i].getName() + append + " = \"" + windowCommands[i].getValue() + "\"";
+                result.add(command);
+            }
+        }
+        
+        return result;
+    }
+    
 }

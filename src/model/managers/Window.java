@@ -1,6 +1,10 @@
 package model.managers;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.*;
+
+import model.moves.CustomCommand;
 
 public class Window
 {
@@ -9,6 +13,7 @@ public class Window
     protected double length = 0;
     protected boolean isCancelable = false;
     protected double windowCancelFrame = 0;
+    //TODO this is an attribute of the move not the window
     protected double hBoost = 0;
     protected double vBoost = 0;
     protected double hBoostConst = 0;
@@ -19,9 +24,9 @@ public class Window
     protected double whiffFrames = 0;
     protected double invincibility = 0;
 
-    public Window(String id, double length, double windowCancelFrame, double hBoost, double vBoost, double hBoostConst,
-                    double vBoostConst, double hasSfx, double sfx, double sfxFrame, double whiffFrames,
-                    double invincibility)
+    public Window(String id, double length, double windowCancelFrame, double hBoost, double vBoost,
+                    double hBoostConst, double vBoostConst, double hasSfx, double sfx,
+                    double sfxFrame, double whiffFrames, double invincibility)
     {
         this.id = id;
         this.length = length;
@@ -35,16 +40,16 @@ public class Window
         this.sfxFrame = sfxFrame;
         this.whiffFrames = whiffFrames;
         this.invincibility = invincibility;
-        
-        if(this.windowCancelFrame > 0)
+
+        if (this.windowCancelFrame > 0)
         {
             this.isCancelable = true;
         }
     }
 
-    public Window(String id, String length, String windowCancelFrame, String hBoost, String vBoost, String hBoostConst,
-                    String vBoostConst, String hasSfx, String sfx, String sfxFrames,
-                    String whiffFrames, String invincibility)
+    public Window(String id, String length, String windowCancelFrame, String hBoost, String vBoost,
+                    String hBoostConst, String vBoostConst, String hasSfx, String sfx,
+                    String sfxFrames, String whiffFrames, String invincibility)
     {
         this.id = id;
         Pattern p = Pattern.compile("\"([^\"]*)\"");
@@ -53,7 +58,7 @@ public class Window
         m = p.matcher(length);
         m.find();
         this.length = Double.parseDouble(m.group(1));
-        
+
         m = p.matcher(windowCancelFrame);
         m.find();
         this.length = Double.parseDouble(m.group(1));
@@ -93,11 +98,30 @@ public class Window
         m = p.matcher(invincibility);
         m.find();
         this.invincibility = Double.parseDouble(m.group(1));
-        
-        if(this.windowCancelFrame > 0)
+
+        if (this.windowCancelFrame > 0)
         {
             this.isCancelable = true;
         }
+    }
+
+    public CustomCommand[] getWindowCommands()
+    {
+        CustomCommand length = new CustomCommand("length", this.length);
+        CustomCommand hBoost = new CustomCommand("hBoost", this.hBoost);
+        CustomCommand vBoost = new CustomCommand("vBoost", this.vBoost);
+        CustomCommand hBoostConst = new CustomCommand("hBoostConst", this.hBoostConst);
+        CustomCommand vBoostConst = new CustomCommand("vBoostConst", this.vBoostConst);
+        CustomCommand hasSfx = new CustomCommand("hasSfx", this.hasSfx);
+        CustomCommand sfx = new CustomCommand("sfx", this.sfx);
+        CustomCommand sfxFrame = new CustomCommand("sfxFrame", this.sfxFrame);
+        CustomCommand whiffFrames = new CustomCommand("whiffFrames", this.whiffFrames);
+        CustomCommand invincibility = new CustomCommand("invincibility", this.invincibility);
+
+        CustomCommand[] result =
+        { length, hBoost, vBoost, hBoostConst, vBoostConst, hasSfx, sfx, sfxFrame, whiffFrames,
+                        invincibility };
+        return result;
     }
 
     public String getId()

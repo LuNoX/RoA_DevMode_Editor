@@ -1,5 +1,7 @@
 package model.managers;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -348,6 +350,13 @@ public class Hitbox
         CustomCommand[] result =
         {useSpriteCollision, projectileHSpeed, projectileVSpeed, projectileGravity,
                         projectileLifetime};
+        return result;
+    }
+    
+    //TODO move this to HitboxManager and do logic there
+    public List<String> exportCode()
+    {
+        List<String> result = new ArrayList<>();
         return result;
     }
 

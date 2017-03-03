@@ -7,6 +7,7 @@ import javax.swing.JLabel;
 import model.managers.HitboxManager;
 import model.managers.Project;
 import model.managers.ProjectManager;
+import model.managers.WindowManager;
 import model.utility.RoAFileChooser;
 import ui.CodePanel;
 import ui.MainWindow;
@@ -49,5 +50,10 @@ public class Controller
     public static void setCodePanel(HitboxManager manager)
     {
         mainWindow.setCodePanel(CodePanel.getHitboxPanel(manager));
+    }
+    
+    public static void setCodePanel(WindowManager manager)
+    {
+        mainWindow.setCodePanel(CodePanel.getWindowPanel(manager));
     }
 }

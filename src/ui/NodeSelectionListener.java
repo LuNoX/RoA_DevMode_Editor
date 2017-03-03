@@ -8,6 +8,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 
 import controller.Controller;
 import model.managers.HitboxManager;
+import model.managers.WindowManager;
 import model.moves.CharacterSpecificMove;
 import model.moves.Move;
 
@@ -39,6 +40,10 @@ public class NodeSelectionListener implements TreeSelectionListener
             {
                 //System.out.println("true");
                 Controller.setCodePanel((HitboxManager)nodeInfo);
+            }
+            else if (nodeInfo instanceof WindowManager)
+            {
+                Controller.setCodePanel((WindowManager) nodeInfo);
             }
             else if (nodeInfo instanceof CharacterSpecificMove)
             {
