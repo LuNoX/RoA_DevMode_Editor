@@ -352,13 +352,6 @@ public class Hitbox
                         projectileLifetime};
         return result;
     }
-    
-    //TODO move this to HitboxManager and do logic there
-    public List<String> exportCode()
-    {
-        List<String> result = new ArrayList<>();
-        return result;
-    }
 
     public String getId()
     {

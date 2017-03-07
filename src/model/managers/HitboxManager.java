@@ -316,6 +316,13 @@ public class HitboxManager
         this.multihitIds = multihitIds;
         this.finalIds = finalIds;
     }
+    
+    //TODO implement this method
+    public List<String> exportCode()
+    {
+        List<String> result = new ArrayList<>();
+        return result;
+    }
 
     public List<String> getCodeWithoutHitboxCommands()
     {

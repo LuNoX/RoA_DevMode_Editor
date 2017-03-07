@@ -194,6 +194,13 @@ public class CharacterGeneral
             this.other.remove(commandPositions[commandPositions.length - i]);
         }
     }
+    
+    //TODO implement this method
+    public List<String> exportCode()
+    {
+        List<String> result = new ArrayList<>();
+        return result;
+    }
 
     public List<String> getCode()
     {

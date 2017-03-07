@@ -9,6 +9,11 @@ import model.utility.*;
 import ui.Resources;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public abstract class RoACharacter
@@ -111,6 +116,40 @@ public abstract class RoACharacter
                 }
             }
         }
+    }
+    
+    public List<String> exportCode()
+    {
+        List<String> result = new ArrayList<>();
+        
+        for (Move move : this.allMoves)
+        {
+            result.addAll(move.exportCode());
+        }
+        result.addAll(this.general.exportCode());
+        
+        return result;
+    }
+    
+    public void exportFile(File directory)
+    {
+        List<String> lines = this.exportCode();
+        Path file = Paths.get(directory.getAbsolutePath(), this.characterFile.getName()+"_new");
+        try
+        {
+            Files.write(file, lines, Charset.forName("UTF-8"));
+        }
+        catch (IOException e)
+        {
+            System.out.println(e.getLocalizedMessage());
+            e.printStackTrace();
+        }
+        //Files.write(file, lines, Charset.forName("UTF-8"), StandardOpenOption.APPEND);
+    }
+    
+    public void exportFile ()
+    {
+        this.exportFile(this.characterFile.getParentFile());
     }
 
     public File getCharacterFile()

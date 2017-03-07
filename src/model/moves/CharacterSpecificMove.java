@@ -1,5 +1,6 @@
 package model.moves;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CharacterSpecificMove extends Move
@@ -14,5 +15,12 @@ public class CharacterSpecificMove extends Move
         this.name = name;
         this.code = code;
         this.other = code;
+    }
+    
+    //TODO implement this method for the subclasses
+    public List<String> exportCode()
+    {
+        List<String> result = new ArrayList<>();
+        return result;
     }
 }

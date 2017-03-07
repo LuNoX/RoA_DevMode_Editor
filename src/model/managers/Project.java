@@ -96,7 +96,16 @@ public class Project
             GeneralSettings general = new GeneralSettings(file);
             this.generals.add(general);
         }
-
+    }
+    
+    //TODO make these names consistent
+    public void exportProject()
+    {
+        for (RoACharacter character : this.characters)
+        {
+            character.exportFile(this.directory);
+        }
+        //TODO add general settings
     }
 
     public File getDirectory()

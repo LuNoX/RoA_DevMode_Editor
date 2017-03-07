@@ -93,10 +93,11 @@ public class WindowManager
             {
                 append = "_" + window.getId();
             }
+            //TODO parse command name
             CustomCommand[] windowCommands = window.getWindowCommands();
             for (int i = 0; i<windowCommands.length; i++)
             {
-                String command = windowCommands[i].getName() + append + " = \"" + windowCommands[i].getValue() + "\"";
+                String command = "window_" + windowCommands[i].getName() + append + " = \"" + windowCommands[i].getValue() + "\"";
                 result.add(command);
             }
         }

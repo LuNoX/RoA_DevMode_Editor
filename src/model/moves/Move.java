@@ -202,6 +202,30 @@ public class Move
             this.other.remove(commandPositions[commandPositions.length - i]);
         }
     }
+    
+    public List<String> exportCode()
+    {
+        List<String> result = new ArrayList<>();
+        
+        result.add("[" + this.name + "]");
+        result.addAll(this.windowManager.exportCode());
+        if (this.hasCooldown)
+        {
+            result.add("cooldown = \"" + this.cooldown + "\"");
+        }
+        if (this.isAutocancelable)
+        {
+            result.add("autocancel_frame = \"" + this.autocancelFrame+ "\"");
+            result.add("landing_lag = \"" + this.landingLag + "\"");
+        }
+        if (this.isHasWhiffLanding)
+        {
+            result.add("has_whiff_landing = \"" + this.hasWhiffLanding + "\"");
+        }
+        result.addAll(this.hitboxManager.exportCode());
+        
+        return result;
+    }
 
     public String getName()
     {

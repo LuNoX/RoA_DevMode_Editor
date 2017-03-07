@@ -10,6 +10,7 @@ import javax.swing.tree.TreeCellRenderer;
 
 import model.characters.RoACharacter;
 import model.managers.HitboxManager;
+import model.managers.Project;
 import model.managers.WindowManager;
 import model.moves.CharacterGeneral;
 import model.moves.Move;
@@ -90,6 +91,12 @@ public class CharacterTreeCellRenderer extends DefaultTreeCellRenderer
         {
             label.setText("GAMEPLAY");
             label.setIcon(Resources.startButtonIcon);
+            return label;
+        }
+        else if (o instanceof Project)
+        {
+            label.setText(((Project)o).getName());
+            label.setIcon(getDefaultOpenIcon());
             return label;
         }
         //TODO add icons for CSMs and Reset/Gameplay

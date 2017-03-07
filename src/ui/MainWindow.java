@@ -143,6 +143,19 @@ public class MainWindow
         frame.getContentPane().add(toolBar, gbc_toolBar);
 
         JButton btnSave = new JButton("Save");
+        btnSave.addActionListener(new ActionListener()
+        {
+            
+            @Override
+            public void actionPerformed(ActionEvent arg0)
+            {
+                //TODO avoid null pointer when root is selected
+                DefaultMutableTreeNode projectNode = ((DefaultMutableTreeNode) projectTree.getSelectionPath().getPathComponent(1));
+                Project selectedProject = (Project) projectNode.getUserObject();
+                selectedProject.exportProject();
+                
+            }
+        });
         toolBar.add(btnSave);
 
         JButton btnNew = new JButton("New");
@@ -411,7 +424,7 @@ public class MainWindow
         this.projectTree.addTreeSelectionListener(new NodeSelectionListener(this.projectTree));
         for (Project prj : projectManager.getProjects())
         {
-            DefaultMutableTreeNode project = new DefaultMutableTreeNode(prj.getName());
+            DefaultMutableTreeNode project = new DefaultMutableTreeNode(prj);
             for(RoACharacter chr : prj.getCharacters())
             {
                 DefaultMutableTreeNode character = new DefaultMutableTreeNode(chr);

@@ -34,4 +34,12 @@ public class ProjectManager
     {
         this.projects.add(project);
     }
+    
+    public void exportProjects()
+    {
+        for (Project project : this.projects)
+        {
+            project.exportProject();
+        }
+    }
 }
