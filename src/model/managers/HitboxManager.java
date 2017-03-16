@@ -321,6 +321,22 @@ public class HitboxManager
     public List<String> exportCode()
     {
         List<String> result = new ArrayList<>();
+        
+        //TODO automatically update information like multihitids, finalsids, children per hitbox, etc
+        //  so I don't have to calculate this stuff here
+        
+        //Count hitboxes
+        
+        //Count unique hitboxes
+        
+        //determine number of children per hitbox
+        
+        //determine multihits and finals
+        
+        //determine kind of multihit (no MH, single MH. multiple MHs)
+        
+        //print according to determined type
+        
         return result;
     }
 
