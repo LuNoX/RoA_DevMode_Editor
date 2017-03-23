@@ -2,6 +2,7 @@ package model.managers;
 
 import java.util.regex.*;
 
+import model.moves.CustomCommand;
 import model.utility.CommandStorage;
 import model.utility.Utilities;
 
@@ -69,7 +70,8 @@ public class HitboxManager
 
     public void createHitboxes(String specificAppend, String[] specificIds)
     {
-        // TODO instead of messing around with TempHitboxes just create a hitbox and then set the
+        // TODO instead of messing around with TempHitboxes just create a hitbox
+        // and then set the
         // values afterwards, rest is going to stay default
         int numberOfCommands = 0;
         int[] commandPositions = new int[this.code.size()];
@@ -130,7 +132,8 @@ public class HitboxManager
                             {
                                 if (command.substring(tmp, tmp + specificIds[k].length()).equals(
                                                 specificIds[k]))
-                                // possible bug if some specificIds are substrings of others
+                                // possible bug if some specificIds are
+                                // substrings of others
                                 {
                                     hasSpecificId = true;
                                     id = k + 1;
@@ -158,9 +161,12 @@ public class HitboxManager
             this.hitboxes.add(hitbox);
         }
         // remove everything related to the Hitboxes from the code
-        Arrays.sort(commandPositions); // sort the indices and then go through the list backwards to
+        Arrays.sort(commandPositions); // sort the indices and then go through
+                                       // the list backwards to
                                        // avoid index errors
-        for (int i = 1; i <= numberOfCommands; i++) // dont use commandPositions.length because
+        for (int i = 1; i <= numberOfCommands; i++) // dont use
+                                                    // commandPositions.length
+                                                    // because
         // the Array is far longer than needed
         {
             this.code.remove(commandPositions[commandPositions.length - i]);
@@ -316,27 +322,112 @@ public class HitboxManager
         this.multihitIds = multihitIds;
         this.finalIds = finalIds;
     }
-    
-    //TODO implement this method
+
+    // TODO implement this method
     public List<String> exportCode()
     {
         List<String> result = new ArrayList<>();
+
+        // TODO automatically update information like multihitids, finalsids,
+        // children per hitbox, etc
+        // so I don't have to calculate this stuff here
+
+        // Count hitboxes
+
+        // Count unique hitboxes
+
+        // determine number of children per hitbox
+
+        // determine multihits and finals
+
+        // determine kind of multihit (no MH, single MH. multiple MHs)
+
+        // print according to determined type
         
-        //TODO automatically update information like multihitids, finalsids, children per hitbox, etc
-        //  so I don't have to calculate this stuff here
+        //TODO add number of hitboxes, unique hitboxes and final hitboxes
         
-        //Count hitboxes
-        
-        //Count unique hitboxes
-        
-        //determine number of children per hitbox
-        
-        //determine multihits and finals
-        
-        //determine kind of multihit (no MH, single MH. multiple MHs)
-        
-        //print according to determined type
-        
+        for (int i = 0; i < this.hitboxes.size(); i++)
+        {
+            Hitbox hitbox = this.hitboxes.get(i);
+            String append = "_" + hitbox.getId();
+            String multihitOrFinalAppend = "";
+            boolean isMultihitOrFinal = false;
+            for (int j = 0; j < this.multihitIds.length; j++)
+            {
+                if (i + 1 == this.multihitIds[j])
+                {
+                    isMultihitOrFinal = true;
+                    if (this.numberOfMultihitboxes > 1)
+                    {
+                        int tmp = j + 1;
+                        multihitOrFinalAppend = "_multihit_" + tmp;
+                    }
+                    else
+                    {
+                        multihitOrFinalAppend = "";
+                    }
+                }
+            }
+            for (int j = 0; j < this.finalIds.length; j++)
+            {
+                if (i + 1 == this.finalIds[j])
+                {
+                    isMultihitOrFinal = true;
+                    if (this.numberOfFinalHitboxes > 1)
+                    {
+                        int tmp = j + 1;
+                        multihitOrFinalAppend = "_final_" + tmp;
+                    }
+                    else
+                    {
+                        multihitOrFinalAppend = "_final";
+                    }
+                }
+            }
+
+            CustomCommand[] hitboxCommands = hitbox.getHitboxCommands();
+            for (int j = 0; j < hitboxCommands.length; j++)
+            {
+                if (CommandStorage.isMultihitOrFinalCommand[j + 1])
+                {
+                    if (isMultihitOrFinal)
+                    {
+                        String command = Utilities.convertCamelCaseToLowerCaseUnderscores(
+                                        hitboxCommands[j].getName()) + multihitOrFinalAppend
+                                        + " = \"" + hitboxCommands[j].getValue() + "\"";
+                        result.add(command);
+                    }
+                    else if(hitbox.getParentHitbox() == i+1)
+                    {
+                        String command = Utilities.convertCamelCaseToLowerCaseUnderscores(
+                                        hitboxCommands[j].getName()) + append + " = \""
+                                        + hitboxCommands[j].getValue() + "\"";
+                        result.add(command);
+                    }
+                }
+                else
+                {
+                    String command = Utilities.convertCamelCaseToLowerCaseUnderscores(
+                                    hitboxCommands[j].getName()) + append + " = \""
+                                    + hitboxCommands[j].getValue() + "\"";
+                    result.add(command);
+                }
+
+            }
+            // TODO deal with multiple projectiles in a move
+            if (hitbox.isProjectile)
+            {
+                CustomCommand[] projectileCommands = hitbox.getProjectileCommands();
+                for (int j = 0; j < projectileCommands.length; j++)
+                {
+                    String command = Utilities.convertCamelCaseToLowerCaseUnderscores(
+                                    projectileCommands[j].getName()) + append + " = \""
+                                    + projectileCommands[j].getValue() + "\"";
+                    result.add(command);
+                }
+            }
+        }
+
         return result;
     }
 

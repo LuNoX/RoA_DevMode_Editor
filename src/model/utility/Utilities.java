@@ -125,6 +125,26 @@ public class Utilities
         }
         return result;
     }
+    
+    public static String convertCamelCaseToLowerCaseUnderscores(String stringInCamelCase)
+    {
+        String result = stringInCamelCase;
+        int length = result.length();
+        for(int i = 0; i < length; i++)
+        {
+            char character = result.charAt(i);
+            if(Character.isUpperCase(character))
+            {
+                String toReplace = Character.toString(character);
+                String replacement = "_" + Character.toLowerCase(character);
+                result = result.replace(toReplace, replacement);
+                length++;
+                i++;
+            }
+        }
+        
+        return result;
+    }
 
     public static String[][] generateTempHitboxes(int numberOfHitboxes)
     {

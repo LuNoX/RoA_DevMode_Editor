@@ -25,7 +25,8 @@ public class WindowManager
 
     public void createWindows()
     {
-        // TODO instead of messing around with TempWindows just create a window and then set the
+        // TODO instead of messing around with TempWindows just create a window
+        // and then set the
         // values afterwards, rest is going to stay default
         int[] commandPositions = new int[this.code.size()];
         int numberOfCommands = 0;
@@ -63,9 +64,12 @@ public class WindowManager
             this.hasWindows = true;
         }
         // remove everything related to the Window from the code
-        Arrays.sort(commandPositions); // sort the indices and then go through the list backwards to
+        Arrays.sort(commandPositions); // sort the indices and then go through
+                                       // the list backwards to
                                        // avoid index errors
-        for (int i = 1; i <= numberOfCommands; i++) // dont use commandPositions.length because
+        for (int i = 1; i <= numberOfCommands; i++) // dont use
+                                                    // commandPositions.length
+                                                    // because
         // the Array is far longer than needed
         {
             this.code.remove(commandPositions[commandPositions.length - i]);
@@ -81,28 +85,30 @@ public class WindowManager
     {
         return windows;
     }
-    
+
     public List<String> exportCode()
     {
         List<String> result = new ArrayList<>();
-        
+
         String append = "";
         for (Window window : this.windows)
         {
-            if (this.windows.size()>1)
+            if (this.windows.size() > 1)
             {
                 append = "_" + window.getId();
             }
-            //TODO parse command name
+            // TODO parse command name
             CustomCommand[] windowCommands = window.getWindowCommands();
-            for (int i = 0; i<windowCommands.length; i++)
+            for (int i = 0; i < windowCommands.length; i++)
             {
-                String command = "window_" + windowCommands[i].getName() + append + " = \"" + windowCommands[i].getValue() + "\"";
+                String command = "window_" + Utilities.convertCamelCaseToLowerCaseUnderscores(
+                                windowCommands[i].getName()) + append + " = \"" + windowCommands[i]
+                                                .getValue() + "\"";
                 result.add(command);
             }
         }
-        
+
         return result;
     }
-    
+
 }
