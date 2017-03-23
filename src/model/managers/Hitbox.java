@@ -340,8 +340,8 @@ public class Hitbox
                         this.useSpriteCollision);
         CustomCommand projectileHSpeed = new CustomCommand("projectileHSpeed",
                         this.projectileHSpeed);
-        CustomCommand projectileVSpeed = new CustomCommand("projectileLifetime",
-                        this.projectileLifetime);
+        CustomCommand projectileVSpeed = new CustomCommand("projectileVSpeed",
+                        this.projectileVSpeed);
         CustomCommand projectileGravity = new CustomCommand("projectileGravity",
                         this.projectileGravity);
         CustomCommand projectileLifetime = new CustomCommand("projectileLifetime",

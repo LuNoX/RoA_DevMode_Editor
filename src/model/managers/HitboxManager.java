@@ -344,12 +344,24 @@ public class HitboxManager
 
         // print according to determined type
         
+        
         //TODO add number of hitboxes, unique hitboxes and final hitboxes
+        String numberOfHitboxes = "num_hitboxes = \"" + this.numberOfHitboxes + "\"";
+        String numberOfUniqueHitboxes = "num_unique_hitboxes = \"" + this.numberOfUniqueHitboxes + "\"";
+        String numberOfFinalHitboxes = "num_final_hitboxes = \"" + this.numberOfFinalHitboxes + "\"";
+        result.add(numberOfHitboxes);
+        result.add(numberOfUniqueHitboxes);
+        result.add(numberOfFinalHitboxes);
         
         for (int i = 0; i < this.hitboxes.size(); i++)
         {
             Hitbox hitbox = this.hitboxes.get(i);
             String append = "_" + hitbox.getId();
+            if(this.numberOfHitboxes == 1)
+            {
+                append = "";
+            }
+            
             String multihitOrFinalAppend = "";
             boolean isMultihitOrFinal = false;
             for (int j = 0; j < this.multihitIds.length; j++)

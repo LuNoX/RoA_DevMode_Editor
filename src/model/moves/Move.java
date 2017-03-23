@@ -23,6 +23,8 @@ public class Move
     protected WindowManager windowManager = new WindowManager();
     protected List<CustomCommand> moveSpecificCommands = new ArrayList<CustomCommand>();
 
+    //TODO hasCooldown should be a double
+    //TODO add isHasColldown
     protected boolean hasCooldown = false;
     protected double cooldown = 0;
     protected boolean isAutocancelable = false;
@@ -211,6 +213,7 @@ public class Move
         result.addAll(this.windowManager.exportCode());
         if (this.hasCooldown)
         {
+            //TODO print "has_cooldown = "1"
             result.add("cooldown = \"" + this.cooldown + "\"");
         }
         if (this.isAutocancelable)
@@ -223,6 +226,8 @@ public class Move
             result.add("has_whiff_landing = \"" + this.hasWhiffLanding + "\"");
         }
         result.addAll(this.hitboxManager.exportCode());
+        
+        //TODO add all custom commands
         
         return result;
     }

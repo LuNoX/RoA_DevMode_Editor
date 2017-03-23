@@ -101,6 +101,7 @@ public class WindowManager
             CustomCommand[] windowCommands = window.getWindowCommands();
             for (int i = 0; i < windowCommands.length; i++)
             {
+                //TODO dont put "window_" in front of invincibility
                 String command = "window_" + Utilities.convertCamelCaseToLowerCaseUnderscores(
                                 windowCommands[i].getName()) + append + " = \"" + windowCommands[i]
                                                 .getValue() + "\"";
