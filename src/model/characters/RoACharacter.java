@@ -134,7 +134,10 @@ public abstract class RoACharacter
     public void exportFile(File directory)
     {
         List<String> lines = this.exportCode();
-        Path file = Paths.get(directory.getAbsolutePath(), this.characterFile.getName()+"_new");
+        String name = this.characterFile.getName();
+        int i = name.contains(".") ? name.lastIndexOf('.') : name.length();
+        String newFileName = name.substring(0, i) + "_new" + name.substring(i);
+        Path file = Paths.get(directory.getAbsolutePath(), newFileName);
         try
         {
             Files.write(file, lines, Charset.forName("UTF-8"));
